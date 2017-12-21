@@ -1,0 +1,359 @@
+\hypertarget{namespace__setup__util}{\section{\-\_\-setup\-\_\-util 命名空间参考}
+\label{namespace__setup__util}\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}}
+}
+\subsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespace__setup__util_a5b1728beb6e19ccf126bf9e02de6083e}{rollback\-\_\-env\-\_\-variables}
+\item 
+def \hyperlink{namespace__setup__util_a44654f701304ecab7e37798abf014d1a}{prepend\-\_\-env\-\_\-variables}
+\item 
+def \hyperlink{namespace__setup__util_a7983d4ea2ecdeaf54e133950d8a76e77}{assignment}
+\item 
+def \hyperlink{namespace__setup__util_a9d73115db9efca5c20b575f96b9eb065}{comment}
+\item 
+def \hyperlink{namespace__setup__util_a4ced140c2841c9a3e692bf39d98aa9eb}{prepend}
+\item 
+def \hyperlink{namespace__setup__util_aad4a41589ebc32e81406c63db26e721a}{find\-\_\-env\-\_\-hooks}
+\end{DoxyCompactItemize}
+\subsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespace__setup__util_a3fa0ca5a460a71a43cbc3d4954ab1f10}{C\-A\-T\-K\-I\-N\-\_\-\-M\-A\-R\-K\-E\-R\-\_\-\-F\-I\-L\-E} = '.catkin'
+\item 
+tuple \hyperlink{namespace__setup__util_a5883fa688e2e824754a412ffc772863e}{system} = platform.\-system()
+\item 
+tuple \hyperlink{namespace__setup__util_aecbb100ce6f94bb3c7e16d58fde05f96}{I\-S\-\_\-\-D\-A\-R\-W\-I\-N} = (\hyperlink{namespace__setup__util_a5883fa688e2e824754a412ffc772863e}{system} == 'Darwin')
+\item 
+tuple \hyperlink{namespace__setup__util_a6fe69c2dbd92959b6651a28cbb846e6e}{I\-S\-\_\-\-W\-I\-N\-D\-O\-W\-S} = (\hyperlink{namespace__setup__util_a5883fa688e2e824754a412ffc772863e}{system} == 'Windows')
+\item 
+dictionary \hyperlink{namespace__setup__util_aa31804f1be8660156ce9394b33c68dc4}{E\-N\-V\-\_\-\-V\-A\-R\-\_\-\-S\-U\-B\-F\-O\-L\-D\-E\-R\-S}
+\item 
+tuple \hyperlink{namespace__setup__util_ac67cb2d93e0636936bcbeb363e2c87c3}{args} = \-\_\-parse\-\_\-arguments()
+\item 
+string \hyperlink{namespace__setup__util_a44bed5f85daa4641b3c144edb9e8c1c1}{C\-M\-A\-K\-E\-\_\-\-P\-R\-E\-F\-I\-X\-\_\-\-P\-A\-T\-H} = '/home/ljq/turtlebot/devel;/home/ljq/kobuki/devel;/home/ljq/rocon/devel;/opt/ros/indigo'
+\item 
+tuple \hyperlink{namespace__setup__util_aecc545d18611814ee5d7ccdf6aa55f90}{base\-\_\-path} = os.\-path.\-dirname(\-\_\-\-\_\-file\-\_\-\-\_\-)
+\item 
+tuple \hyperlink{namespace__setup__util_a0a3189a3fa13a696964c791ed2a5ea85}{environ} = dict(os.\-environ)
+\item 
+list \hyperlink{namespace__setup__util_a8618d8be5f729d4c9696daa5e083a001}{lines} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{函数说明}
+\hypertarget{namespace__setup__util_a7983d4ea2ecdeaf54e133950d8a76e77}{\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}!assignment@{assignment}}
+\index{assignment@{assignment}!_setup_util@{\-\_\-setup\-\_\-util}}
+\subsubsection[{assignment}]{\setlength{\rightskip}{0pt plus 5cm}def \-\_\-setup\-\_\-util.\-assignment (
+\begin{DoxyParamCaption}
+\item[{}]{key, }
+\item[{}]{value}
+\end{DoxyParamCaption}
+)}}\label{namespace__setup__util_a7983d4ea2ecdeaf54e133950d8a76e77}
+
+
+在文件 \-\_\-setup\-\_\-util.\-py 第 176 行定义.
+
+
+\begin{DoxyCode}
+176 
+177 \textcolor{keyword}{def }\hyperlink{namespace__setup__util_a7983d4ea2ecdeaf54e133950d8a76e77}{assignment}(key, value):
+178     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} IS\_WINDOWS:
+179         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'export %s="%s"'} % (key, value)
+180     \textcolor{keywordflow}{else}:
+181         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'set %s=%s'} % (key, value)
+182 
+
+\end{DoxyCode}
+\hypertarget{namespace__setup__util_a9d73115db9efca5c20b575f96b9eb065}{\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}!comment@{comment}}
+\index{comment@{comment}!_setup_util@{\-\_\-setup\-\_\-util}}
+\subsubsection[{comment}]{\setlength{\rightskip}{0pt plus 5cm}def \-\_\-setup\-\_\-util.\-comment (
+\begin{DoxyParamCaption}
+\item[{}]{msg}
+\end{DoxyParamCaption}
+)}}\label{namespace__setup__util_a9d73115db9efca5c20b575f96b9eb065}
+
+
+在文件 \-\_\-setup\-\_\-util.\-py 第 183 行定义.
+
+
+\begin{DoxyCode}
+183 
+184 \textcolor{keyword}{def }\hyperlink{namespace__setup__util_a9d73115db9efca5c20b575f96b9eb065}{comment}(msg):
+185     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} IS\_WINDOWS:
+186         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'# %s'} % msg
+187     \textcolor{keywordflow}{else}:
+188         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'REM %s'} % msg
+189 
+
+\end{DoxyCode}
+\hypertarget{namespace__setup__util_aad4a41589ebc32e81406c63db26e721a}{\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}!find\-\_\-env\-\_\-hooks@{find\-\_\-env\-\_\-hooks}}
+\index{find\-\_\-env\-\_\-hooks@{find\-\_\-env\-\_\-hooks}!_setup_util@{\-\_\-setup\-\_\-util}}
+\subsubsection[{find\-\_\-env\-\_\-hooks}]{\setlength{\rightskip}{0pt plus 5cm}def \-\_\-setup\-\_\-util.\-find\-\_\-env\-\_\-hooks (
+\begin{DoxyParamCaption}
+\item[{}]{environ, }
+\item[{}]{cmake\-\_\-prefix\-\_\-path}
+\end{DoxyParamCaption}
+)}}\label{namespace__setup__util_aad4a41589ebc32e81406c63db26e721a}
+\begin{DoxyVerb}Generate shell code with found environment hooks
+for the all workspaces.
+\end{DoxyVerb}
+ 
+
+在文件 \-\_\-setup\-\_\-util.\-py 第 199 行定义.
+
+
+\begin{DoxyCode}
+199 
+200 \textcolor{keyword}{def }\hyperlink{namespace__setup__util_aad4a41589ebc32e81406c63db26e721a}{find\_env\_hooks}(environ, cmake\_prefix\_path):
+201     \textcolor{stringliteral}{'''}
+202 \textcolor{stringliteral}{    Generate shell code with found environment hooks}
+203 \textcolor{stringliteral}{    for the all workspaces.}
+204 \textcolor{stringliteral}{    '''}
+205     lines = []
+206     lines.append(\hyperlink{namespace__setup__util_a9d73115db9efca5c20b575f96b9eb065}{comment}(\textcolor{stringliteral}{'found environment hooks in workspaces'}))
+207 
+208     generic\_env\_hooks = []
+209     generic\_env\_hooks\_workspace = []
+210     specific\_env\_hooks = []
+211     specific\_env\_hooks\_workspace = []
+212     generic\_env\_hooks\_by\_filename = \{\}
+213     specific\_env\_hooks\_by\_filename = \{\}
+214     generic\_env\_hook\_ext = \textcolor{stringliteral}{'bat'} \textcolor{keywordflow}{if} IS\_WINDOWS \textcolor{keywordflow}{else} \textcolor{stringliteral}{'sh'}
+215     specific\_env\_hook\_ext = environ[\textcolor{stringliteral}{'CATKIN\_SHELL'}] \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} IS\_WINDOWS \textcolor{keywordflow}{and} \textcolor{stringliteral}{'CATKIN\_SHELL'} \textcolor{keywordflow}{in} environ \textcolor{keywordflow}{and} 
+      environ[\textcolor{stringliteral}{'CATKIN\_SHELL'}] \textcolor{keywordflow}{else} \textcolor{keywordtype}{None}
+216     \textcolor{comment}{# remove non-workspace paths}
+217     workspaces = [path \textcolor{keywordflow}{for} path \textcolor{keywordflow}{in} cmake\_prefix\_path.split(os.pathsep) \textcolor{keywordflow}{if} path \textcolor{keywordflow}{and} os.path.isfile(
+      os.path.join(path, CATKIN\_MARKER\_FILE))]
+218     \textcolor{keywordflow}{for} workspace \textcolor{keywordflow}{in} reversed(workspaces):
+219         env\_hook\_dir = os.path.join(workspace, \textcolor{stringliteral}{'etc'}, \textcolor{stringliteral}{'catkin'}, \textcolor{stringliteral}{'profile.d'})
+220         \textcolor{keywordflow}{if} os.path.isdir(env\_hook\_dir):
+221             \textcolor{keywordflow}{for} filename \textcolor{keywordflow}{in} sorted(os.listdir(env\_hook\_dir)):
+222                 \textcolor{keywordflow}{if} filename.endswith(\textcolor{stringliteral}{'.%s'} % generic\_env\_hook\_ext):
+223                     \textcolor{comment}{# remove previous env hook with same name if present}
+224                     \textcolor{keywordflow}{if} filename \textcolor{keywordflow}{in} generic\_env\_hooks\_by\_filename:
+225                         i = generic\_env\_hooks.index(generic\_env\_hooks\_by\_filename[filename])
+226                         generic\_env\_hooks.pop(i)
+227                         generic\_env\_hooks\_workspace.pop(i)
+228                     \textcolor{comment}{# append env hook}
+229                     generic\_env\_hooks.append(os.path.join(env\_hook\_dir, filename))
+230                     generic\_env\_hooks\_workspace.append(workspace)
+231                     generic\_env\_hooks\_by\_filename[filename] = generic\_env\_hooks[-1]
+232                 \textcolor{keywordflow}{elif} specific\_env\_hook\_ext \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} filename.endswith(\textcolor{stringliteral}{'.%s'} % specific\_env\_hook\_ext)
+      :
+233                     \textcolor{comment}{# remove previous env hook with same name if present}
+234                     \textcolor{keywordflow}{if} filename \textcolor{keywordflow}{in} specific\_env\_hooks\_by\_filename:
+235                         i = specific\_env\_hooks.index(specific\_env\_hooks\_by\_filename[filename])
+236                         specific\_env\_hooks.pop(i)
+237                         specific\_env\_hooks\_workspace.pop(i)
+238                     \textcolor{comment}{# append env hook}
+239                     specific\_env\_hooks.append(os.path.join(env\_hook\_dir, filename))
+240                     specific\_env\_hooks\_workspace.append(workspace)
+241                     specific\_env\_hooks\_by\_filename[filename] = specific\_env\_hooks[-1]
+242     env\_hooks = generic\_env\_hooks + specific\_env\_hooks
+243     env\_hooks\_workspace = generic\_env\_hooks\_workspace + specific\_env\_hooks\_workspace
+244     count = len(env\_hooks)
+245     lines.append(\hyperlink{namespace__setup__util_a7983d4ea2ecdeaf54e133950d8a76e77}{assignment}(\textcolor{stringliteral}{'\_CATKIN\_ENVIRONMENT\_HOOKS\_COUNT'}, count))
+246     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(count):
+247         lines.append(\hyperlink{namespace__setup__util_a7983d4ea2ecdeaf54e133950d8a76e77}{assignment}(\textcolor{stringliteral}{'\_CATKIN\_ENVIRONMENT\_HOOKS\_%d'} % i, env\_hooks[i]))
+248         lines.append(\hyperlink{namespace__setup__util_a7983d4ea2ecdeaf54e133950d8a76e77}{assignment}(\textcolor{stringliteral}{'\_CATKIN\_ENVIRONMENT\_HOOKS\_%d\_WORKSPACE'} % i, env\_hooks\_workspace
+      [i]))
+249     \textcolor{keywordflow}{return} lines
+250 
+
+\end{DoxyCode}
+\hypertarget{namespace__setup__util_a4ced140c2841c9a3e692bf39d98aa9eb}{\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}!prepend@{prepend}}
+\index{prepend@{prepend}!_setup_util@{\-\_\-setup\-\_\-util}}
+\subsubsection[{prepend}]{\setlength{\rightskip}{0pt plus 5cm}def \-\_\-setup\-\_\-util.\-prepend (
+\begin{DoxyParamCaption}
+\item[{}]{environ, }
+\item[{}]{key, }
+\item[{}]{prefix}
+\end{DoxyParamCaption}
+)}}\label{namespace__setup__util_a4ced140c2841c9a3e692bf39d98aa9eb}
+
+
+在文件 \-\_\-setup\-\_\-util.\-py 第 190 行定义.
+
+
+\begin{DoxyCode}
+190 
+191 \textcolor{keyword}{def }\hyperlink{namespace__setup__util_a4ced140c2841c9a3e692bf39d98aa9eb}{prepend}(environ, key, prefix):
+192     \textcolor{keywordflow}{if} key \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} environ \textcolor{keywordflow}{or} \textcolor{keywordflow}{not} environ[key]:
+193         \textcolor{keywordflow}{return} \hyperlink{namespace__setup__util_a7983d4ea2ecdeaf54e133950d8a76e77}{assignment}(key, prefix)
+194     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} IS\_WINDOWS:
+195         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'export %s="%s$%s"'} % (key, prefix, key)
+196     \textcolor{keywordflow}{else}:
+197         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'set %s=%s%%%s%%'} % (key, prefix, key)
+198 
+
+\end{DoxyCode}
+\hypertarget{namespace__setup__util_a44654f701304ecab7e37798abf014d1a}{\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}!prepend\-\_\-env\-\_\-variables@{prepend\-\_\-env\-\_\-variables}}
+\index{prepend\-\_\-env\-\_\-variables@{prepend\-\_\-env\-\_\-variables}!_setup_util@{\-\_\-setup\-\_\-util}}
+\subsubsection[{prepend\-\_\-env\-\_\-variables}]{\setlength{\rightskip}{0pt plus 5cm}def \-\_\-setup\-\_\-util.\-prepend\-\_\-env\-\_\-variables (
+\begin{DoxyParamCaption}
+\item[{}]{environ, }
+\item[{}]{env\-\_\-var\-\_\-subfolders, }
+\item[{}]{workspaces}
+\end{DoxyParamCaption}
+)}}\label{namespace__setup__util_a44654f701304ecab7e37798abf014d1a}
+\begin{DoxyVerb}Generate shell code to prepend environment variables
+for the all workspaces.
+\end{DoxyVerb}
+ 
+
+在文件 \-\_\-setup\-\_\-util.\-py 第 130 行定义.
+
+
+\begin{DoxyCode}
+130 
+131 \textcolor{keyword}{def }\hyperlink{namespace__setup__util_a44654f701304ecab7e37798abf014d1a}{prepend\_env\_variables}(environ, env\_var\_subfolders, workspaces):
+132     \textcolor{stringliteral}{'''}
+133 \textcolor{stringliteral}{    Generate shell code to prepend environment variables}
+134 \textcolor{stringliteral}{    for the all workspaces.}
+135 \textcolor{stringliteral}{    '''}
+136     lines = []
+137     lines.append(\hyperlink{namespace__setup__util_a9d73115db9efca5c20b575f96b9eb065}{comment}(\textcolor{stringliteral}{'prepend folders of workspaces to environment variables'}))
+138 
+139     paths = [path \textcolor{keywordflow}{for} path \textcolor{keywordflow}{in} workspaces.split(os.pathsep) \textcolor{keywordflow}{if} path]
+140 
+141     prefix = \_prefix\_env\_variable(environ, \textcolor{stringliteral}{'CMAKE\_PREFIX\_PATH'}, paths, \textcolor{stringliteral}{''})
+142     lines.append(\hyperlink{namespace__setup__util_a4ced140c2841c9a3e692bf39d98aa9eb}{prepend}(environ, \textcolor{stringliteral}{'CMAKE\_PREFIX\_PATH'}, prefix))
+143 
+144     \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} sorted([key \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} env\_var\_subfolders.keys() \textcolor{keywordflow}{if} key != \textcolor{stringliteral}{'CMAKE\_PREFIX\_PATH'}]):
+145         subfolder = env\_var\_subfolders[key]
+146         prefix = \_prefix\_env\_variable(environ, key, paths, subfolder)
+147         lines.append(\hyperlink{namespace__setup__util_a4ced140c2841c9a3e692bf39d98aa9eb}{prepend}(environ, key, prefix))
+148     \textcolor{keywordflow}{return} lines
+149 
+
+\end{DoxyCode}
+\hypertarget{namespace__setup__util_a5b1728beb6e19ccf126bf9e02de6083e}{\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}!rollback\-\_\-env\-\_\-variables@{rollback\-\_\-env\-\_\-variables}}
+\index{rollback\-\_\-env\-\_\-variables@{rollback\-\_\-env\-\_\-variables}!_setup_util@{\-\_\-setup\-\_\-util}}
+\subsubsection[{rollback\-\_\-env\-\_\-variables}]{\setlength{\rightskip}{0pt plus 5cm}def \-\_\-setup\-\_\-util.\-rollback\-\_\-env\-\_\-variables (
+\begin{DoxyParamCaption}
+\item[{}]{environ, }
+\item[{}]{env\-\_\-var\-\_\-subfolders}
+\end{DoxyParamCaption}
+)}}\label{namespace__setup__util_a5b1728beb6e19ccf126bf9e02de6083e}
+\begin{DoxyVerb}Generate shell code to reset environment variables
+by unrolling modifications based on all workspaces in CMAKE_PREFIX_PATH.
+This does not cover modifications performed by environment hooks.
+\end{DoxyVerb}
+ 
+
+在文件 \-\_\-setup\-\_\-util.\-py 第 63 行定义.
+
+
+\begin{DoxyCode}
+63 
+64 \textcolor{keyword}{def }\hyperlink{namespace__setup__util_a5b1728beb6e19ccf126bf9e02de6083e}{rollback\_env\_variables}(environ, env\_var\_subfolders):
+65     \textcolor{stringliteral}{'''}
+66 \textcolor{stringliteral}{    Generate shell code to reset environment variables}
+67 \textcolor{stringliteral}{    by unrolling modifications based on all workspaces in CMAKE\_PREFIX\_PATH.}
+68 \textcolor{stringliteral}{    This does not cover modifications performed by environment hooks.}
+69 \textcolor{stringliteral}{    '''}
+70     lines = []
+71     unmodified\_environ = copy.copy(environ)
+72     \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} sorted(env\_var\_subfolders.keys()):
+73         subfolders = env\_var\_subfolders[key]
+74         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} isinstance(subfolders, list):
+75             subfolders = [subfolders]
+76         \textcolor{keywordflow}{for} subfolder \textcolor{keywordflow}{in} subfolders:
+77             value = \_rollback\_env\_variable(unmodified\_environ, key, subfolder)
+78             \textcolor{keywordflow}{if} value \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:
+79                 environ[key] = value
+80                 lines.append(\hyperlink{namespace__setup__util_a7983d4ea2ecdeaf54e133950d8a76e77}{assignment}(key, value))
+81     \textcolor{keywordflow}{if} lines:
+82         lines.insert(0, \hyperlink{namespace__setup__util_a9d73115db9efca5c20b575f96b9eb065}{comment}(\textcolor{stringliteral}{'reset environment variables by unrolling modifications based on all
+       workspaces in CMAKE\_PREFIX\_PATH'}))
+83     \textcolor{keywordflow}{return} lines
+84 
+
+\end{DoxyCode}
+
+
+\subsection{变量说明}
+\hypertarget{namespace__setup__util_ac67cb2d93e0636936bcbeb363e2c87c3}{\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}!args@{args}}
+\index{args@{args}!_setup_util@{\-\_\-setup\-\_\-util}}
+\subsubsection[{args}]{\setlength{\rightskip}{0pt plus 5cm}tuple \-\_\-setup\-\_\-util.\-args = \-\_\-parse\-\_\-arguments()}}\label{namespace__setup__util_ac67cb2d93e0636936bcbeb363e2c87c3}
+
+
+在文件 \-\_\-setup\-\_\-util.\-py 第 260 行定义.
+
+\hypertarget{namespace__setup__util_aecc545d18611814ee5d7ccdf6aa55f90}{\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}!base\-\_\-path@{base\-\_\-path}}
+\index{base\-\_\-path@{base\-\_\-path}!_setup_util@{\-\_\-setup\-\_\-util}}
+\subsubsection[{base\-\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}tuple \-\_\-setup\-\_\-util.\-base\-\_\-path = os.\-path.\-dirname(\-\_\-\-\_\-file\-\_\-\-\_\-)}}\label{namespace__setup__util_aecc545d18611814ee5d7ccdf6aa55f90}
+
+
+在文件 \-\_\-setup\-\_\-util.\-py 第 268 行定义.
+
+\hypertarget{namespace__setup__util_a3fa0ca5a460a71a43cbc3d4954ab1f10}{\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}!C\-A\-T\-K\-I\-N\-\_\-\-M\-A\-R\-K\-E\-R\-\_\-\-F\-I\-L\-E@{C\-A\-T\-K\-I\-N\-\_\-\-M\-A\-R\-K\-E\-R\-\_\-\-F\-I\-L\-E}}
+\index{C\-A\-T\-K\-I\-N\-\_\-\-M\-A\-R\-K\-E\-R\-\_\-\-F\-I\-L\-E@{C\-A\-T\-K\-I\-N\-\_\-\-M\-A\-R\-K\-E\-R\-\_\-\-F\-I\-L\-E}!_setup_util@{\-\_\-setup\-\_\-util}}
+\subsubsection[{C\-A\-T\-K\-I\-N\-\_\-\-M\-A\-R\-K\-E\-R\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}string \-\_\-setup\-\_\-util.\-C\-A\-T\-K\-I\-N\-\_\-\-M\-A\-R\-K\-E\-R\-\_\-\-F\-I\-L\-E = '.catkin'}}\label{namespace__setup__util_a3fa0ca5a460a71a43cbc3d4954ab1f10}
+
+
+在文件 \-\_\-setup\-\_\-util.\-py 第 46 行定义.
+
+\hypertarget{namespace__setup__util_a44bed5f85daa4641b3c144edb9e8c1c1}{\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}!C\-M\-A\-K\-E\-\_\-\-P\-R\-E\-F\-I\-X\-\_\-\-P\-A\-T\-H@{C\-M\-A\-K\-E\-\_\-\-P\-R\-E\-F\-I\-X\-\_\-\-P\-A\-T\-H}}
+\index{C\-M\-A\-K\-E\-\_\-\-P\-R\-E\-F\-I\-X\-\_\-\-P\-A\-T\-H@{C\-M\-A\-K\-E\-\_\-\-P\-R\-E\-F\-I\-X\-\_\-\-P\-A\-T\-H}!_setup_util@{\-\_\-setup\-\_\-util}}
+\subsubsection[{C\-M\-A\-K\-E\-\_\-\-P\-R\-E\-F\-I\-X\-\_\-\-P\-A\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}tuple \-\_\-setup\-\_\-util.\-C\-M\-A\-K\-E\-\_\-\-P\-R\-E\-F\-I\-X\-\_\-\-P\-A\-T\-H = '/home/ljq/turtlebot/devel;/home/ljq/kobuki/devel;/home/ljq/rocon/devel;/opt/ros/indigo'}}\label{namespace__setup__util_a44bed5f85daa4641b3c144edb9e8c1c1}
+
+
+在文件 \-\_\-setup\-\_\-util.\-py 第 266 行定义.
+
+\hypertarget{namespace__setup__util_aa31804f1be8660156ce9394b33c68dc4}{\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}!E\-N\-V\-\_\-\-V\-A\-R\-\_\-\-S\-U\-B\-F\-O\-L\-D\-E\-R\-S@{E\-N\-V\-\_\-\-V\-A\-R\-\_\-\-S\-U\-B\-F\-O\-L\-D\-E\-R\-S}}
+\index{E\-N\-V\-\_\-\-V\-A\-R\-\_\-\-S\-U\-B\-F\-O\-L\-D\-E\-R\-S@{E\-N\-V\-\_\-\-V\-A\-R\-\_\-\-S\-U\-B\-F\-O\-L\-D\-E\-R\-S}!_setup_util@{\-\_\-setup\-\_\-util}}
+\subsubsection[{E\-N\-V\-\_\-\-V\-A\-R\-\_\-\-S\-U\-B\-F\-O\-L\-D\-E\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}dictionary \-\_\-setup\-\_\-util.\-E\-N\-V\-\_\-\-V\-A\-R\-\_\-\-S\-U\-B\-F\-O\-L\-D\-E\-R\-S}}\label{namespace__setup__util_aa31804f1be8660156ce9394b33c68dc4}
+{\bfseries 初始值\-:}
+\begin{DoxyCode}
+1 = \{
+2     \textcolor{stringliteral}{'CMAKE\_PREFIX\_PATH'}: \textcolor{stringliteral}{''},
+3     \textcolor{stringliteral}{'CPATH'}: \textcolor{stringliteral}{'include'},
+4     \textcolor{stringliteral}{'LD\_LIBRARY\_PATH'} \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} IS\_DARWIN \textcolor{keywordflow}{else} \textcolor{stringliteral}{'DYLD\_LIBRARY\_PATH'}: [\textcolor{stringliteral}{'lib'}, os.path.join(\textcolor{stringliteral}{'lib'}, \textcolor{stringliteral}{'
+      x86\_64-linux-gnu'})],
+5     \textcolor{stringliteral}{'PATH'}: \textcolor{stringliteral}{'bin'},
+6     \textcolor{stringliteral}{'PKG\_CONFIG\_PATH'}: [os.path.join(\textcolor{stringliteral}{'lib'}, \textcolor{stringliteral}{'pkgconfig'}), os.path.join(\textcolor{stringliteral}{'lib'}, \textcolor{stringliteral}{'x86\_64-linux-gnu'}, \textcolor{stringliteral}{'
+      pkgconfig'})],
+7     \textcolor{stringliteral}{'PYTHONPATH'}: \textcolor{stringliteral}{'lib/python2.7/dist-packages'},
+8 \}
+\end{DoxyCode}
+
+
+在文件 \-\_\-setup\-\_\-util.\-py 第 53 行定义.
+
+\hypertarget{namespace__setup__util_a0a3189a3fa13a696964c791ed2a5ea85}{\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}!environ@{environ}}
+\index{environ@{environ}!_setup_util@{\-\_\-setup\-\_\-util}}
+\subsubsection[{environ}]{\setlength{\rightskip}{0pt plus 5cm}tuple \-\_\-setup\-\_\-util.\-environ = dict(os.\-environ)}}\label{namespace__setup__util_a0a3189a3fa13a696964c791ed2a5ea85}
+
+
+在文件 \-\_\-setup\-\_\-util.\-py 第 273 行定义.
+
+\hypertarget{namespace__setup__util_aecbb100ce6f94bb3c7e16d58fde05f96}{\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}!I\-S\-\_\-\-D\-A\-R\-W\-I\-N@{I\-S\-\_\-\-D\-A\-R\-W\-I\-N}}
+\index{I\-S\-\_\-\-D\-A\-R\-W\-I\-N@{I\-S\-\_\-\-D\-A\-R\-W\-I\-N}!_setup_util@{\-\_\-setup\-\_\-util}}
+\subsubsection[{I\-S\-\_\-\-D\-A\-R\-W\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}tuple \-\_\-setup\-\_\-util.\-I\-S\-\_\-\-D\-A\-R\-W\-I\-N = ({\bf system} == 'Darwin')}}\label{namespace__setup__util_aecbb100ce6f94bb3c7e16d58fde05f96}
+
+
+在文件 \-\_\-setup\-\_\-util.\-py 第 49 行定义.
+
+\hypertarget{namespace__setup__util_a6fe69c2dbd92959b6651a28cbb846e6e}{\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}!I\-S\-\_\-\-W\-I\-N\-D\-O\-W\-S@{I\-S\-\_\-\-W\-I\-N\-D\-O\-W\-S}}
+\index{I\-S\-\_\-\-W\-I\-N\-D\-O\-W\-S@{I\-S\-\_\-\-W\-I\-N\-D\-O\-W\-S}!_setup_util@{\-\_\-setup\-\_\-util}}
+\subsubsection[{I\-S\-\_\-\-W\-I\-N\-D\-O\-W\-S}]{\setlength{\rightskip}{0pt plus 5cm}tuple \-\_\-setup\-\_\-util.\-I\-S\-\_\-\-W\-I\-N\-D\-O\-W\-S = ({\bf system} == 'Windows')}}\label{namespace__setup__util_a6fe69c2dbd92959b6651a28cbb846e6e}
+
+
+在文件 \-\_\-setup\-\_\-util.\-py 第 50 行定义.
+
+\hypertarget{namespace__setup__util_a8618d8be5f729d4c9696daa5e083a001}{\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}!lines@{lines}}
+\index{lines@{lines}!_setup_util@{\-\_\-setup\-\_\-util}}
+\subsubsection[{lines}]{\setlength{\rightskip}{0pt plus 5cm}list \-\_\-setup\-\_\-util.\-lines = \mbox{[}$\,$\mbox{]}}}\label{namespace__setup__util_a8618d8be5f729d4c9696daa5e083a001}
+
+
+在文件 \-\_\-setup\-\_\-util.\-py 第 274 行定义.
+
+\hypertarget{namespace__setup__util_a5883fa688e2e824754a412ffc772863e}{\index{\-\_\-setup\-\_\-util@{\-\_\-setup\-\_\-util}!system@{system}}
+\index{system@{system}!_setup_util@{\-\_\-setup\-\_\-util}}
+\subsubsection[{system}]{\setlength{\rightskip}{0pt plus 5cm}tuple \-\_\-setup\-\_\-util.\-system = platform.\-system()}}\label{namespace__setup__util_a5883fa688e2e824754a412ffc772863e}
+
+
+在文件 \-\_\-setup\-\_\-util.\-py 第 48 行定义.
+

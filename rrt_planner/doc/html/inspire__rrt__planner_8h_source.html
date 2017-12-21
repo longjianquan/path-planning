@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>My Project: src/inspire_rrt_planner.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>文件成员</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全部</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>类</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>命名空间</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>文件</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>函数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>变量</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>宏定义</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_6c3774c11dfdacb5ed6c15815af6f4fa.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">inspire_rrt_planner.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="inspire__rrt__planner_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;sys/types.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;sys/socket.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;netinet/in.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;netdb.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//include ros libraries</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;ros/ros.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;actionlib/client/simple_action_client.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;move_base_msgs/MoveBaseAction.h&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;geometry_msgs/Twist.h&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;geometry_msgs/PoseStamped.h&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;geometry_msgs/PoseWithCovarianceStamped.h&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;move_base_msgs/MoveBaseGoal.h&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;move_base_msgs/MoveBaseActionGoal.h&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;sensor_msgs/LaserScan.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;sensor_msgs/PointCloud2.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;nav_msgs/Odometry.h&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;nav_msgs/OccupancyGrid.h&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;nav_msgs/Path.h&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;nav_msgs/GetPlan.h&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;tf/tf.h&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;tf/transform_datatypes.h&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;tf/transform_listener.h&gt;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;boost/foreach.hpp&gt;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">//#define forEach BOOST_FOREACH</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &lt;costmap_2d/costmap_2d_ros.h&gt;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &lt;costmap_2d/costmap_2d.h&gt;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &lt;nav_core/base_global_planner.h&gt;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &lt;geometry_msgs/PoseStamped.h&gt;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &lt;angles/angles.h&gt;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">//#include &lt;pcl_conversions/pcl_conversions.h&gt;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &lt;base_local_planner/world_model.h&gt;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &lt;base_local_planner/costmap_model.h&gt;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="rrt_8h.html">rrt.h</a>&quot;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">using</span> std::string;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#ifndef RRT_PLANNER</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="inspire__rrt__planner_8h.html#a13f61361b40b7744abb27e332deb8d91">   59</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RRT_PLANNER</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="inspire__rrt__planner_8h.html#a3bd31f0d9a9127548b734e7ca03cc6df">   66</a></span>&#160;<span class="preprocessor">#define RANDOM_MAX 2147483647</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="namespacerrt__plan.html">   68</a></span>&#160;<span class="keyword">namespace </span>rrt_plan</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structrrt__plan_1_1Cell.html">   70</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structrrt__plan_1_1Cell.html">Cell</a></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="structrrt__plan_1_1Cell.html#a41e05f3b625c736b59db8abcb0ff0d1e">   72</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structrrt__plan_1_1Cell.html#a41e05f3b625c736b59db8abcb0ff0d1e">posX</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="structrrt__plan_1_1Cell.html#afe1da476d8e6a1bff52531e2c6d10be8">   73</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structrrt__plan_1_1Cell.html#afe1da476d8e6a1bff52531e2c6d10be8">posY</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html">   76</a></span>&#160;<span class="keyword">class </span><a class="code" href="classrrt__plan_1_1rrt__planner.html">rrt_planner</a> : <span class="keyword">public</span> nav_core::BaseGlobalPlanner</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="classrrt__plan_1_1rrt__planner.html">rrt_planner</a> (ros::NodeHandle &amp;); <span class="comment">//this constructor is may be not needed</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="classrrt__plan_1_1rrt__planner.html">rrt_planner</a> ();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="classrrt__plan_1_1rrt__planner.html">rrt_planner</a>(std::string name, costmap_2d::Costmap2DROS* costmap_ros);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#a9547688a6e31166034dc562a0b4608b6">   84</a></span>&#160;    ros::NodeHandle <a class="code" href="classrrt__plan_1_1rrt__planner.html#a9547688a6e31166034dc562a0b4608b6">ROSNodeHandle</a>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> initialize(std::string name, costmap_2d::Costmap2DROS* costmap_ros);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">bool</span> makePlan(<span class="keyword">const</span> geometry_msgs::PoseStamped&amp; start,</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                  <span class="keyword">const</span> geometry_msgs::PoseStamped&amp; goal,</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                  std::vector&lt;geometry_msgs::PoseStamped&gt;&amp; plan);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">bool</span> isCellInsideMap(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">void</span> mapToWorld(<span class="keywordtype">double</span> mx, <span class="keywordtype">double</span> my, <span class="keywordtype">double</span>&amp; wx, <span class="keywordtype">double</span>&amp; wy);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">bool</span> isStartAndGoalCellsValid(<span class="keywordtype">int</span> startCell,<span class="keywordtype">int</span> goalCell);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">bool</span> isFree(<span class="keywordtype">int</span> CellID); <span class="comment">//returns true if the cell is Free</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">bool</span> isFree(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    vector &lt;int&gt; findFreeNeighborCell (<span class="keywordtype">int</span> CellID);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    vector&lt;int&gt;   findCellPath(<a class="code" href="classRRT.html">RRT</a> &amp;<a class="code" href="rrt__planner_8cpp.html#a51725e16375c08b52f82eb2faa5a921c">myRRT</a>, <span class="keywordtype">int</span> startCell, <span class="keywordtype">int</span> goalCell,vector&lt;vector&lt;float&gt; &gt; gridVal);<span class="comment">//使用温度场作为启发因子</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> convertToPlan(vector&lt;int&gt; bestPath,std::vector&lt;geometry_msgs::PoseStamped&gt;&amp; plan, geometry_msgs::PoseStamped goal,<span class="keywordtype">int</span> goalCell);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">void</span> publishPlan(<span class="keyword">const</span> std::vector&lt;geometry_msgs::PoseStamped&gt;&amp; path);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">void</span> publishPlan2(<span class="keyword">const</span> std::vector&lt;geometry_msgs::PoseStamped&gt;&amp; path);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">void</span> getGridVal(vector&lt;vector&lt;float&gt; &gt;&amp; gridVal, <span class="keywordtype">int</span> startRowID, <span class="keywordtype">int</span> startColID,<span class="keywordtype">int</span> goalRowID,<span class="keywordtype">int</span> goalColID);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    std::vector&lt;geometry_msgs::PoseStamped&gt; middleoptimizationLayer( std::vector&lt;geometry_msgs::PoseStamped&gt; temp_transformed_plan);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#a980538776b19bd9610458e45991cdf0b">  108</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#a980538776b19bd9610458e45991cdf0b">getIdx</a>(<span class="keywordtype">int</span> &amp;x, <span class="keywordtype">int</span> &amp;y)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        x = x/<a class="code" href="rrt_8h.html#afb8b6147953aaf9e7089f5f157d5b020">mapReduceSize</a>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        y = y/<a class="code" href="rrt_8h.html#afb8b6147953aaf9e7089f5f157d5b020">mapReduceSize</a>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#a8f1fde39d2f3b01d7b2d11dc9482e1dc">  114</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#a8f1fde39d2f3b01d7b2d11dc9482e1dc">getCorrdinate</a> (<span class="keywordtype">float</span> &amp;x, <span class="keywordtype">float</span> &amp;y)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        x = x - originX;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        y = y - originY;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#a7df38e380fe80d69be29d1cea2879c59">  120</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#a7df38e380fe80d69be29d1cea2879c59">getCellIndex</a>(<span class="keywordtype">int</span> i,<span class="keywordtype">int</span> j)<span class="comment">//根据cell所处的行和列得到cell的索引值</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">return</span> (i*width)+j;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#aa3c07d6b2b6bed62e4b60d3898fc80cf">  125</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#aa3c07d6b2b6bed62e4b60d3898fc80cf">getCellRowID</a>(<span class="keywordtype">int</span> index)<span class="comment">//根据cell的索引值得到行数</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">return</span> index/width;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#a758810b2f257fe0778ed3eb1e970d99c">  130</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#a758810b2f257fe0778ed3eb1e970d99c">getCellColID</a>(<span class="keywordtype">int</span> index)<span class="comment">//根据索引值得到列数</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">return</span> index%width;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    }</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#a2647265d06a792b983b372af52cf5677">  135</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#a2647265d06a792b983b372af52cf5677">convertToCellIndex</a> (<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y)<span class="comment">//根据坐标值得到cell索引值</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    {</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordtype">int</span> cellIndex;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keywordtype">float</span> newX = x / resolution;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordtype">float</span> newY = y / resolution;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        cellIndex = getCellIndex(newY, newX);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordflow">return</span> cellIndex;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    }</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#ad21e1c308a79678ca6265907bf6caa84">  148</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#ad21e1c308a79678ca6265907bf6caa84">convertToCoordinate</a>(<span class="keywordtype">int</span> index, <span class="keywordtype">float</span> &amp;x, <span class="keywordtype">float</span> &amp;y)<span class="comment">//根据cell索引值得到坐标值</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    {</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        x = getCellColID(index) * resolution;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        y = getCellRowID(index) * resolution;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        x = x + originX;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        y = y + originY;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    }</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">bool</span> checkIfOnObstacles(<a class="code" href="structRRT_1_1rrtNode.html">RRT::rrtNode</a> &amp;tempNode);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#aaaab60d718aa349ef2df8dcf0402f207">  160</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#aaaab60d718aa349ef2df8dcf0402f207">generateTempPoint</a>(<a class="code" href="structRRT_1_1rrtNode.html">RRT::rrtNode</a> &amp;tempNode,<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height)<span class="comment">//生成一个随机结点</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    {</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keywordtype">int</span> x = rand() % width + 1;  <span class="comment">//行</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keywordtype">int</span> y = rand() % height + 1;  <span class="comment">//列</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        tempNode.<a class="code" href="structRRT_1_1rrtNode.html#a4c2096fa1d719cf2aa49cf21916a5a4b">posX</a> = x;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        tempNode.<a class="code" href="structRRT_1_1rrtNode.html#a219cf78a0f5689bc84744df52c37e84d">posY</a> = y;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#ac34f8c3a590fb6f3ba04c99500a8abae">  168</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#ac34f8c3a590fb6f3ba04c99500a8abae">generateRandNodes</a>(<a class="code" href="classRRT.html">RRT</a> &amp;<a class="code" href="rrt__planner_8cpp.html#a51725e16375c08b52f82eb2faa5a921c">myRRT</a>, vector&lt;RRT::rrtNode&gt; &amp;randNodes,<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height)<span class="comment">//生成一个随机结点数组</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    {</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <a class="code" href="structRRT_1_1rrtNode.html">RRT::rrtNode</a> loopNode;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="rrt_8h.html#a962f9277eb583fb40d04a820752a9191">randNodeNum</a>; i++)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        {</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            <span class="keywordtype">int</span> x = rand() % width + 1;  <span class="comment">//行</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            <span class="keywordtype">int</span> y = rand() % height + 1;  <span class="comment">//列</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;          </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            loopNode.<a class="code" href="structRRT_1_1rrtNode.html#a4c2096fa1d719cf2aa49cf21916a5a4b">posX</a> = x;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            loopNode.<a class="code" href="structRRT_1_1rrtNode.html#a219cf78a0f5689bc84744df52c37e84d">posY</a> = y;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            randNodes.push_back(loopNode);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        }</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    }</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">      * 求两个向量之间的旋转角</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">      * 首先明确几个数学概念：</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment">      * 1. 极轴沿逆时针转动的方向是正方向</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment">      * 2. 两个向量之间的夹角theta， 是指(A^B)/(|A|*|B|) = cos(theta)，0&lt;=theta&lt;=180 度， 而且没有方向之分</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment">      * 3. 两个向量的旋转角，是指从向量p1开始，逆时针旋转，转到向量p2时，所转过的角度， 范围是 0 ~ 360度</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment">      * 计算向量p1到p2的旋转角，算法如下：</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="comment">      * 首先通过点乘和arccosine的得到两个向量之间的夹角</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="comment">      * 然后判断通过差乘来判断两个向量之间的位置关系</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="comment">      * 如果p2在p1的顺时针方向, 返回arccose的角度值, 范围0 ~ 180.0(根据右手定理,可以构成正的面积)</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment">      * 否则返回 360.0 - arecose的值, 返回180到360(根据右手定理,面积为负)</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">      */</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#a7746337004ecc5a7bdad176b5033b5bc">  197</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#a7746337004ecc5a7bdad176b5033b5bc">getRotateAngle</a>(<span class="keywordtype">double</span> x1, <span class="keywordtype">double</span> y1, <span class="keywordtype">double</span> x2, <span class="keywordtype">double</span> y2)</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    {</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> epsilon = 1.0e-6;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> nyPI = acos(-1.0);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordtype">double</span> dist, dot, degree, angle;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="comment">// normalize</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        dist = sqrt( x1 * x1 + y1 * y1 );</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        x1 /= dist;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        y1 /= dist;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        dist = sqrt( x2 * x2 + y2 * y2 );</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        x2 /= dist;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        y2 /= dist;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="comment">// dot product</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        dot = x1 * x2 + y1 * y2;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <span class="keywordflow">if</span> ( fabs(dot-1.0) &lt;= epsilon )</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            angle = 0.0;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( fabs(dot+1.0) &lt;= epsilon )</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            angle = nyPI;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        {</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            <span class="keywordtype">double</span> cross;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            angle = acos(dot);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            <span class="comment">//cross product</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            cross = x1 * y2 - x2 * y1;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            <span class="comment">// vector p2 is clockwise from vector p1</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            <span class="comment">// with respect to the origin (0.0)</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            <span class="keywordflow">if</span> (cross &lt; 0 )</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            {</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                angle = 2 * nyPI - angle;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            }</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        }</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <span class="comment">//degree = angle *  180.0 / nyPI;</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="comment">//return degree;</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordflow">return</span> angle;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    }</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
+<div class="line"><a name="l00235"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#a22cb05cb13d3027310f3fcc2b394dda6">  235</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#a22cb05cb13d3027310f3fcc2b394dda6">addNewNodetoRRT</a>(<a class="code" href="classRRT.html">RRT</a> &amp;<a class="code" href="rrt__planner_8cpp.html#a51725e16375c08b52f82eb2faa5a921c">myRRT</a>, vector&lt;RRT::rrtNode&gt; &amp;randNodes,  <span class="keywordtype">float</span> goalX, <span class="keywordtype">float</span> goalY , <span class="keywordtype">int</span> <a class="code" href="rrt_8h.html#aaac2d108c57a5722b9d816baaed80945">rrtStepSize</a>,vector&lt;vector&lt;float&gt; &gt; gridVal)  <span class="comment">//使用温度场作为启发因子</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    {</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        vector&lt;RRT::rrtNode&gt; nearestNodes;  <span class="comment">//nearest结点数组</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        vector&lt;RRT::rrtNode&gt; tempNodes;  <span class="comment">//临时结点数组</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <a class="code" href="structRRT_1_1rrtNode.html">RRT::rrtNode</a> loopNode;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="rrt_8h.html#a962f9277eb583fb40d04a820752a9191">randNodeNum</a>; i++)</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        {</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            <span class="keywordtype">int</span> tempNearestNodeID = myRRT.<a class="code" href="classRRT.html#af35d650011a6b834fc1b2d75b879817c">getNearestNodeID</a>(randNodes[i].posX,randNodes[i].posY);</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            <a class="code" href="structRRT_1_1rrtNode.html">RRT::rrtNode</a> tempNearestNode=myRRT.<a class="code" href="classRRT.html#afde36442771a9552bb97572098396c2b">getNode</a>(tempNearestNodeID);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            nearestNodes.push_back(tempNearestNode);</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        }</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="rrt_8h.html#a962f9277eb583fb40d04a820752a9191">randNodeNum</a>; i++)</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        {</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            <span class="keywordtype">double</span> theta = atan2(randNodes[i].posY - nearestNodes[i].posY, randNodes[i].posX - nearestNodes[i].posX);<span class="comment">//两个点形成的斜率</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            loopNode.<a class="code" href="structRRT_1_1rrtNode.html#a4c2096fa1d719cf2aa49cf21916a5a4b">posX</a> = (int)(nearestNodes[i].posX + (rrtStepSize * cos(theta)));</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            loopNode.<a class="code" href="structRRT_1_1rrtNode.html#a219cf78a0f5689bc84744df52c37e84d">posY</a> = (int)(nearestNodes[i].posY + (rrtStepSize * sin(theta)));</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            loopNode.<a class="code" href="structRRT_1_1rrtNode.html#a9f5b9bfca61e25fe7f80d361ed7996ff">parentID</a>=nearestNodes[i].nodeID;  <span class="comment">//temp结点的父结点是它的nearest结点</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            tempNodes.push_back(loopNode);</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        }</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        vector&lt;float&gt; evaluateCost;  <span class="comment">//启发函数估价</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;tempNodes.size(); i++)</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        {</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <span class="keywordtype">int</span> tempIndex=i;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;            <a class="code" href="structRRT_1_1rrtNode.html">RRT::rrtNode</a> tempNode=tempNodes[i];</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            <span class="keywordflow">if</span>(checkIfOnObstacles(tempNode))<span class="comment">//先检查temp结点，不在障碍物上</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                <span class="comment">//float costG=nearestNodes[i].depth*rrtStepSize;</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                <span class="keywordtype">float</span> costH=gridVal[tempNode.<a class="code" href="structRRT_1_1rrtNode.html#a4c2096fa1d719cf2aa49cf21916a5a4b">posX</a>/<a class="code" href="rrt_8h.html#afb8b6147953aaf9e7089f5f157d5b020">mapReduceSize</a>][tempNode.<a class="code" href="structRRT_1_1rrtNode.html#a219cf78a0f5689bc84744df52c37e84d">posY</a>/<a class="code" href="rrt_8h.html#afb8b6147953aaf9e7089f5f157d5b020">mapReduceSize</a>];  <span class="comment">//温度场作为代价值</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                evaluateCost.push_back(costH);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            }</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            <span class="keywordflow">else</span>  <span class="comment">//tempNode结点在障碍物上</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            {</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                evaluateCost.push_back(<a class="code" href="rrt_8h.html#a8bb5664c6d1d0848c059844294c05988">infinity</a>);  <span class="comment">//障碍物上代价无穷大</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            }</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        }</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        <span class="keywordtype">int</span> tempIndex=-1;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="keywordtype">float</span> tempCost=<a class="code" href="rrt_8h.html#a8bb5664c6d1d0848c059844294c05988">infinity</a>;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;evaluateCost.size(); i++)</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        {</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;            <span class="keywordflow">if</span>(evaluateCost[i]&lt;tempCost)</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;            {</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                tempIndex=i;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                tempCost=evaluateCost[i];</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            }</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        }</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="keywordflow">if</span>(tempIndex!=-1)</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        {</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            <a class="code" href="structRRT_1_1rrtNode.html">RRT::rrtNode</a> successNode=tempNodes[tempIndex];</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            <a class="code" href="structRRT_1_1rrtNode.html">RRT::rrtNode</a> nearestNode=nearestNodes[tempIndex];</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;            <span class="keywordtype">float</span> costN=gridVal[nearestNode.<a class="code" href="structRRT_1_1rrtNode.html#a4c2096fa1d719cf2aa49cf21916a5a4b">posX</a>/<a class="code" href="rrt_8h.html#afb8b6147953aaf9e7089f5f157d5b020">mapReduceSize</a>][nearestNode.<a class="code" href="structRRT_1_1rrtNode.html#a219cf78a0f5689bc84744df52c37e84d">posY</a>/<a class="code" href="rrt_8h.html#afb8b6147953aaf9e7089f5f157d5b020">mapReduceSize</a>];  <span class="comment">//温度场作为代价值</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;            </div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;            <span class="keywordflow">if</span>(evaluateCost[tempIndex]&gt;costN)  <span class="comment">//防止RRT随机树退化</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            <span class="keywordtype">float</span> tempToParentDistance=<a class="code" href="rrt_8h.html#aaac2d108c57a5722b9d816baaed80945">rrtStepSize</a>;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;            <span class="keywordtype">bool</span> regressionFlag=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;myRRT.<a class="code" href="classRRT.html#a05dc852e0b777042e290dcc96bf605bb">getTreeSize</a>(); i++)</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            {</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                <span class="keywordtype">float</span> tempDistance=sqrt(pow(myRRT.<a class="code" href="classRRT.html#afde36442771a9552bb97572098396c2b">getNode</a>(i).<a class="code" href="structRRT_1_1rrtNode.html#a4c2096fa1d719cf2aa49cf21916a5a4b">posX</a> - successNode.<a class="code" href="structRRT_1_1rrtNode.html#a4c2096fa1d719cf2aa49cf21916a5a4b">posX</a>,2) + pow(myRRT.<a class="code" href="classRRT.html#afde36442771a9552bb97572098396c2b">getNode</a>(i).<a class="code" href="structRRT_1_1rrtNode.html#a219cf78a0f5689bc84744df52c37e84d">posY</a> - successNode.<a class="code" href="structRRT_1_1rrtNode.html#a219cf78a0f5689bc84744df52c37e84d">posY</a>,2));</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                <span class="keywordflow">if</span>(tempToParentDistance-tempDistance&gt;1)</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                {</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                    regressionFlag=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                }</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;            }</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;            </div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;            <span class="keywordflow">if</span>(regressionFlag)</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;            {</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                successNode.<a class="code" href="structRRT_1_1rrtNode.html#aa8adf5b50e1a2a466771ae3af56b1658">nodeID</a> = myRRT.<a class="code" href="classRRT.html#a05dc852e0b777042e290dcc96bf605bb">getTreeSize</a>();<span class="comment">//设置tempNode的id值，结点个数代表编号</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                successNode.<a class="code" href="structRRT_1_1rrtNode.html#ab20e6f5be075c8feed605c935924df30">depth</a>=nearestNodes[tempIndex].depth+1;<span class="comment">//当前结点深度等于其父结点深度加1</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                myRRT.<a class="code" href="classRRT.html#a5a0591369964c82b95f08c9f868dbd54">addNewNode</a>(successNode);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;            }</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        }</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    }</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
+<div class="line"><a name="l00324"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#a50e32f9cd1421d374ea1aab601433b10">  324</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#a50e32f9cd1421d374ea1aab601433b10">checkNodetoGoal</a>(<span class="keywordtype">int</span> X, <span class="keywordtype">int</span> Y, <a class="code" href="structRRT_1_1rrtNode.html">RRT::rrtNode</a> &amp;tempNode)</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    {</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keywordtype">double</span> distance = sqrt(pow(X-tempNode.<a class="code" href="structRRT_1_1rrtNode.html#a4c2096fa1d719cf2aa49cf21916a5a4b">posX</a>,2)+pow(Y-tempNode.<a class="code" href="structRRT_1_1rrtNode.html#a219cf78a0f5689bc84744df52c37e84d">posY</a>,2));</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="keywordflow">if</span>(distance &lt; <a class="code" href="rrt_8h.html#aaac2d108c57a5722b9d816baaed80945">rrtStepSize</a>)  <span class="comment">//goal与nearest之间距离小于rrtStepSize时即认为到达目标点</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        {</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        }</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    }</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
+<div class="line"><a name="l00334"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#a92ba133c58a9ad0de8f425e856953ac1">  334</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#a92ba133c58a9ad0de8f425e856953ac1">originX</a>;</div>
+<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#a5cfa182b92acb4e370ba19a213a0c22a">  335</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#a5cfa182b92acb4e370ba19a213a0c22a">originY</a>;</div>
+<div class="line"><a name="l00336"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#ad23ca65f53176297ae7e9f40c7edeb69">  336</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#ad23ca65f53176297ae7e9f40c7edeb69">resolution</a>;</div>
+<div class="line"><a name="l00337"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#a3dcf8908136ace532176511eb1861528">  337</a></span>&#160;    costmap_2d::Costmap2DROS* <a class="code" href="classrrt__plan_1_1rrt__planner.html#a3dcf8908136ace532176511eb1861528">costmap_ros_</a>;</div>
+<div class="line"><a name="l00338"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#a25be58fd52b495ade819f8d5785beeae">  338</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#a25be58fd52b495ade819f8d5785beeae">step_size_</a>, min_dist_from_robot_;</div>
+<div class="line"><a name="l00339"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#ad6f48786945a4a394c95de25cd4c77d2">  339</a></span>&#160;    costmap_2d::Costmap2D* <a class="code" href="classrrt__plan_1_1rrt__planner.html#ad6f48786945a4a394c95de25cd4c77d2">costmap_</a>;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="comment">//base_local_planner::WorldModel* world_model_; ///&lt; @brief The world model that the controller will use</span></div>
+<div class="line"><a name="l00341"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#ac1cd8655573adac056ae922a92337b8d">  341</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#ac1cd8655573adac056ae922a92337b8d">initialized_</a>;</div>
+<div class="line"><a name="l00342"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#ac74fe436b5e1fa30bda1fbe821369aa2">  342</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#ac74fe436b5e1fa30bda1fbe821369aa2">width</a>;</div>
+<div class="line"><a name="l00343"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#a3549de56a50bff6494514878b64584df">  343</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classrrt__plan_1_1rrt__planner.html#a3549de56a50bff6494514878b64584df">height</a>;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;</div>
+<div class="line"><a name="l00345"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#a6beed3a62613c7e24813416185d12929">  345</a></span>&#160;    ros::Publisher <a class="code" href="classrrt__plan_1_1rrt__planner.html#a6beed3a62613c7e24813416185d12929">plan_pub_</a>;</div>
+<div class="line"><a name="l00346"></a><span class="lineno"><a class="line" href="classrrt__plan_1_1rrt__planner.html#a142a2d4c28bcaa2798493accf32690ee">  346</a></span>&#160;    ros::Publisher <a class="code" href="classrrt__plan_1_1rrt__planner.html#a142a2d4c28bcaa2798493accf32690ee">plan_pub_2</a>;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;};</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;};</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_a22cb05cb13d3027310f3fcc2b394dda6"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#a22cb05cb13d3027310f3fcc2b394dda6">rrt_plan::rrt_planner::addNewNodetoRRT</a></div><div class="ttdeci">bool addNewNodetoRRT(RRT &amp;myRRT, vector&lt; RRT::rrtNode &gt; &amp;randNodes, float goalX, float goalY, int rrtStepSize, vector&lt; vector&lt; float &gt; &gt; gridVal)</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00235">inspire_rrt_planner.h:235</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_a6beed3a62613c7e24813416185d12929"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#a6beed3a62613c7e24813416185d12929">rrt_plan::rrt_planner::plan_pub_</a></div><div class="ttdeci">ros::Publisher plan_pub_</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00345">inspire_rrt_planner.h:345</a></div></div>
+<div class="ttc" id="rrt_8h_html_afb8b6147953aaf9e7089f5f157d5b020"><div class="ttname"><a href="rrt_8h.html#afb8b6147953aaf9e7089f5f157d5b020">mapReduceSize</a></div><div class="ttdeci">int mapReduceSize</div><div class="ttdef"><b>Definition:</b> <a href="rrt_8h_source.html#l00023">rrt.h:23</a></div></div>
+<div class="ttc" id="rrt__planner_8cpp_html_a51725e16375c08b52f82eb2faa5a921c"><div class="ttname"><a href="rrt__planner_8cpp.html#a51725e16375c08b52f82eb2faa5a921c">myRRT</a></div><div class="ttdeci">RRT myRRT</div><div class="ttdef"><b>Definition:</b> <a href="rrt__planner_8cpp_source.html#l00029">rrt_planner.cpp:29</a></div></div>
+<div class="ttc" id="structRRT_1_1rrtNode_html_a9f5b9bfca61e25fe7f80d361ed7996ff"><div class="ttname"><a href="structRRT_1_1rrtNode.html#a9f5b9bfca61e25fe7f80d361ed7996ff">RRT::rrtNode::parentID</a></div><div class="ttdeci">int parentID</div><div class="ttdef"><b>Definition:</b> <a href="rrt_8h_source.html#l00040">rrt.h:40</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_a9547688a6e31166034dc562a0b4608b6"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#a9547688a6e31166034dc562a0b4608b6">rrt_plan::rrt_planner::ROSNodeHandle</a></div><div class="ttdeci">ros::NodeHandle ROSNodeHandle</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00084">inspire_rrt_planner.h:84</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_a3dcf8908136ace532176511eb1861528"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#a3dcf8908136ace532176511eb1861528">rrt_plan::rrt_planner::costmap_ros_</a></div><div class="ttdeci">costmap_2d::Costmap2DROS * costmap_ros_</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00337">inspire_rrt_planner.h:337</a></div></div>
+<div class="ttc" id="classRRT_html_afde36442771a9552bb97572098396c2b"><div class="ttname"><a href="classRRT.html#afde36442771a9552bb97572098396c2b">RRT::getNode</a></div><div class="ttdeci">rrtNode getNode(int nodeID)</div><div class="ttdef"><b>Definition:</b> <a href="rrt_8h_source.html#l00159">rrt.h:159</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_aaaab60d718aa349ef2df8dcf0402f207"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#aaaab60d718aa349ef2df8dcf0402f207">rrt_plan::rrt_planner::generateTempPoint</a></div><div class="ttdeci">void generateTempPoint(RRT::rrtNode &amp;tempNode, int width, int height)</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00160">inspire_rrt_planner.h:160</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_a5cfa182b92acb4e370ba19a213a0c22a"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#a5cfa182b92acb4e370ba19a213a0c22a">rrt_plan::rrt_planner::originY</a></div><div class="ttdeci">float originY</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00335">inspire_rrt_planner.h:335</a></div></div>
+<div class="ttc" id="structRRT_1_1rrtNode_html_ab20e6f5be075c8feed605c935924df30"><div class="ttname"><a href="structRRT_1_1rrtNode.html#ab20e6f5be075c8feed605c935924df30">RRT::rrtNode::depth</a></div><div class="ttdeci">int depth</div><div class="ttdef"><b>Definition:</b> <a href="rrt_8h_source.html#l00041">rrt.h:41</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_ac74fe436b5e1fa30bda1fbe821369aa2"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#ac74fe436b5e1fa30bda1fbe821369aa2">rrt_plan::rrt_planner::width</a></div><div class="ttdeci">int width</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00342">inspire_rrt_planner.h:342</a></div></div>
+<div class="ttc" id="classRRT_html_a5a0591369964c82b95f08c9f868dbd54"><div class="ttname"><a href="classRRT.html#a5a0591369964c82b95f08c9f868dbd54">RRT::addNewNode</a></div><div class="ttdeci">void addNewNode(rrtNode node)</div><div class="ttdef"><b>Definition:</b> <a href="rrt_8h_source.html#l00138">rrt.h:138</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_a2647265d06a792b983b372af52cf5677"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#a2647265d06a792b983b372af52cf5677">rrt_plan::rrt_planner::convertToCellIndex</a></div><div class="ttdeci">int convertToCellIndex(float x, float y)</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00135">inspire_rrt_planner.h:135</a></div></div>
+<div class="ttc" id="classRRT_html_a05dc852e0b777042e290dcc96bf605bb"><div class="ttname"><a href="classRRT.html#a05dc852e0b777042e290dcc96bf605bb">RRT::getTreeSize</a></div><div class="ttdeci">int getTreeSize()</div><div class="ttdef"><b>Definition:</b> <a href="rrt_8h_source.html#l00130">rrt.h:130</a></div></div>
+<div class="ttc" id="rrt_8h_html"><div class="ttname"><a href="rrt_8h.html">rrt.h</a></div></div>
+<div class="ttc" id="classRRT_html_af35d650011a6b834fc1b2d75b879817c"><div class="ttname"><a href="classRRT.html#af35d650011a6b834fc1b2d75b879817c">RRT::getNearestNodeID</a></div><div class="ttdeci">int getNearestNodeID(float X, float Y)</div><div class="ttdef"><b>Definition:</b> <a href="rrt_8h_source.html#l00170">rrt.h:170</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_a980538776b19bd9610458e45991cdf0b"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#a980538776b19bd9610458e45991cdf0b">rrt_plan::rrt_planner::getIdx</a></div><div class="ttdeci">void getIdx(int &amp;x, int &amp;y)</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00108">inspire_rrt_planner.h:108</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_a7746337004ecc5a7bdad176b5033b5bc"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#a7746337004ecc5a7bdad176b5033b5bc">rrt_plan::rrt_planner::getRotateAngle</a></div><div class="ttdeci">double getRotateAngle(double x1, double y1, double x2, double y2)</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00197">inspire_rrt_planner.h:197</a></div></div>
+<div class="ttc" id="structrrt__plan_1_1Cell_html"><div class="ttname"><a href="structrrt__plan_1_1Cell.html">rrt_plan::Cell</a></div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00070">inspire_rrt_planner.h:70</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_ac34f8c3a590fb6f3ba04c99500a8abae"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#ac34f8c3a590fb6f3ba04c99500a8abae">rrt_plan::rrt_planner::generateRandNodes</a></div><div class="ttdeci">void generateRandNodes(RRT &amp;myRRT, vector&lt; RRT::rrtNode &gt; &amp;randNodes, int width, int height)</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00168">inspire_rrt_planner.h:168</a></div></div>
+<div class="ttc" id="structRRT_1_1rrtNode_html_aa8adf5b50e1a2a466771ae3af56b1658"><div class="ttname"><a href="structRRT_1_1rrtNode.html#aa8adf5b50e1a2a466771ae3af56b1658">RRT::rrtNode::nodeID</a></div><div class="ttdeci">int nodeID</div><div class="ttdef"><b>Definition:</b> <a href="rrt_8h_source.html#l00037">rrt.h:37</a></div></div>
+<div class="ttc" id="structRRT_1_1rrtNode_html_a219cf78a0f5689bc84744df52c37e84d"><div class="ttname"><a href="structRRT_1_1rrtNode.html#a219cf78a0f5689bc84744df52c37e84d">RRT::rrtNode::posY</a></div><div class="ttdeci">float posY</div><div class="ttdef"><b>Definition:</b> <a href="rrt_8h_source.html#l00039">rrt.h:39</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_ad23ca65f53176297ae7e9f40c7edeb69"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#ad23ca65f53176297ae7e9f40c7edeb69">rrt_plan::rrt_planner::resolution</a></div><div class="ttdeci">float resolution</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00336">inspire_rrt_planner.h:336</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_a92ba133c58a9ad0de8f425e856953ac1"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#a92ba133c58a9ad0de8f425e856953ac1">rrt_plan::rrt_planner::originX</a></div><div class="ttdeci">float originX</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00334">inspire_rrt_planner.h:334</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_a50e32f9cd1421d374ea1aab601433b10"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#a50e32f9cd1421d374ea1aab601433b10">rrt_plan::rrt_planner::checkNodetoGoal</a></div><div class="ttdeci">bool checkNodetoGoal(int X, int Y, RRT::rrtNode &amp;tempNode)</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00324">inspire_rrt_planner.h:324</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_ac1cd8655573adac056ae922a92337b8d"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#ac1cd8655573adac056ae922a92337b8d">rrt_plan::rrt_planner::initialized_</a></div><div class="ttdeci">bool initialized_</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00341">inspire_rrt_planner.h:341</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html">rrt_plan::rrt_planner</a></div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00076">inspire_rrt_planner.h:76</a></div></div>
+<div class="ttc" id="structrrt__plan_1_1Cell_html_a41e05f3b625c736b59db8abcb0ff0d1e"><div class="ttname"><a href="structrrt__plan_1_1Cell.html#a41e05f3b625c736b59db8abcb0ff0d1e">rrt_plan::Cell::posX</a></div><div class="ttdeci">int posX</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00072">inspire_rrt_planner.h:72</a></div></div>
+<div class="ttc" id="structRRT_1_1rrtNode_html"><div class="ttname"><a href="structRRT_1_1rrtNode.html">RRT::rrtNode</a></div><div class="ttdef"><b>Definition:</b> <a href="rrt_8h_source.html#l00035">rrt.h:35</a></div></div>
+<div class="ttc" id="rrt_8h_html_a962f9277eb583fb40d04a820752a9191"><div class="ttname"><a href="rrt_8h.html#a962f9277eb583fb40d04a820752a9191">randNodeNum</a></div><div class="ttdeci">int randNodeNum</div><div class="ttdef"><b>Definition:</b> <a href="rrt_8h_source.html#l00021">rrt.h:21</a></div></div>
+<div class="ttc" id="structRRT_1_1rrtNode_html_a4c2096fa1d719cf2aa49cf21916a5a4b"><div class="ttname"><a href="structRRT_1_1rrtNode.html#a4c2096fa1d719cf2aa49cf21916a5a4b">RRT::rrtNode::posX</a></div><div class="ttdeci">float posX</div><div class="ttdef"><b>Definition:</b> <a href="rrt_8h_source.html#l00038">rrt.h:38</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_a758810b2f257fe0778ed3eb1e970d99c"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#a758810b2f257fe0778ed3eb1e970d99c">rrt_plan::rrt_planner::getCellColID</a></div><div class="ttdeci">int getCellColID(int index)</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00130">inspire_rrt_planner.h:130</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_a8f1fde39d2f3b01d7b2d11dc9482e1dc"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#a8f1fde39d2f3b01d7b2d11dc9482e1dc">rrt_plan::rrt_planner::getCorrdinate</a></div><div class="ttdeci">void getCorrdinate(float &amp;x, float &amp;y)</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00114">inspire_rrt_planner.h:114</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_ad21e1c308a79678ca6265907bf6caa84"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#ad21e1c308a79678ca6265907bf6caa84">rrt_plan::rrt_planner::convertToCoordinate</a></div><div class="ttdeci">void convertToCoordinate(int index, float &amp;x, float &amp;y)</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00148">inspire_rrt_planner.h:148</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_a3549de56a50bff6494514878b64584df"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#a3549de56a50bff6494514878b64584df">rrt_plan::rrt_planner::height</a></div><div class="ttdeci">int height</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00343">inspire_rrt_planner.h:343</a></div></div>
+<div class="ttc" id="structrrt__plan_1_1Cell_html_afe1da476d8e6a1bff52531e2c6d10be8"><div class="ttname"><a href="structrrt__plan_1_1Cell.html#afe1da476d8e6a1bff52531e2c6d10be8">rrt_plan::Cell::posY</a></div><div class="ttdeci">int posY</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00073">inspire_rrt_planner.h:73</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_a142a2d4c28bcaa2798493accf32690ee"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#a142a2d4c28bcaa2798493accf32690ee">rrt_plan::rrt_planner::plan_pub_2</a></div><div class="ttdeci">ros::Publisher plan_pub_2</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00346">inspire_rrt_planner.h:346</a></div></div>
+<div class="ttc" id="rrt_8h_html_aaac2d108c57a5722b9d816baaed80945"><div class="ttname"><a href="rrt_8h.html#aaac2d108c57a5722b9d816baaed80945">rrtStepSize</a></div><div class="ttdeci">int rrtStepSize</div><div class="ttdef"><b>Definition:</b> <a href="rrt_8h_source.html#l00020">rrt.h:20</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_a25be58fd52b495ade819f8d5785beeae"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#a25be58fd52b495ade819f8d5785beeae">rrt_plan::rrt_planner::step_size_</a></div><div class="ttdeci">double step_size_</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00338">inspire_rrt_planner.h:338</a></div></div>
+<div class="ttc" id="classRRT_html"><div class="ttname"><a href="classRRT.html">RRT</a></div><div class="ttdef"><b>Definition:</b> <a href="rrt_8h_source.html#l00027">rrt.h:27</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_aa3c07d6b2b6bed62e4b60d3898fc80cf"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#aa3c07d6b2b6bed62e4b60d3898fc80cf">rrt_plan::rrt_planner::getCellRowID</a></div><div class="ttdeci">int getCellRowID(int index)</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00125">inspire_rrt_planner.h:125</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_a7df38e380fe80d69be29d1cea2879c59"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#a7df38e380fe80d69be29d1cea2879c59">rrt_plan::rrt_planner::getCellIndex</a></div><div class="ttdeci">int getCellIndex(int i, int j)</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00120">inspire_rrt_planner.h:120</a></div></div>
+<div class="ttc" id="rrt_8h_html_a8bb5664c6d1d0848c059844294c05988"><div class="ttname"><a href="rrt_8h.html#a8bb5664c6d1d0848c059844294c05988">infinity</a></div><div class="ttdeci">float infinity</div><div class="ttdef"><b>Definition:</b> <a href="rrt_8h_source.html#l00018">rrt.h:18</a></div></div>
+<div class="ttc" id="classrrt__plan_1_1rrt__planner_html_ad6f48786945a4a394c95de25cd4c77d2"><div class="ttname"><a href="classrrt__plan_1_1rrt__planner.html#ad6f48786945a4a394c95de25cd4c77d2">rrt_plan::rrt_planner::costmap_</a></div><div class="ttdeci">costmap_2d::Costmap2D * costmap_</div><div class="ttdef"><b>Definition:</b> <a href="inspire__rrt__planner_8h_source.html#l00339">inspire_rrt_planner.h:339</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+生成于 2017年 四月 7日 星期五 09:19:14 , 为 My Project使用  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>

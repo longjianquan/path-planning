@@ -1,0 +1,1542 @@
+\hypertarget{classrrt__plan_1_1rrt__planner}{\section{rrt\-\_\-plan\-:\-:rrt\-\_\-planner类 参考}
+\label{classrrt__plan_1_1rrt__planner}\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+}
+
+
+{\ttfamily \#include $<$inspire\-\_\-rrt\-\_\-planner.\-h$>$}
+
+类 rrt\-\_\-plan\-:\-:rrt\-\_\-planner 继承关系图\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrrt__plan_1_1rrt__planner}
+\end{center}
+\end{figure}
+\subsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrrt__plan_1_1rrt__planner_a188d2961064c51462f133f656b5595ce}{rrt\-\_\-planner} (ros\-::\-Node\-Handle \&)
+\item 
+\hyperlink{classrrt__plan_1_1rrt__planner_aff0490fe901b891f586fae31433f72f0}{rrt\-\_\-planner} ()
+\item 
+\hyperlink{classrrt__plan_1_1rrt__planner_a0c6d148e4c72d2cd780831b7b2e7ad2c}{rrt\-\_\-planner} (std\-::string name, costmap\-\_\-2d\-::\-Costmap2\-D\-R\-O\-S $\ast$costmap\-\_\-ros)
+\item 
+void \hyperlink{classrrt__plan_1_1rrt__planner_aec216e5abd94aa73b71a4db4a3e89c9d}{initialize} (std\-::string name, costmap\-\_\-2d\-::\-Costmap2\-D\-R\-O\-S $\ast$costmap\-\_\-ros)
+\item 
+bool \hyperlink{classrrt__plan_1_1rrt__planner_a211f1d665d81c1a340d06cdc327fadf4}{make\-Plan} (const geometry\-\_\-msgs\-::\-Pose\-Stamped \&start, const geometry\-\_\-msgs\-::\-Pose\-Stamped \&goal, std\-::vector$<$ geometry\-\_\-msgs\-::\-Pose\-Stamped $>$ \&plan)
+\item 
+bool \hyperlink{classrrt__plan_1_1rrt__planner_a07347499c296c693631f24dfb1cb4196}{is\-Cell\-Inside\-Map} (float x, float y)
+\item 
+void \hyperlink{classrrt__plan_1_1rrt__planner_a7cbacb0aead733fc6cfde463c6ea2812}{map\-To\-World} (double mx, double my, double \&wx, double \&wy)
+\item 
+bool \hyperlink{classrrt__plan_1_1rrt__planner_aa43a4ec62844e679d9e0aefcbfa5f286}{is\-Start\-And\-Goal\-Cells\-Valid} (int start\-Cell, int goal\-Cell)
+\item 
+bool \hyperlink{classrrt__plan_1_1rrt__planner_a7c923acf8ea571bf84a2ede5a0457491}{is\-Free} (int Cell\-I\-D)
+\item 
+bool \hyperlink{classrrt__plan_1_1rrt__planner_ac6b3b3e1aa57e2dd76874064f289f370}{is\-Free} (int i, int j)
+\item 
+vector$<$ int $>$ \hyperlink{classrrt__plan_1_1rrt__planner_a0a4d334b13d1946044f041ae1ddc1a41}{find\-Free\-Neighbor\-Cell} (int Cell\-I\-D)
+\item 
+vector$<$ int $>$ \hyperlink{classrrt__plan_1_1rrt__planner_a23e32ef1c189f5035a751047f84e052a}{find\-Cell\-Path} (\hyperlink{classRRT}{R\-R\-T} \&\hyperlink{rrt__planner_8cpp_a51725e16375c08b52f82eb2faa5a921c}{my\-R\-R\-T}, int start\-Cell, int goal\-Cell, vector$<$ vector$<$ float $>$ $>$ grid\-Val)
+\item 
+void \hyperlink{classrrt__plan_1_1rrt__planner_aac5e9f72b4c55ce4aada8d80eed92a9e}{convert\-To\-Plan} (vector$<$ int $>$ best\-Path, std\-::vector$<$ geometry\-\_\-msgs\-::\-Pose\-Stamped $>$ \&plan, geometry\-\_\-msgs\-::\-Pose\-Stamped goal, int goal\-Cell)
+\item 
+void \hyperlink{classrrt__plan_1_1rrt__planner_ac2fe5313cbc77dffddfcfe1f6605d53e}{publish\-Plan} (const std\-::vector$<$ geometry\-\_\-msgs\-::\-Pose\-Stamped $>$ \&path)
+\item 
+void \hyperlink{classrrt__plan_1_1rrt__planner_a3071190151c4463f2e39f29c02c1f55d}{publish\-Plan2} (const std\-::vector$<$ geometry\-\_\-msgs\-::\-Pose\-Stamped $>$ \&path)
+\item 
+void \hyperlink{classrrt__plan_1_1rrt__planner_aff6d98168c072b176287fc9c444349c6}{get\-Grid\-Val} (vector$<$ vector$<$ float $>$ $>$ \&grid\-Val, int start\-Row\-I\-D, int start\-Col\-I\-D, int goal\-Row\-I\-D, int goal\-Col\-I\-D)
+\item 
+std\-::vector\\*
+$<$ geometry\-\_\-msgs\-::\-Pose\-Stamped $>$ \hyperlink{classrrt__plan_1_1rrt__planner_aac168be892772fe17a1d841d87c2249c}{middleoptimization\-Layer} (std\-::vector$<$ geometry\-\_\-msgs\-::\-Pose\-Stamped $>$ temp\-\_\-transformed\-\_\-plan)
+\item 
+void \hyperlink{classrrt__plan_1_1rrt__planner_a980538776b19bd9610458e45991cdf0b}{get\-Idx} (int \&x, int \&y)
+\item 
+void \hyperlink{classrrt__plan_1_1rrt__planner_a8f1fde39d2f3b01d7b2d11dc9482e1dc}{get\-Corrdinate} (float \&x, float \&y)
+\item 
+int \hyperlink{classrrt__plan_1_1rrt__planner_a7df38e380fe80d69be29d1cea2879c59}{get\-Cell\-Index} (int i, int j)
+\item 
+int \hyperlink{classrrt__plan_1_1rrt__planner_aa3c07d6b2b6bed62e4b60d3898fc80cf}{get\-Cell\-Row\-I\-D} (int index)
+\item 
+int \hyperlink{classrrt__plan_1_1rrt__planner_a758810b2f257fe0778ed3eb1e970d99c}{get\-Cell\-Col\-I\-D} (int index)
+\item 
+int \hyperlink{classrrt__plan_1_1rrt__planner_a2647265d06a792b983b372af52cf5677}{convert\-To\-Cell\-Index} (float x, float y)
+\item 
+void \hyperlink{classrrt__plan_1_1rrt__planner_ad21e1c308a79678ca6265907bf6caa84}{convert\-To\-Coordinate} (int index, float \&x, float \&y)
+\item 
+bool \hyperlink{classrrt__plan_1_1rrt__planner_a2b6ded4f6e7719510d94371400f097d7}{check\-If\-On\-Obstacles} (\hyperlink{structRRT_1_1rrtNode}{R\-R\-T\-::rrt\-Node} \&temp\-Node)
+\item 
+void \hyperlink{classrrt__plan_1_1rrt__planner_aaaab60d718aa349ef2df8dcf0402f207}{generate\-Temp\-Point} (\hyperlink{structRRT_1_1rrtNode}{R\-R\-T\-::rrt\-Node} \&temp\-Node, int \hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width}, int \hyperlink{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}{height})
+\item 
+void \hyperlink{classrrt__plan_1_1rrt__planner_ac34f8c3a590fb6f3ba04c99500a8abae}{generate\-Rand\-Nodes} (\hyperlink{classRRT}{R\-R\-T} \&\hyperlink{rrt__planner_8cpp_a51725e16375c08b52f82eb2faa5a921c}{my\-R\-R\-T}, vector$<$ \hyperlink{structRRT_1_1rrtNode}{R\-R\-T\-::rrt\-Node} $>$ \&rand\-Nodes, int \hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width}, int \hyperlink{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}{height})
+\item 
+double \hyperlink{classrrt__plan_1_1rrt__planner_a7746337004ecc5a7bdad176b5033b5bc}{get\-Rotate\-Angle} (double x1, double y1, double x2, double y2)
+\item 
+bool \hyperlink{classrrt__plan_1_1rrt__planner_a22cb05cb13d3027310f3fcc2b394dda6}{add\-New\-Nodeto\-R\-R\-T} (\hyperlink{classRRT}{R\-R\-T} \&\hyperlink{rrt__planner_8cpp_a51725e16375c08b52f82eb2faa5a921c}{my\-R\-R\-T}, vector$<$ \hyperlink{structRRT_1_1rrtNode}{R\-R\-T\-::rrt\-Node} $>$ \&rand\-Nodes, float goal\-X, float goal\-Y, int \hyperlink{rrt_8h_aaac2d108c57a5722b9d816baaed80945}{rrt\-Step\-Size}, vector$<$ vector$<$ float $>$ $>$ grid\-Val)
+\item 
+bool \hyperlink{classrrt__plan_1_1rrt__planner_a50e32f9cd1421d374ea1aab601433b10}{check\-Nodeto\-Goal} (int X, int Y, \hyperlink{structRRT_1_1rrtNode}{R\-R\-T\-::rrt\-Node} \&temp\-Node)
+\end{DoxyCompactItemize}
+\subsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+ros\-::\-Node\-Handle \hyperlink{classrrt__plan_1_1rrt__planner_a9547688a6e31166034dc562a0b4608b6}{R\-O\-S\-Node\-Handle}
+\item 
+float \hyperlink{classrrt__plan_1_1rrt__planner_a92ba133c58a9ad0de8f425e856953ac1}{origin\-X}
+\item 
+float \hyperlink{classrrt__plan_1_1rrt__planner_a5cfa182b92acb4e370ba19a213a0c22a}{origin\-Y}
+\item 
+float \hyperlink{classrrt__plan_1_1rrt__planner_ad23ca65f53176297ae7e9f40c7edeb69}{resolution}
+\item 
+costmap\-\_\-2d\-::\-Costmap2\-D\-R\-O\-S $\ast$ \hyperlink{classrrt__plan_1_1rrt__planner_a3dcf8908136ace532176511eb1861528}{costmap\-\_\-ros\-\_\-}
+\item 
+double \hyperlink{classrrt__plan_1_1rrt__planner_a25be58fd52b495ade819f8d5785beeae}{step\-\_\-size\-\_\-}
+\item 
+double \hyperlink{classrrt__plan_1_1rrt__planner_aae70d5e90c66f442c8822b573645e346}{min\-\_\-dist\-\_\-from\-\_\-robot\-\_\-}
+\item 
+costmap\-\_\-2d\-::\-Costmap2\-D $\ast$ \hyperlink{classrrt__plan_1_1rrt__planner_ad6f48786945a4a394c95de25cd4c77d2}{costmap\-\_\-}
+\item 
+bool \hyperlink{classrrt__plan_1_1rrt__planner_ac1cd8655573adac056ae922a92337b8d}{initialized\-\_\-}
+\item 
+int \hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width}
+\item 
+int \hyperlink{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}{height}
+\item 
+ros\-::\-Publisher \hyperlink{classrrt__plan_1_1rrt__planner_a6beed3a62613c7e24813416185d12929}{plan\-\_\-pub\-\_\-}
+\item 
+ros\-::\-Publisher \hyperlink{classrrt__plan_1_1rrt__planner_a142a2d4c28bcaa2798493accf32690ee}{plan\-\_\-pub\-\_\-2}
+\end{DoxyCompactItemize}
+
+
+\subsection{详细描述}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 76 行定义.
+
+
+
+\subsection{构造及析构函数说明}
+\hypertarget{classrrt__plan_1_1rrt__planner_a188d2961064c51462f133f656b5595ce}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!rrt\-\_\-planner@{rrt\-\_\-planner}}
+\index{rrt\-\_\-planner@{rrt\-\_\-planner}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{rrt\-\_\-planner}]{\setlength{\rightskip}{0pt plus 5cm}rrt\-\_\-plan\-::rrt\-\_\-planner\-::rrt\-\_\-planner (
+\begin{DoxyParamCaption}
+\item[{ros\-::\-Node\-Handle \&}]{nh}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_a188d2961064c51462f133f656b5595ce}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 64 行定义.
+
+
+\begin{DoxyCode}
+65 \{
+66     \hyperlink{classrrt__plan_1_1rrt__planner_a9547688a6e31166034dc562a0b4608b6}{ROSNodeHandle} = nh;
+67 \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_aff0490fe901b891f586fae31433f72f0}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!rrt\-\_\-planner@{rrt\-\_\-planner}}
+\index{rrt\-\_\-planner@{rrt\-\_\-planner}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{rrt\-\_\-planner}]{\setlength{\rightskip}{0pt plus 5cm}rrt\-\_\-plan\-::rrt\-\_\-planner\-::rrt\-\_\-planner (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_aff0490fe901b891f586fae31433f72f0}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 60 行定义.
+
+
+\begin{DoxyCode}
+60                         :\hyperlink{classrrt__plan_1_1rrt__planner_ac1cd8655573adac056ae922a92337b8d}{initialized\_}(\textcolor{keyword}{false})
+61 \{
+62 
+63 \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_a0c6d148e4c72d2cd780831b7b2e7ad2c}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!rrt\-\_\-planner@{rrt\-\_\-planner}}
+\index{rrt\-\_\-planner@{rrt\-\_\-planner}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{rrt\-\_\-planner}]{\setlength{\rightskip}{0pt plus 5cm}rrt\-\_\-plan\-::rrt\-\_\-planner\-::rrt\-\_\-planner (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{costmap\-\_\-2d\-::\-Costmap2\-D\-R\-O\-S $\ast$}]{costmap\-\_\-ros}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_a0c6d148e4c72d2cd780831b7b2e7ad2c}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 69 行定义.
+
+
+\begin{DoxyCode}
+70 \{
+71     \hyperlink{classrrt__plan_1_1rrt__planner_aec216e5abd94aa73b71a4db4a3e89c9d}{initialize}(name, costmap\_ros);
+72 \}
+\end{DoxyCode}
+
+
+\subsection{成员函数说明}
+\hypertarget{classrrt__plan_1_1rrt__planner_a22cb05cb13d3027310f3fcc2b394dda6}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!add\-New\-Nodeto\-R\-R\-T@{add\-New\-Nodeto\-R\-R\-T}}
+\index{add\-New\-Nodeto\-R\-R\-T@{add\-New\-Nodeto\-R\-R\-T}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{add\-New\-Nodeto\-R\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}bool rrt\-\_\-plan\-::rrt\-\_\-planner\-::add\-New\-Nodeto\-R\-R\-T (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-R\-T} \&}]{my\-R\-R\-T, }
+\item[{vector$<$ {\bf R\-R\-T\-::rrt\-Node} $>$ \&}]{rand\-Nodes, }
+\item[{float}]{goal\-X, }
+\item[{float}]{goal\-Y, }
+\item[{int}]{rrt\-Step\-Size, }
+\item[{vector$<$ vector$<$ float $>$ $>$}]{grid\-Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrrt__plan_1_1rrt__planner_a22cb05cb13d3027310f3fcc2b394dda6}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 235 行定义.
+
+
+\begin{DoxyCode}
+236     \{
+237         vector<RRT::rrtNode> nearestNodes;  \textcolor{comment}{//nearest结点数组}
+238         vector<RRT::rrtNode> tempNodes;  \textcolor{comment}{//临时结点数组}
+239         \hyperlink{structRRT_1_1rrtNode}{RRT::rrtNode} loopNode;
+240 
+241         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<\hyperlink{rrt_8h_a962f9277eb583fb40d04a820752a9191}{randNodeNum}; i++)
+242         \{
+243             \textcolor{keywordtype}{int} tempNearestNodeID = myRRT.\hyperlink{classRRT_af35d650011a6b834fc1b2d75b879817c}{getNearestNodeID}(randNodes[i].posX,randNodes[i].
+      posY);
+244             \hyperlink{structRRT_1_1rrtNode}{RRT::rrtNode} tempNearestNode=myRRT.\hyperlink{classRRT_afde36442771a9552bb97572098396c2b}{getNode}(tempNearestNodeID);
+245             nearestNodes.push\_back(tempNearestNode);
+246         \}
+247 
+248         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<\hyperlink{rrt_8h_a962f9277eb583fb40d04a820752a9191}{randNodeNum}; i++)
+249         \{
+250             \textcolor{keywordtype}{double} theta = atan2(randNodes[i].posY - nearestNodes[i].posY, randNodes[i].posX - nearestNodes
+      [i].posX);\textcolor{comment}{//两个点形成的斜率}
+251             loopNode.\hyperlink{structRRT_1_1rrtNode_a4c2096fa1d719cf2aa49cf21916a5a4b}{posX} = (int)(nearestNodes[i].posX + (\hyperlink{rrt_8h_aaac2d108c57a5722b9d816baaed80945}{rrtStepSize} * cos(theta)));
+252             loopNode.\hyperlink{structRRT_1_1rrtNode_a219cf78a0f5689bc84744df52c37e84d}{posY} = (int)(nearestNodes[i].posY + (\hyperlink{rrt_8h_aaac2d108c57a5722b9d816baaed80945}{rrtStepSize} * sin(theta)));
+253             loopNode.\hyperlink{structRRT_1_1rrtNode_a9f5b9bfca61e25fe7f80d361ed7996ff}{parentID}=nearestNodes[i].nodeID;  \textcolor{comment}{//temp结点的父结点是它的nearest结点}
+254 
+255             tempNodes.push\_back(loopNode);
+256         \}
+257 
+258         vector<float> evaluateCost;  \textcolor{comment}{//启发函数估价}
+259 
+260         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<tempNodes.size(); i++)
+261         \{
+262             \textcolor{keywordtype}{int} tempIndex=i;
+263             \hyperlink{structRRT_1_1rrtNode}{RRT::rrtNode} tempNode=tempNodes[i];
+264 
+265             \textcolor{keywordflow}{if}(\hyperlink{classrrt__plan_1_1rrt__planner_a2b6ded4f6e7719510d94371400f097d7}{checkIfOnObstacles}(tempNode))\textcolor{comment}{//先检查temp结点，不在障碍物上}
+266             \{
+267                 \textcolor{comment}{//float costG=nearestNodes[i].depth*rrtStepSize;}
+268                 \textcolor{keywordtype}{float} costH=gridVal[tempNode.\hyperlink{structRRT_1_1rrtNode_a4c2096fa1d719cf2aa49cf21916a5a4b}{posX}/\hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{mapReduceSize}][tempNode.
+      \hyperlink{structRRT_1_1rrtNode_a219cf78a0f5689bc84744df52c37e84d}{posY}/\hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{mapReduceSize}];  \textcolor{comment}{//温度场作为代价值}
+269                 evaluateCost.push\_back(costH);
+270             \}
+271             \textcolor{keywordflow}{else}  \textcolor{comment}{//tempNode结点在障碍物上}
+272             \{
+273                 evaluateCost.push\_back(\hyperlink{rrt_8h_a8bb5664c6d1d0848c059844294c05988}{infinity});  \textcolor{comment}{//障碍物上代价无穷大}
+274             \}
+275         \}
+276 
+277         \textcolor{keywordtype}{int} tempIndex=-1;
+278         \textcolor{keywordtype}{float} tempCost=\hyperlink{rrt_8h_a8bb5664c6d1d0848c059844294c05988}{infinity};
+279         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<evaluateCost.size(); i++)
+280         \{
+281             \textcolor{keywordflow}{if}(evaluateCost[i]<tempCost)
+282             \{
+283                 tempIndex=i;
+284                 tempCost=evaluateCost[i];
+285             \}
+286         \}
+287 
+288         \textcolor{keywordflow}{if}(tempIndex!=-1)
+289         \{
+290             \hyperlink{structRRT_1_1rrtNode}{RRT::rrtNode} successNode=tempNodes[tempIndex];
+291             \hyperlink{structRRT_1_1rrtNode}{RRT::rrtNode} nearestNode=nearestNodes[tempIndex];
+292             \textcolor{keywordtype}{float} costN=gridVal[nearestNode.\hyperlink{structRRT_1_1rrtNode_a4c2096fa1d719cf2aa49cf21916a5a4b}{posX}/\hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{mapReduceSize}][nearestNode.
+      \hyperlink{structRRT_1_1rrtNode_a219cf78a0f5689bc84744df52c37e84d}{posY}/\hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{mapReduceSize}];  \textcolor{comment}{//温度场作为代价值}
+293             
+294             \textcolor{keywordflow}{if}(evaluateCost[tempIndex]>costN)  \textcolor{comment}{//防止RRT随机树退化}
+295                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+296             
+297             \textcolor{keywordtype}{float} tempToParentDistance=\hyperlink{rrt_8h_aaac2d108c57a5722b9d816baaed80945}{rrtStepSize};
+298             \textcolor{keywordtype}{bool} regressionFlag=\textcolor{keyword}{true};
+299             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<myRRT.\hyperlink{classRRT_a05dc852e0b777042e290dcc96bf605bb}{getTreeSize}(); i++)
+300             \{
+301                 \textcolor{keywordtype}{float} tempDistance=sqrt(pow(myRRT.\hyperlink{classRRT_afde36442771a9552bb97572098396c2b}{getNode}(i).\hyperlink{structRRT_1_1rrtNode_a4c2096fa1d719cf2aa49cf21916a5a4b}{posX} - successNode.
+      \hyperlink{structRRT_1_1rrtNode_a4c2096fa1d719cf2aa49cf21916a5a4b}{posX},2) + pow(myRRT.\hyperlink{classRRT_afde36442771a9552bb97572098396c2b}{getNode}(i).\hyperlink{structRRT_1_1rrtNode_a219cf78a0f5689bc84744df52c37e84d}{posY} - successNode.\hyperlink{structRRT_1_1rrtNode_a219cf78a0f5689bc84744df52c37e84d}{posY},2));
+302 
+303                 \textcolor{keywordflow}{if}(tempToParentDistance-tempDistance>1)
+304                 \{
+305                     regressionFlag=\textcolor{keyword}{false};
+306                     \textcolor{keywordflow}{break};
+307                 \}
+308             \}
+309             
+310             \textcolor{keywordflow}{if}(regressionFlag)
+311             \{
+312                 successNode.\hyperlink{structRRT_1_1rrtNode_aa8adf5b50e1a2a466771ae3af56b1658}{nodeID} = myRRT.\hyperlink{classRRT_a05dc852e0b777042e290dcc96bf605bb}{getTreeSize}();\textcolor{comment}{//设置tempNode的id值，结点个数代表编号}
+313                 successNode.\hyperlink{structRRT_1_1rrtNode_ab20e6f5be075c8feed605c935924df30}{depth}=nearestNodes[tempIndex].depth+1;\textcolor{comment}{//当前结点深度等于其父结点深度加1}
+314 
+315                 myRRT.\hyperlink{classRRT_a5a0591369964c82b95f08c9f868dbd54}{addNewNode}(successNode);
+316 
+317                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+318             \}
+319         \}
+320 
+321         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+322     \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_a2b6ded4f6e7719510d94371400f097d7}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!check\-If\-On\-Obstacles@{check\-If\-On\-Obstacles}}
+\index{check\-If\-On\-Obstacles@{check\-If\-On\-Obstacles}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{check\-If\-On\-Obstacles}]{\setlength{\rightskip}{0pt plus 5cm}bool rrt\-\_\-plan\-::rrt\-\_\-planner\-::check\-If\-On\-Obstacles (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-R\-T\-::rrt\-Node} \&}]{temp\-Node}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_a2b6ded4f6e7719510d94371400f097d7}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 764 行定义.
+
+
+\begin{DoxyCode}
+765 \{
+766     \textcolor{keywordflow}{if}((tempNode.\hyperlink{structRRT_1_1rrtNode_a4c2096fa1d719cf2aa49cf21916a5a4b}{posX}<\hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width})&&(tempNode.\hyperlink{structRRT_1_1rrtNode_a219cf78a0f5689bc84744df52c37e84d}{posY}<\hyperlink{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}{height}))
+767     \{
+768         \textcolor{keywordflow}{if}(\hyperlink{rrt__planner_8cpp_ab8e6863a3519a503a24344e88545eb3d}{OGM}[\hyperlink{classrrt__plan_1_1rrt__planner_a7df38e380fe80d69be29d1cea2879c59}{getCellIndex}(tempNode.\hyperlink{structRRT_1_1rrtNode_a4c2096fa1d719cf2aa49cf21916a5a4b}{posX},tempNode.\hyperlink{structRRT_1_1rrtNode_a219cf78a0f5689bc84744df52c37e84d}{posY})])
+769             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+770         \textcolor{keywordflow}{else}
+771             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+772     \}
+773     \textcolor{keywordflow}{else}
+774         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+775 \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_a50e32f9cd1421d374ea1aab601433b10}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!check\-Nodeto\-Goal@{check\-Nodeto\-Goal}}
+\index{check\-Nodeto\-Goal@{check\-Nodeto\-Goal}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{check\-Nodeto\-Goal}]{\setlength{\rightskip}{0pt plus 5cm}bool rrt\-\_\-plan\-::rrt\-\_\-planner\-::check\-Nodeto\-Goal (
+\begin{DoxyParamCaption}
+\item[{int}]{X, }
+\item[{int}]{Y, }
+\item[{{\bf R\-R\-T\-::rrt\-Node} \&}]{temp\-Node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrrt__plan_1_1rrt__planner_a50e32f9cd1421d374ea1aab601433b10}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 324 行定义.
+
+
+\begin{DoxyCode}
+325     \{
+326         \textcolor{keywordtype}{double} distance = sqrt(pow(X-tempNode.\hyperlink{structRRT_1_1rrtNode_a4c2096fa1d719cf2aa49cf21916a5a4b}{posX},2)+pow(Y-tempNode.\hyperlink{structRRT_1_1rrtNode_a219cf78a0f5689bc84744df52c37e84d}{posY},2));
+327         \textcolor{keywordflow}{if}(distance < \hyperlink{rrt_8h_aaac2d108c57a5722b9d816baaed80945}{rrtStepSize})  \textcolor{comment}{//goal与nearest之间距离小于rrtStepSize时即认为到达目标点}
+328         \{
+329             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+330         \}
+331         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+332     \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_a2647265d06a792b983b372af52cf5677}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!convert\-To\-Cell\-Index@{convert\-To\-Cell\-Index}}
+\index{convert\-To\-Cell\-Index@{convert\-To\-Cell\-Index}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{convert\-To\-Cell\-Index}]{\setlength{\rightskip}{0pt plus 5cm}int rrt\-\_\-plan\-::rrt\-\_\-planner\-::convert\-To\-Cell\-Index (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrrt__plan_1_1rrt__planner_a2647265d06a792b983b372af52cf5677}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 135 行定义.
+
+
+\begin{DoxyCode}
+136     \{
+137         \textcolor{keywordtype}{int} cellIndex;
+138 
+139         \textcolor{keywordtype}{float} newX = x / \hyperlink{classrrt__plan_1_1rrt__planner_ad23ca65f53176297ae7e9f40c7edeb69}{resolution};
+140         \textcolor{keywordtype}{float} newY = y / \hyperlink{classrrt__plan_1_1rrt__planner_ad23ca65f53176297ae7e9f40c7edeb69}{resolution};
+141 
+142         cellIndex = \hyperlink{classrrt__plan_1_1rrt__planner_a7df38e380fe80d69be29d1cea2879c59}{getCellIndex}(newY, newX);
+143 
+144         \textcolor{keywordflow}{return} cellIndex;
+145     \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_ad21e1c308a79678ca6265907bf6caa84}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!convert\-To\-Coordinate@{convert\-To\-Coordinate}}
+\index{convert\-To\-Coordinate@{convert\-To\-Coordinate}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{convert\-To\-Coordinate}]{\setlength{\rightskip}{0pt plus 5cm}void rrt\-\_\-plan\-::rrt\-\_\-planner\-::convert\-To\-Coordinate (
+\begin{DoxyParamCaption}
+\item[{int}]{index, }
+\item[{float \&}]{x, }
+\item[{float \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrrt__plan_1_1rrt__planner_ad21e1c308a79678ca6265907bf6caa84}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 148 行定义.
+
+
+\begin{DoxyCode}
+149     \{
+150         x = \hyperlink{classrrt__plan_1_1rrt__planner_a758810b2f257fe0778ed3eb1e970d99c}{getCellColID}(index) * \hyperlink{classrrt__plan_1_1rrt__planner_ad23ca65f53176297ae7e9f40c7edeb69}{resolution};
+151 
+152         y = \hyperlink{classrrt__plan_1_1rrt__planner_aa3c07d6b2b6bed62e4b60d3898fc80cf}{getCellRowID}(index) * \hyperlink{classrrt__plan_1_1rrt__planner_ad23ca65f53176297ae7e9f40c7edeb69}{resolution};
+153 
+154         x = x + \hyperlink{classrrt__plan_1_1rrt__planner_a92ba133c58a9ad0de8f425e856953ac1}{originX};
+155         y = y + \hyperlink{classrrt__plan_1_1rrt__planner_a5cfa182b92acb4e370ba19a213a0c22a}{originY};
+156     \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_aac5e9f72b4c55ce4aada8d80eed92a9e}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!convert\-To\-Plan@{convert\-To\-Plan}}
+\index{convert\-To\-Plan@{convert\-To\-Plan}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{convert\-To\-Plan}]{\setlength{\rightskip}{0pt plus 5cm}void rrt\-\_\-plan\-::rrt\-\_\-planner\-::convert\-To\-Plan (
+\begin{DoxyParamCaption}
+\item[{vector$<$ int $>$}]{best\-Path, }
+\item[{std\-::vector$<$ geometry\-\_\-msgs\-::\-Pose\-Stamped $>$ \&}]{plan, }
+\item[{geometry\-\_\-msgs\-::\-Pose\-Stamped}]{goal, }
+\item[{int}]{goal\-Cell}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_aac5e9f72b4c55ce4aada8d80eed92a9e}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 692 行定义.
+
+
+\begin{DoxyCode}
+693 \{
+694     \textcolor{comment}{// convert the path}
+695     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < rrtPath.size(); i++)
+696     \{
+697 
+698         \textcolor{keywordtype}{float} x = 0.0;
+699         \textcolor{keywordtype}{float} y = 0.0;
+700 
+701         \textcolor{keywordtype}{int} tempNodeId=rrtPath[i];
+702         \textcolor{keywordtype}{int} cellIndex=\hyperlink{classrrt__plan_1_1rrt__planner_a7df38e380fe80d69be29d1cea2879c59}{getCellIndex}(\hyperlink{rrt__planner_8cpp_a51725e16375c08b52f82eb2faa5a921c}{myRRT}.\hyperlink{classRRT_a54760030f6b61b258b6eec4472ced906}{getPosX}(tempNodeId),
+      \hyperlink{rrt__planner_8cpp_a51725e16375c08b52f82eb2faa5a921c}{myRRT}.\hyperlink{classRRT_a499a6d42d47b76c306a80573cba0a555}{getPosY}(tempNodeId));
+703 
+704 
+705         \hyperlink{classrrt__plan_1_1rrt__planner_ad21e1c308a79678ca6265907bf6caa84}{convertToCoordinate}(cellIndex, x, y);
+706 
+707         \textcolor{comment}{//cout<<"--cell"<<index<<": x="<<x<<",y="<<y<<endl;}
+708         \textcolor{comment}{//rrtlog<<"--cell"<<index<<": x="<<x<<",y="<<y<<endl;}
+709 
+710         geometry\_msgs::PoseStamped pose = goal;
+711 
+712 
+713         pose.pose.position.x = x;
+714         pose.pose.position.y = y;
+715         pose.pose.position.z = 0.0;
+716 
+717         pose.pose.orientation.x = 0.0;
+718         pose.pose.orientation.y = 0.0;
+719         pose.pose.orientation.z = 0.0;
+720         pose.pose.orientation.w = 1.0;
+721 
+722         plan.push\_back(pose);
+723     \}
+724 
+725 
+726     \textcolor{comment}{//处理最后一个结点，即是目标点goal}
+727     \textcolor{keywordtype}{float} final\_x = 0.0;
+728     \textcolor{keywordtype}{float} final\_y = 0.0;
+729     \textcolor{keywordtype}{int} final\_index = goalCell;
+730     \hyperlink{classrrt__plan_1_1rrt__planner_ad21e1c308a79678ca6265907bf6caa84}{convertToCoordinate}(final\_index, final\_x, final\_y);
+731     \textcolor{comment}{//cout<<"--cell"<<final\_index<<": final\_x="<<final\_x<<",final\_y="<<final\_y<<endl;}
+732     \textcolor{comment}{//rrtlog<<"--cell"<<final\_index<<": final\_x="<<final\_x<<",final\_y="<<final\_y<<endl;}
+733 
+734     geometry\_msgs::PoseStamped final\_pose = goal;
+735     final\_pose.pose.position.x = final\_x;
+736     final\_pose.pose.position.y = final\_y;
+737     final\_pose.pose.position.z = 0.0;
+738     final\_pose.pose.orientation.x = 0.0;
+739     final\_pose.pose.orientation.y = 0.0;
+740     final\_pose.pose.orientation.z = 0.0;
+741     final\_pose.pose.orientation.w = 1.0;
+742     plan.push\_back(final\_pose);  \textcolor{comment}{//最后一个结点，即是目标点}
+743 
+744 
+745     \textcolor{comment}{/*}
+746 \textcolor{comment}{    float path\_length = 0.0;}
+747 \textcolor{comment}{    std::vector<geometry\_msgs::PoseStamped>::iterator it = plan.begin();}
+748 \textcolor{comment}{}
+749 \textcolor{comment}{    geometry\_msgs::PoseStamped last\_pose;}
+750 \textcolor{comment}{    last\_pose = *it;}
+751 \textcolor{comment}{    it++;}
+752 \textcolor{comment}{    for (; it!=plan.end(); ++it) \{}
+753 \textcolor{comment}{        path\_length += hypot(  (*it).pose.position.x - last\_pose.pose.position.x,}
+754 \textcolor{comment}{                  (*it).pose.position.y - last\_pose.pose.position.y );}
+755 \textcolor{comment}{        last\_pose = *it;}
+756 \textcolor{comment}{    \}}
+757 \textcolor{comment}{    *}
+758 \textcolor{comment}{    */}
+759 
+760     \textcolor{comment}{//cout <<"The global path length: "<< path\_length<< " meters"<<endl;}
+761     \textcolor{comment}{//rrtlog<<"The global path length: "<< path\_length<< " meters"<<endl;}
+762 \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_a23e32ef1c189f5035a751047f84e052a}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!find\-Cell\-Path@{find\-Cell\-Path}}
+\index{find\-Cell\-Path@{find\-Cell\-Path}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{find\-Cell\-Path}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ int $>$ rrt\-\_\-plan\-::rrt\-\_\-planner\-::find\-Cell\-Path (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-R\-T} \&}]{my\-R\-R\-T, }
+\item[{int}]{start\-Cell, }
+\item[{int}]{goal\-Cell, }
+\item[{vector$<$ vector$<$ float $>$ $>$}]{grid\-Val}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_a23e32ef1c189f5035a751047f84e052a}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 651 行定义.
+
+
+\begin{DoxyCode}
+652 \{
+653     vector<int>  rrtPath;
+654 
+655     vector<RRT::rrtNode> randNodes;
+656 
+657     \textcolor{keywordtype}{bool} addNodeResult = \textcolor{keyword}{false}, nodeToGoal = \textcolor{keyword}{false};
+658 
+659     \textcolor{keywordflow}{while}(1)
+660     \{
+661         randNodes.clear();
+662         \textcolor{comment}{//generateTempPoint(tempNode,width, height);  //一次产生一个随机结点}
+663         \hyperlink{classrrt__plan_1_1rrt__planner_ac34f8c3a590fb6f3ba04c99500a8abae}{generateRandNodes}( myRRT,randNodes,\hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width}, \hyperlink{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}{height});  \textcolor{comment}{//一次产生一个随机结点数组}
+664 
+665         \textcolor{comment}{//addNodeResult = addNewPointtoRRT(myRRT,tempNode,rrtStepSize);  //经典RRT方法添加新结点}
+666         addNodeResult = \hyperlink{classrrt__plan_1_1rrt__planner_a22cb05cb13d3027310f3fcc2b394dda6}{addNewNodetoRRT}(myRRT,randNodes,
+      \hyperlink{classrrt__plan_1_1rrt__planner_aa3c07d6b2b6bed62e4b60d3898fc80cf}{getCellRowID}(goalCell), \hyperlink{classrrt__plan_1_1rrt__planner_a758810b2f257fe0778ed3eb1e970d99c}{getCellColID}(goalCell),
+      \hyperlink{rrt_8h_aaac2d108c57a5722b9d816baaed80945}{rrtStepSize},gridVal); \textcolor{comment}{//启发函数优化RRT方法}
+667 
+668         \textcolor{keywordflow}{if}(addNodeResult)
+669         \{
+670             \textcolor{comment}{//nodeToGoal = checkNodetoGoal(getCellRowID(goalCell),
+       getCellColID(goalCell),tempNode);//经典RRT方法添加新结点}
+671 
+672             \hyperlink{structRRT_1_1rrtNode}{RRT::rrtNode} lastNode=myRRT.\hyperlink{classRRT_afde36442771a9552bb97572098396c2b}{getNode}(myRRT.
+      \hyperlink{classRRT_a05dc852e0b777042e290dcc96bf605bb}{getTreeSize}()-1);
+673             nodeToGoal = \hyperlink{classrrt__plan_1_1rrt__planner_a50e32f9cd1421d374ea1aab601433b10}{checkNodetoGoal}(\hyperlink{classrrt__plan_1_1rrt__planner_aa3c07d6b2b6bed62e4b60d3898fc80cf}{getCellRowID}(goalCell), 
+      \hyperlink{classrrt__plan_1_1rrt__planner_a758810b2f257fe0778ed3eb1e970d99c}{getCellColID}(goalCell),lastNode);\textcolor{comment}{//启发函数优化RRT方法}
+674 
+675             \textcolor{keywordflow}{if}(nodeToGoal)
+676             \{
+677                 \textcolor{comment}{//path = myRRT.getRootToEndPath(tempNode.nodeID);//经典RRT方法得到路径}
+678 
+679                 rrtPath = myRRT.\hyperlink{classRRT_a487dc3036806a9fb506a718257d8a846}{getRootToEndPath}(myRRT.
+      \hyperlink{classRRT_a05dc852e0b777042e290dcc96bf605bb}{getTreeSize}()-1);\textcolor{comment}{//启发函数优化RRT方法得到路径}
+680 
+681                 \textcolor{keywordflow}{break};
+682             \}
+683         \}
+684     \}
+685 
+686     cout<<\textcolor{stringliteral}{"RRT nodeSum="}<<myRRT.\hyperlink{classRRT_a05dc852e0b777042e290dcc96bf605bb}{getTreeSize}()<<endl;
+687     \hyperlink{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}{irrtlog}<<\textcolor{stringliteral}{"RRT nodeSum="}<<myRRT.\hyperlink{classRRT_a05dc852e0b777042e290dcc96bf605bb}{getTreeSize}()<<endl;
+688 
+689     \textcolor{keywordflow}{return} rrtPath;
+690 \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_a0a4d334b13d1946044f041ae1ddc1a41}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!find\-Free\-Neighbor\-Cell@{find\-Free\-Neighbor\-Cell}}
+\index{find\-Free\-Neighbor\-Cell@{find\-Free\-Neighbor\-Cell}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{find\-Free\-Neighbor\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ int $>$ rrt\-\_\-plan\-::rrt\-\_\-planner\-::find\-Free\-Neighbor\-Cell (
+\begin{DoxyParamCaption}
+\item[{int}]{Cell\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_a0a4d334b13d1946044f041ae1ddc1a41}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 809 行定义.
+
+
+\begin{DoxyCode}
+810 \{
+811 
+812     \textcolor{keywordtype}{int} rowID=\hyperlink{classrrt__plan_1_1rrt__planner_aa3c07d6b2b6bed62e4b60d3898fc80cf}{getCellRowID}(CellID);
+813     \textcolor{keywordtype}{int} colID=\hyperlink{classrrt__plan_1_1rrt__planner_a758810b2f257fe0778ed3eb1e970d99c}{getCellColID}(CellID);
+814     \textcolor{keywordtype}{int} neighborIndex;
+815     vector <int>  freeNeighborCells;
+816 
+817     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=-1; i<=1; i++)
+818         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=-1; j<=1; j++)
+819         \{
+820             \textcolor{comment}{//check whether the index is valid}
+821             \textcolor{keywordflow}{if} ((rowID+i>=0)&&(rowID+i<\hyperlink{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}{height})&&(colID+j>=0)&&(colID+j<
+      \hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width})&& (!(i==0 && j==0)))
+822             \{
+823                 neighborIndex = \hyperlink{classrrt__plan_1_1rrt__planner_a7df38e380fe80d69be29d1cea2879c59}{getCellIndex}(rowID+i,colID+j);
+824                 \textcolor{keywordflow}{if}(\hyperlink{classrrt__plan_1_1rrt__planner_a7c923acf8ea571bf84a2ede5a0457491}{isFree}(neighborIndex) )
+825                     freeNeighborCells.push\_back(neighborIndex);
+826             \}
+827         \}
+828     \textcolor{keywordflow}{return}  freeNeighborCells;
+829 
+830 \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_ac34f8c3a590fb6f3ba04c99500a8abae}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!generate\-Rand\-Nodes@{generate\-Rand\-Nodes}}
+\index{generate\-Rand\-Nodes@{generate\-Rand\-Nodes}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{generate\-Rand\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}void rrt\-\_\-plan\-::rrt\-\_\-planner\-::generate\-Rand\-Nodes (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-R\-T} \&}]{my\-R\-R\-T, }
+\item[{vector$<$ {\bf R\-R\-T\-::rrt\-Node} $>$ \&}]{rand\-Nodes, }
+\item[{int}]{width, }
+\item[{int}]{height}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrrt__plan_1_1rrt__planner_ac34f8c3a590fb6f3ba04c99500a8abae}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 168 行定义.
+
+
+\begin{DoxyCode}
+169     \{
+170         \hyperlink{structRRT_1_1rrtNode}{RRT::rrtNode} loopNode;
+171 
+172         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<\hyperlink{rrt_8h_a962f9277eb583fb40d04a820752a9191}{randNodeNum}; i++)
+173         \{
+174             \textcolor{keywordtype}{int} x = rand() % \hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width} + 1;  \textcolor{comment}{//行}
+175             \textcolor{keywordtype}{int} y = rand() % \hyperlink{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}{height} + 1;  \textcolor{comment}{//列}
+176           
+177             loopNode.\hyperlink{structRRT_1_1rrtNode_a4c2096fa1d719cf2aa49cf21916a5a4b}{posX} = x;
+178             loopNode.\hyperlink{structRRT_1_1rrtNode_a219cf78a0f5689bc84744df52c37e84d}{posY} = y;
+179 
+180             randNodes.push\_back(loopNode);
+181         \}
+182 
+183     \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_aaaab60d718aa349ef2df8dcf0402f207}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!generate\-Temp\-Point@{generate\-Temp\-Point}}
+\index{generate\-Temp\-Point@{generate\-Temp\-Point}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{generate\-Temp\-Point}]{\setlength{\rightskip}{0pt plus 5cm}void rrt\-\_\-plan\-::rrt\-\_\-planner\-::generate\-Temp\-Point (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-R\-T\-::rrt\-Node} \&}]{temp\-Node, }
+\item[{int}]{width, }
+\item[{int}]{height}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrrt__plan_1_1rrt__planner_aaaab60d718aa349ef2df8dcf0402f207}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 160 行定义.
+
+
+\begin{DoxyCode}
+161     \{
+162         \textcolor{keywordtype}{int} x = rand() % \hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width} + 1;  \textcolor{comment}{//行}
+163         \textcolor{keywordtype}{int} y = rand() % \hyperlink{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}{height} + 1;  \textcolor{comment}{//列}
+164         tempNode.\hyperlink{structRRT_1_1rrtNode_a4c2096fa1d719cf2aa49cf21916a5a4b}{posX} = x;
+165         tempNode.\hyperlink{structRRT_1_1rrtNode_a219cf78a0f5689bc84744df52c37e84d}{posY} = y;
+166     \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_a758810b2f257fe0778ed3eb1e970d99c}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!get\-Cell\-Col\-I\-D@{get\-Cell\-Col\-I\-D}}
+\index{get\-Cell\-Col\-I\-D@{get\-Cell\-Col\-I\-D}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{get\-Cell\-Col\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}int rrt\-\_\-plan\-::rrt\-\_\-planner\-::get\-Cell\-Col\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrrt__plan_1_1rrt__planner_a758810b2f257fe0778ed3eb1e970d99c}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 130 行定义.
+
+
+\begin{DoxyCode}
+131     \{
+132         \textcolor{keywordflow}{return} index%\hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width};
+133     \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_a7df38e380fe80d69be29d1cea2879c59}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!get\-Cell\-Index@{get\-Cell\-Index}}
+\index{get\-Cell\-Index@{get\-Cell\-Index}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{get\-Cell\-Index}]{\setlength{\rightskip}{0pt plus 5cm}int rrt\-\_\-plan\-::rrt\-\_\-planner\-::get\-Cell\-Index (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrrt__plan_1_1rrt__planner_a7df38e380fe80d69be29d1cea2879c59}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 120 行定义.
+
+
+\begin{DoxyCode}
+121     \{
+122         \textcolor{keywordflow}{return} (i*\hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width})+j;
+123     \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_aa3c07d6b2b6bed62e4b60d3898fc80cf}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!get\-Cell\-Row\-I\-D@{get\-Cell\-Row\-I\-D}}
+\index{get\-Cell\-Row\-I\-D@{get\-Cell\-Row\-I\-D}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{get\-Cell\-Row\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}int rrt\-\_\-plan\-::rrt\-\_\-planner\-::get\-Cell\-Row\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrrt__plan_1_1rrt__planner_aa3c07d6b2b6bed62e4b60d3898fc80cf}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 125 行定义.
+
+
+\begin{DoxyCode}
+126     \{
+127         \textcolor{keywordflow}{return} index/\hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width};
+128     \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_a8f1fde39d2f3b01d7b2d11dc9482e1dc}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!get\-Corrdinate@{get\-Corrdinate}}
+\index{get\-Corrdinate@{get\-Corrdinate}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{get\-Corrdinate}]{\setlength{\rightskip}{0pt plus 5cm}void rrt\-\_\-plan\-::rrt\-\_\-planner\-::get\-Corrdinate (
+\begin{DoxyParamCaption}
+\item[{float \&}]{x, }
+\item[{float \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrrt__plan_1_1rrt__planner_a8f1fde39d2f3b01d7b2d11dc9482e1dc}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 114 行定义.
+
+
+\begin{DoxyCode}
+115     \{
+116         x = x - \hyperlink{classrrt__plan_1_1rrt__planner_a92ba133c58a9ad0de8f425e856953ac1}{originX};
+117         y = y - \hyperlink{classrrt__plan_1_1rrt__planner_a5cfa182b92acb4e370ba19a213a0c22a}{originY};
+118     \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_aff6d98168c072b176287fc9c444349c6}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!get\-Grid\-Val@{get\-Grid\-Val}}
+\index{get\-Grid\-Val@{get\-Grid\-Val}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{get\-Grid\-Val}]{\setlength{\rightskip}{0pt plus 5cm}void rrt\-\_\-plan\-::rrt\-\_\-planner\-::get\-Grid\-Val (
+\begin{DoxyParamCaption}
+\item[{vector$<$ vector$<$ float $>$ $>$ \&}]{grid\-Val, }
+\item[{int}]{start\-Row\-I\-D, }
+\item[{int}]{start\-Col\-I\-D, }
+\item[{int}]{goal\-Row\-I\-D, }
+\item[{int}]{goal\-Col\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_aff6d98168c072b176287fc9c444349c6}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 240 行定义.
+
+
+\begin{DoxyCode}
+241 \{
+242     \textcolor{keywordtype}{int} subwidth=\hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width}/\hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{mapReduceSize},subheight=\hyperlink{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}{height}/
+      \hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{mapReduceSize};
+243     \textcolor{keywordtype}{int} i , j , m , n , s;
+244     \textcolor{keywordtype}{float} gridMap[subheight][subwidth];
+245 
+246 \textcolor{preprocessor}{    #pragma opm parallel for private(i,j) schedule(static)}
+247 \textcolor{preprocessor}{}    \textcolor{keywordflow}{for} (i=0; i<subheight; i++)
+248     \{
+249         \textcolor{keywordflow}{for} (j=0; j<subwidth; j++)
+250         \{
+251             gridMap[i][j] = 1.0f;  \textcolor{comment}{//1表示自由区域}
+252 
+253             gridVal[i][j] = 0.0f;
+254             \textcolor{keywordflow}{for} (m=0; m<\hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{mapReduceSize}; m++)
+255             \{
+256                 \textcolor{keywordflow}{for} (n=0; n<\hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{mapReduceSize}; n++)
+257                 \{
+258                     \textcolor{keywordtype}{int} cellIndex=\hyperlink{classrrt__plan_1_1rrt__planner_a7df38e380fe80d69be29d1cea2879c59}{getCellIndex}(i*mapReduceSize+m,j*mapReduceSize+n);
+259                     \textcolor{keywordflow}{if}(!\hyperlink{rrt__planner_8cpp_a56d338f4195d0ebc4906a1085f3eed83}{OGM2}[cellIndex])
+260                     \{
+261                         gridMap[i][j] = 0.0f;  \textcolor{comment}{//0表示障碍物}
+262                     \}
+263                 \}
+264             \}
+265         \}
+266     \}
+267 
+268     
+269     \textcolor{comment}{//irrtlog<<"#############################"<<endl;}
+270     \textcolor{comment}{//for(int k=0; k<subheight; k++)}
+271     \textcolor{comment}{//\{}
+272      \textcolor{comment}{//   for(int l=0; l<subwidth; l++)}
+273      \textcolor{comment}{//   \{}
+274      \textcolor{comment}{//       irrtlog<<gridMap[k][l]<<",";}
+275     \textcolor{comment}{//    \}}
+276     \textcolor{comment}{//    irrtlog<<endl;}
+277     \textcolor{comment}{//\}}
+278     \textcolor{comment}{//irrtlog<<"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"<<endl;}
+279     
+280 
+281     \textcolor{keywordtype}{int} initIdx[2] = \{0\}; \textcolor{comment}{// index of initial point}
+282     \textcolor{keywordtype}{int} goalIdx[2] = \{0\}; \textcolor{comment}{// index of goal point}
+283 
+284     \hyperlink{classrrt__plan_1_1rrt__planner_a980538776b19bd9610458e45991cdf0b}{getIdx}(startRowID, startColID);
+285     \hyperlink{classrrt__plan_1_1rrt__planner_a980538776b19bd9610458e45991cdf0b}{getIdx}(goalRowID, goalColID);
+286 
+287     initIdx[0]=startRowID;
+288     initIdx[1]=startColID;
+289     goalIdx[0]=goalRowID;
+290     goalIdx[1]=goalColID;
+291 
+292     gridVal[initIdx[0]][initIdx[1]] = \hyperlink{rrt_8h_ad255730b84e5f3fabaf7cff0f5b835e2}{initialTemperature};
+293     gridVal[goalIdx[0]][goalIdx[1]] = -\hyperlink{rrt_8h_ad255730b84e5f3fabaf7cff0f5b835e2}{initialTemperature};
+294     
+295     
+296 \textcolor{preprocessor}{    #pragma omp parallel for private(s,i,j) schedule(static)}
+297 \textcolor{preprocessor}{}    \textcolor{keywordflow}{for} (s=0; s<\hyperlink{rrt_8h_ab205788f3d8cd37826d8ae7bd4675cee}{iterationTime}; s++)
+298     \{
+299         \{
+300             \textcolor{keywordflow}{for} (i=1; i<subheight-1; i++)
+301             \{
+302                 \textcolor{keywordflow}{for} (j=1; j<subwidth-1; j++)
+303                 \{
+304                     \textcolor{keywordflow}{if} (gridMap[i][j])
+305                     \{
+306                         \textcolor{keywordtype}{float} delta = (gridVal[i-1][j]*gridMap[i-1][j]
+307                                        +gridVal[i][j-1]*gridMap[i][j-1]
+308                                        +gridVal[i+1][j]*gridMap[i+1][j]
+309                                        +gridVal[i][j+1]*gridMap[i][j+1])
+310                                       /(gridMap[i-1][j]+gridMap[i][j-1]+gridMap[i+1][j]+gridMap[i][j+1]);
+311                         gridVal[i][j] = delta;
+312                     \}
+313                 \}
+314             \}
+315         \}
+316     \}
+317 \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_a980538776b19bd9610458e45991cdf0b}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!get\-Idx@{get\-Idx}}
+\index{get\-Idx@{get\-Idx}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{get\-Idx}]{\setlength{\rightskip}{0pt plus 5cm}void rrt\-\_\-plan\-::rrt\-\_\-planner\-::get\-Idx (
+\begin{DoxyParamCaption}
+\item[{int \&}]{x, }
+\item[{int \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrrt__plan_1_1rrt__planner_a980538776b19bd9610458e45991cdf0b}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 108 行定义.
+
+
+\begin{DoxyCode}
+109     \{
+110         x = x/\hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{mapReduceSize};
+111         y = y/\hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{mapReduceSize};
+112     \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_a7746337004ecc5a7bdad176b5033b5bc}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!get\-Rotate\-Angle@{get\-Rotate\-Angle}}
+\index{get\-Rotate\-Angle@{get\-Rotate\-Angle}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{get\-Rotate\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}double rrt\-\_\-plan\-::rrt\-\_\-planner\-::get\-Rotate\-Angle (
+\begin{DoxyParamCaption}
+\item[{double}]{x1, }
+\item[{double}]{y1, }
+\item[{double}]{x2, }
+\item[{double}]{y2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classrrt__plan_1_1rrt__planner_a7746337004ecc5a7bdad176b5033b5bc}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 197 行定义.
+
+
+\begin{DoxyCode}
+198     \{
+199         \textcolor{keyword}{const} \textcolor{keywordtype}{double} epsilon = 1.0e-6;
+200         \textcolor{keyword}{const} \textcolor{keywordtype}{double} nyPI = acos(-1.0);
+201         \textcolor{keywordtype}{double} dist, dot, degree, angle;
+202 
+203         \textcolor{comment}{// normalize}
+204         dist = sqrt( x1 * x1 + y1 * y1 );
+205         x1 /= dist;
+206         y1 /= dist;
+207         dist = sqrt( x2 * x2 + y2 * y2 );
+208         x2 /= dist;
+209         y2 /= dist;
+210         \textcolor{comment}{// dot product}
+211         dot = x1 * x2 + y1 * y2;
+212         \textcolor{keywordflow}{if} ( fabs(dot-1.0) <= epsilon )
+213             angle = 0.0;
+214         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ( fabs(dot+1.0) <= epsilon )
+215             angle = nyPI;
+216         \textcolor{keywordflow}{else}
+217         \{
+218             \textcolor{keywordtype}{double} cross;
+219 
+220             angle = acos(dot);
+221             \textcolor{comment}{//cross product}
+222             cross = x1 * y2 - x2 * y1;
+223             \textcolor{comment}{// vector p2 is clockwise from vector p1}
+224             \textcolor{comment}{// with respect to the origin (0.0)}
+225             \textcolor{keywordflow}{if} (cross < 0 )
+226             \{
+227                 angle = 2 * nyPI - angle;
+228             \}
+229         \}
+230         \textcolor{comment}{//degree = angle *  180.0 / nyPI;}
+231         \textcolor{comment}{//return degree;}
+232         \textcolor{keywordflow}{return} angle;
+233     \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_aec216e5abd94aa73b71a4db4a3e89c9d}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!initialize@{initialize}}
+\index{initialize@{initialize}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}void rrt\-\_\-plan\-::rrt\-\_\-planner\-::initialize (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{costmap\-\_\-2d\-::\-Costmap2\-D\-R\-O\-S $\ast$}]{costmap\-\_\-ros}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_aec216e5abd94aa73b71a4db4a3e89c9d}
+overriden classes from interface nav\-\_\-core\-::\-Base\-Global\-Planner 
+
+在文件 rrt\-\_\-planner.\-cpp 第 74 行定义.
+
+
+\begin{DoxyCode}
+75 \{
+76 
+77     \textcolor{keywordflow}{if} (!\hyperlink{classrrt__plan_1_1rrt__planner_ac1cd8655573adac056ae922a92337b8d}{initialized\_})
+78     \{
+79         \hyperlink{classrrt__plan_1_1rrt__planner_a3dcf8908136ace532176511eb1861528}{costmap\_ros\_} = costmap\_ros;
+80         \hyperlink{classrrt__plan_1_1rrt__planner_ad6f48786945a4a394c95de25cd4c77d2}{costmap\_} = \hyperlink{classrrt__plan_1_1rrt__planner_a3dcf8908136ace532176511eb1861528}{costmap\_ros\_}->getCostmap();
+81 
+82         ros::NodeHandle private\_nh(\textcolor{stringliteral}{"~/"} + name);
+83 
+84         \hyperlink{classrrt__plan_1_1rrt__planner_a92ba133c58a9ad0de8f425e856953ac1}{originX} = \hyperlink{classrrt__plan_1_1rrt__planner_ad6f48786945a4a394c95de25cd4c77d2}{costmap\_}->getOriginX();
+85         \hyperlink{classrrt__plan_1_1rrt__planner_a5cfa182b92acb4e370ba19a213a0c22a}{originY} = \hyperlink{classrrt__plan_1_1rrt__planner_ad6f48786945a4a394c95de25cd4c77d2}{costmap\_}->getOriginY();
+86 
+87         \hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width} = \hyperlink{classrrt__plan_1_1rrt__planner_ad6f48786945a4a394c95de25cd4c77d2}{costmap\_}->getSizeInCellsX();
+88         \hyperlink{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}{height} = \hyperlink{classrrt__plan_1_1rrt__planner_ad6f48786945a4a394c95de25cd4c77d2}{costmap\_}->getSizeInCellsY();
+89         \hyperlink{classrrt__plan_1_1rrt__planner_ad23ca65f53176297ae7e9f40c7edeb69}{resolution} = \hyperlink{classrrt__plan_1_1rrt__planner_ad6f48786945a4a394c95de25cd4c77d2}{costmap\_}->getResolution();
+90         \hyperlink{rrt__planner_8cpp_a298f4debf9e9db57dcaa736916e4b451}{mapSize} = \hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width}*\hyperlink{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}{height};
+91 
+92         ROS\_INFO(\textcolor{stringliteral}{"---originX=%f,originY=%f---"},\hyperlink{classrrt__plan_1_1rrt__planner_a92ba133c58a9ad0de8f425e856953ac1}{originX},\hyperlink{classrrt__plan_1_1rrt__planner_a5cfa182b92acb4e370ba19a213a0c22a}{originY});
+93 
+94         ROS\_INFO(\textcolor{stringliteral}{"---width=%d,height=%d---"},\hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width},height);
+95 
+96         ROS\_INFO(\textcolor{stringliteral}{"---resolution=%f---"},\hyperlink{classrrt__plan_1_1rrt__planner_ad23ca65f53176297ae7e9f40c7edeb69}{resolution});
+97 
+98         \hyperlink{classrrt__plan_1_1rrt__planner_a6beed3a62613c7e24813416185d12929}{plan\_pub\_} = private\_nh.advertise<nav\_msgs::Path>(\textcolor{stringliteral}{"plan"}, 1);
+99         \hyperlink{classrrt__plan_1_1rrt__planner_a142a2d4c28bcaa2798493accf32690ee}{plan\_pub\_2} = private\_nh.advertise<nav\_msgs::Path>(\textcolor{stringliteral}{"plan2"}, 1);
+100 
+101         \hyperlink{rrt__planner_8cpp_ab8e6863a3519a503a24344e88545eb3d}{OGM} = \textcolor{keyword}{new} \textcolor{keywordtype}{bool} [\hyperlink{rrt__planner_8cpp_a298f4debf9e9db57dcaa736916e4b451}{mapSize}];
+102         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} iy = 0; iy < \hyperlink{classrrt__plan_1_1rrt__planner_ad6f48786945a4a394c95de25cd4c77d2}{costmap\_}->getSizeInCellsY(); iy++)
+103         \{
+104             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ix = 0; ix < \hyperlink{classrrt__plan_1_1rrt__planner_ad6f48786945a4a394c95de25cd4c77d2}{costmap\_}->getSizeInCellsX(); ix++)
+105             \{
+106                 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} cost = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\hyperlink{classrrt__plan_1_1rrt__planner_ad6f48786945a4a394c95de25cd4c77d2}{costmap\_}->getCost(ix, iy));
+107 
+108                 \textcolor{comment}{//if (cost == 0)}
+109                 \textcolor{keywordflow}{if}(cost<=127)  \textcolor{comment}{// 调节避障条件，范围越大，要求越松散}
+110                     OGM[iy*\hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width}+ix]=\textcolor{keyword}{true};
+111                 \textcolor{keywordflow}{else}
+112                     OGM[iy*\hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width}+ix]=\textcolor{keyword}{false};
+113             \}
+114         \}
+115 
+116         \hyperlink{rrt__planner_8cpp_a56d338f4195d0ebc4906a1085f3eed83}{OGM2} = \textcolor{keyword}{new} \textcolor{keywordtype}{bool} [\hyperlink{rrt__planner_8cpp_a298f4debf9e9db57dcaa736916e4b451}{mapSize}];
+117         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} iy = 0; iy < \hyperlink{classrrt__plan_1_1rrt__planner_ad6f48786945a4a394c95de25cd4c77d2}{costmap\_}->getSizeInCellsY(); iy++)
+118         \{
+119             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ix = 0; ix < \hyperlink{classrrt__plan_1_1rrt__planner_ad6f48786945a4a394c95de25cd4c77d2}{costmap\_}->getSizeInCellsX(); ix++)
+120             \{
+121                 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} cost = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\hyperlink{classrrt__plan_1_1rrt__planner_ad6f48786945a4a394c95de25cd4c77d2}{costmap\_}->getCost(ix, iy));
+122 
+123                 \textcolor{keywordflow}{if}(cost==254)  \textcolor{comment}{// 调节避障条件，范围越大，要求越松散}
+124                     \hyperlink{rrt__planner_8cpp_a56d338f4195d0ebc4906a1085f3eed83}{OGM2}[iy*\hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width}+ix]=\textcolor{keyword}{false};
+125                 \textcolor{keywordflow}{else}
+126                     \hyperlink{rrt__planner_8cpp_a56d338f4195d0ebc4906a1085f3eed83}{OGM2}[iy*\hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width}+ix]=\textcolor{keyword}{true};
+127             \}
+128         \}
+129         
+130         ROS\_INFO(\textcolor{stringliteral}{"---rrt planner1 initialized successfully---"});
+131 
+132         \hyperlink{classrrt__plan_1_1rrt__planner_ac1cd8655573adac056ae922a92337b8d}{initialized\_} = \textcolor{keyword}{true};
+133     \}
+134     \textcolor{keywordflow}{else}
+135     \{
+136         ROS\_WARN(\textcolor{stringliteral}{"---This planner1 has already been initialized... doing nothing---"});
+137     \}
+138 \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_a07347499c296c693631f24dfb1cb4196}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!is\-Cell\-Inside\-Map@{is\-Cell\-Inside\-Map}}
+\index{is\-Cell\-Inside\-Map@{is\-Cell\-Inside\-Map}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{is\-Cell\-Inside\-Map}]{\setlength{\rightskip}{0pt plus 5cm}bool rrt\-\_\-plan\-::rrt\-\_\-planner\-::is\-Cell\-Inside\-Map (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_a07347499c296c693631f24dfb1cb4196}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 778 行定义.
+
+
+\begin{DoxyCode}
+779 \{
+780     \textcolor{keywordtype}{bool} valid = \textcolor{keyword}{true};
+781 
+782     \textcolor{keywordflow}{if} (x > (\hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width} * \hyperlink{classrrt__plan_1_1rrt__planner_ad23ca65f53176297ae7e9f40c7edeb69}{resolution}) || y > (\hyperlink{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}{height} * resolution))
+783         valid = \textcolor{keyword}{false};
+784 
+785     \textcolor{keywordflow}{return} valid;
+786 \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_a7c923acf8ea571bf84a2ede5a0457491}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!is\-Free@{is\-Free}}
+\index{is\-Free@{is\-Free}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{is\-Free}]{\setlength{\rightskip}{0pt plus 5cm}bool rrt\-\_\-plan\-::rrt\-\_\-planner\-::is\-Free (
+\begin{DoxyParamCaption}
+\item[{int}]{Cell\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_a7c923acf8ea571bf84a2ede5a0457491}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 804 行定义.
+
+
+\begin{DoxyCode}
+805 \{
+806     \textcolor{keywordflow}{return} \hyperlink{rrt__planner_8cpp_ab8e6863a3519a503a24344e88545eb3d}{OGM}[CellID];
+807 \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_ac6b3b3e1aa57e2dd76874064f289f370}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!is\-Free@{is\-Free}}
+\index{is\-Free@{is\-Free}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{is\-Free}]{\setlength{\rightskip}{0pt plus 5cm}bool rrt\-\_\-plan\-::rrt\-\_\-planner\-::is\-Free (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_ac6b3b3e1aa57e2dd76874064f289f370}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 796 行定义.
+
+
+\begin{DoxyCode}
+797 \{
+798     \textcolor{keywordtype}{int} CellID = \hyperlink{classrrt__plan_1_1rrt__planner_a7df38e380fe80d69be29d1cea2879c59}{getCellIndex}(i, j);
+799     \textcolor{keywordflow}{return} \hyperlink{rrt__planner_8cpp_ab8e6863a3519a503a24344e88545eb3d}{OGM}[CellID];
+800 
+801 \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_aa43a4ec62844e679d9e0aefcbfa5f286}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!is\-Start\-And\-Goal\-Cells\-Valid@{is\-Start\-And\-Goal\-Cells\-Valid}}
+\index{is\-Start\-And\-Goal\-Cells\-Valid@{is\-Start\-And\-Goal\-Cells\-Valid}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{is\-Start\-And\-Goal\-Cells\-Valid}]{\setlength{\rightskip}{0pt plus 5cm}bool rrt\-\_\-plan\-::rrt\-\_\-planner\-::is\-Start\-And\-Goal\-Cells\-Valid (
+\begin{DoxyParamCaption}
+\item[{int}]{start\-Cell, }
+\item[{int}]{goal\-Cell}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_aa43a4ec62844e679d9e0aefcbfa5f286}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 833 行定义.
+
+
+\begin{DoxyCode}
+834 \{
+835     \textcolor{keywordtype}{bool} isvalid=\textcolor{keyword}{true};
+836     \textcolor{keywordtype}{bool} isFreeStartCell=\hyperlink{classrrt__plan_1_1rrt__planner_a7c923acf8ea571bf84a2ede5a0457491}{isFree}(startCell);
+837     \textcolor{keywordtype}{bool} isFreeGoalCell=\hyperlink{classrrt__plan_1_1rrt__planner_a7c923acf8ea571bf84a2ede5a0457491}{isFree}(goalCell);
+838     \textcolor{keywordflow}{if} (startCell==goalCell)
+839     \{
+840         cout << \textcolor{stringliteral}{"------The Start and the Goal cells are the same...------"} << endl;
+841         isvalid = \textcolor{keyword}{false};
+842     \}
+843     \textcolor{keywordflow}{else}
+844     \{
+845         isvalid=(isFreeStartCell&&isFreeGoalCell);
+846     \}
+847     \textcolor{keywordflow}{return} isvalid;
+848 \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_a211f1d665d81c1a340d06cdc327fadf4}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!make\-Plan@{make\-Plan}}
+\index{make\-Plan@{make\-Plan}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{make\-Plan}]{\setlength{\rightskip}{0pt plus 5cm}bool rrt\-\_\-plan\-::rrt\-\_\-planner\-::make\-Plan (
+\begin{DoxyParamCaption}
+\item[{const geometry\-\_\-msgs\-::\-Pose\-Stamped \&}]{start, }
+\item[{const geometry\-\_\-msgs\-::\-Pose\-Stamped \&}]{goal, }
+\item[{std\-::vector$<$ geometry\-\_\-msgs\-::\-Pose\-Stamped $>$ \&}]{plan}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_a211f1d665d81c1a340d06cdc327fadf4}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 382 行定义.
+
+
+\begin{DoxyCode}
+384 \{
+385     srand((\textcolor{keywordtype}{unsigned})time(NULL));\textcolor{comment}{//设置随机数种子}
+386 
+387     \textcolor{keywordflow}{if} (!\hyperlink{classrrt__plan_1_1rrt__planner_ac1cd8655573adac056ae922a92337b8d}{initialized\_})
+388     \{
+389         ROS\_ERROR(\textcolor{stringliteral}{"---The planner has not been initialized, please call initialize() to use the planner---"}
+      );
+390         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+391     \}
+392 
+393     \textcolor{keywordflow}{if} (goal.header.frame\_id != \hyperlink{classrrt__plan_1_1rrt__planner_a3dcf8908136ace532176511eb1861528}{costmap\_ros\_}->getGlobalFrameID())
+394     \{
+395         ROS\_ERROR(\textcolor{stringliteral}{"---This planner as configured will only accept goals in the %s frame, but a goal was
+       sent in the %s frame.---"},
+396                   \hyperlink{classrrt__plan_1_1rrt__planner_a3dcf8908136ace532176511eb1861528}{costmap\_ros\_}->getGlobalFrameID().c\_str(), goal.header.frame\_id.c\_str());
+397         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+398     \}
+399 
+400 
+401     plan.clear();
+402 
+403     tf::Stamped < tf::Pose > goal\_tf;
+404     tf::Stamped < tf::Pose > start\_tf;
+405 
+406     poseStampedMsgToTF(goal, goal\_tf);
+407     poseStampedMsgToTF(start, start\_tf);
+408 
+409     \textcolor{comment}{// convert the start and goal positions}
+410 
+411     \textcolor{keywordtype}{float} startX = start.pose.position.x;
+412     \textcolor{keywordtype}{float} startY = start.pose.position.y;
+413 
+414     \textcolor{keywordtype}{float} goalX = goal.pose.position.x;
+415     \textcolor{keywordtype}{float} goalY = goal.pose.position.y;
+416 
+417     \hyperlink{classrrt__plan_1_1rrt__planner_a8f1fde39d2f3b01d7b2d11dc9482e1dc}{getCorrdinate}(startX, startY);
+418     \hyperlink{classrrt__plan_1_1rrt__planner_a8f1fde39d2f3b01d7b2d11dc9482e1dc}{getCorrdinate}(goalX, goalY);
+419 
+420     \textcolor{keywordtype}{int} startCell;
+421     \textcolor{keywordtype}{int} goalCell;
+422 
+423     \textcolor{comment}{//ROS\_INFO("---startX=%f,startY=%f---",startX,startY);}
+424     \textcolor{comment}{//ROS\_INFO("---goalX=%f,goalY=%f---",goalX,goalY);}
+425 
+426     \textcolor{keywordflow}{if} (\hyperlink{classrrt__plan_1_1rrt__planner_a07347499c296c693631f24dfb1cb4196}{isCellInsideMap}(startX, startY) && \hyperlink{classrrt__plan_1_1rrt__planner_a07347499c296c693631f24dfb1cb4196}{isCellInsideMap}(goalX, goalY))
+427     \{
+428         startCell = \hyperlink{classrrt__plan_1_1rrt__planner_a2647265d06a792b983b372af52cf5677}{convertToCellIndex}(startX, startY);
+429         goalCell = \hyperlink{classrrt__plan_1_1rrt__planner_a2647265d06a792b983b372af52cf5677}{convertToCellIndex}(goalX, goalY);
+430         \textcolor{comment}{//cout << startCell <<"\(\backslash\)t"<< start.pose.position.x <<"\(\backslash\)t"<< start.pose.position.y <<"\(\backslash\)t"}
+431         \textcolor{comment}{//    << goalCell <<"\(\backslash\)t"<< goal.pose.position.x <<"\(\backslash\)t"<< goal.pose.position.y<<"\(\backslash\)n";}
+432     \}
+433     \textcolor{keywordflow}{else}
+434     \{
+435         ROS\_WARN(\textcolor{stringliteral}{"---the start or goal is out of the map---"});
+436         \textcolor{comment}{//rrtlog<<"---the start or goal is out of the map---"<<endl;}
+437         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+438     \}
+439 
+440     \textcolor{comment}{//cout<<"startposion:"<<getCellRowID(startCell)<<"  "<<getCellColID(startCell)<<endl;}
+441     \textcolor{comment}{//cout<<"goalposion:"<<getCellRowID(goalCell)<<"  "<<getCellColID(goalCell)<<endl;}
+442 
+443     vector<int> rrtPath;
+444 
+445     \textcolor{keywordflow}{if} (\hyperlink{classrrt__plan_1_1rrt__planner_aa43a4ec62844e679d9e0aefcbfa5f286}{isStartAndGoalCellsValid}(startCell, goalCell))
+446     \{
+447      
+448             \textcolor{keywordtype}{long} t1,t2,t3;
+449             t1=\hyperlink{rrt__planner_8cpp_a3b34910310800875174c4846e64a61bd}{getCurrentTime}();
+450             \textcolor{comment}{//timespec time1, time2, time3;}
+451             \textcolor{comment}{/* take current time here */}
+452             \textcolor{comment}{//clock\_gettime(CLOCK\_PROCESS\_CPUTIME\_ID, &time1);}
+453 
+454             vector<vector<float> > gridVal;
+455             gridVal.clear();
+456 
+457             gridVal.resize(\hyperlink{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}{height}/\hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{mapReduceSize});
+458             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<(\hyperlink{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}{height}/\hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{mapReduceSize}); i++)
+459                 gridVal[i].resize(\hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width}/\hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{mapReduceSize});
+460 
+461             \hyperlink{classrrt__plan_1_1rrt__planner_aff6d98168c072b176287fc9c444349c6}{getGridVal}(gridVal,\hyperlink{classrrt__plan_1_1rrt__planner_aa3c07d6b2b6bed62e4b60d3898fc80cf}{getCellRowID}(startCell), 
+      \hyperlink{classrrt__plan_1_1rrt__planner_a758810b2f257fe0778ed3eb1e970d99c}{getCellColID}(startCell),\hyperlink{classrrt__plan_1_1rrt__planner_aa3c07d6b2b6bed62e4b60d3898fc80cf}{getCellRowID}(goalCell), 
+      \hyperlink{classrrt__plan_1_1rrt__planner_a758810b2f257fe0778ed3eb1e970d99c}{getCellColID}(goalCell));
+462             \textcolor{comment}{//clock\_gettime(CLOCK\_PROCESS\_CPUTIME\_ID, &time2);}
+463              t2=\hyperlink{rrt__planner_8cpp_a3b34910310800875174c4846e64a61bd}{getCurrentTime}();
+464             
+465             
+466             \hyperlink{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}{irrtlog}<<\textcolor{stringliteral}{"+++++++++++++++++++++++++++++++"}<<endl;
+467             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} k=0; k<(\hyperlink{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}{height}/\hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{mapReduceSize}); k++)
+468             \{
+469                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} l=0; l<(\hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width}/\hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{mapReduceSize}-1); l++)
+470                 \{
+471                     \hyperlink{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}{irrtlog}<<gridVal[k][l]<<\textcolor{stringliteral}{" "};
+472                 \}
+473                 \hyperlink{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}{irrtlog}<<gridVal[k][\hyperlink{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{width}/\hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{mapReduceSize}]<<endl;
+474                 \textcolor{comment}{//irrtlog<<endl;}
+475             \}
+476             \hyperlink{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}{irrtlog}<<\textcolor{stringliteral}{"-------------------------------"}<<endl;
+477             
+478             
+479 
+480             \hyperlink{rrt__planner_8cpp_a51725e16375c08b52f82eb2faa5a921c}{myRRT}.\hyperlink{classRRT_affd1f4f4e35541cdca748bac5c1bbd34}{clearRRT}();
+481             \hyperlink{classRRT}{RRT} temprrt(\hyperlink{classrrt__plan_1_1rrt__planner_aa3c07d6b2b6bed62e4b60d3898fc80cf}{getCellRowID}(startCell),\hyperlink{classrrt__plan_1_1rrt__planner_a758810b2f257fe0778ed3eb1e970d99c}{getCellColID}(startCell));
+482             \hyperlink{rrt__planner_8cpp_a51725e16375c08b52f82eb2faa5a921c}{myRRT}=temprrt;
+483 
+484             rrtPath=\hyperlink{classrrt__plan_1_1rrt__planner_a23e32ef1c189f5035a751047f84e052a}{findCellPath}(\hyperlink{rrt__planner_8cpp_a51725e16375c08b52f82eb2faa5a921c}{myRRT}, startCell, goalCell, gridVal);
+485             \textcolor{comment}{//clock\_gettime(CLOCK\_PROCESS\_CPUTIME\_ID, &time3);}
+486             t3=\hyperlink{rrt__planner_8cpp_a3b34910310800875174c4846e64a61bd}{getCurrentTime}();
+487 
+488             \textcolor{comment}{//cout<<"improved RRT time="<<(diff(time1,time3).tv\_sec)*1e3 +
+       (diff(time1,time3).tv\_nsec)*1e-6<<endl;}
+489             \textcolor{comment}{//irrtlog<<"improved RRT time="<<(diff(time1,time3).tv\_sec)*1e3 +
+       (diff(time1,time3).tv\_nsec)*1e-6<<endl;}
+490 
+491             \textcolor{comment}{//float a=(diff(time1,time2).tv\_sec)*1e3 + (diff(time1,time2).tv\_nsec)*1e-6;}
+492             \textcolor{comment}{//float b=(diff(time1,time3).tv\_sec)*1e3 + (diff(time1,time3).tv\_nsec)*1e-6;}
+493             \textcolor{comment}{//float timeRatio=a/b;}
+494 
+495             \textcolor{comment}{//cout<<"temperature field time="<<a<<endl;}
+496             \textcolor{comment}{//cout<<"timeRatio="<<timeRatio<<endl;}
+497             
+498             cout<<\textcolor{stringliteral}{"temperature field time="}<<t2-t1<<endl;
+499             \hyperlink{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}{irrtlog}<<\textcolor{stringliteral}{"temperature field time="}<<t2-t1<<endl;
+500             cout<<\textcolor{stringliteral}{"planning time="}<<t3-t2<<endl;
+501             \hyperlink{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}{irrtlog}<<\textcolor{stringliteral}{"planning time="}<<t3-t2<<endl;
+502             \textcolor{comment}{//cout<<"total time="<<t3-t1<<endl;}
+503     \}
+504     \textcolor{keywordflow}{else}
+505     \{
+506         ROS\_WARN(\textcolor{stringliteral}{"------Not valid start or goal------"});
+507         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+508     \}
+509 
+510     \textcolor{comment}{//if the global planner find a path}
+511     \textcolor{keywordflow}{if} (rrtPath.size()>0)
+512     \{
+513         \hyperlink{classrrt__plan_1_1rrt__planner_aac5e9f72b4c55ce4aada8d80eed92a9e}{convertToPlan}(rrtPath,plan,goal,goalCell);
+514 
+515         \textcolor{keywordtype}{float} path\_length = 0.0;
+516 
+517         std::vector<geometry\_msgs::PoseStamped>::iterator it = plan.begin();
+518 
+519         geometry\_msgs::PoseStamped last\_pose;
+520         last\_pose = *it;
+521         it++;
+522         \hyperlink{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}{irrtlog}<<\textcolor{stringliteral}{"路径位姿点："}<<endl;
+523         \textcolor{keywordflow}{for} (; it!=plan.end(); ++it)
+524         \{
+525             \hyperlink{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}{irrtlog}<<\textcolor{stringliteral}{"("}<<(*it).pose.position.x<<\textcolor{stringliteral}{","}<<(*it).pose.position.y<<\textcolor{stringliteral}{")"}<<endl;
+526             path\_length += hypot(  (*it).pose.position.x - last\_pose.pose.position.x,
+527                                    (*it).pose.position.y - last\_pose.pose.position.y );
+528             last\_pose = *it;
+529         \}
+530         cout <<\textcolor{stringliteral}{"------The global path length: "}<< path\_length<< \textcolor{stringliteral}{" meters------"}<<endl;
+531         \hyperlink{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}{irrtlog} <<\textcolor{stringliteral}{"------The global path length: "}<< path\_length<< \textcolor{stringliteral}{" meters------"}<<endl;
+532     \}
+533     \textcolor{keywordflow}{else}
+534     \{
+535         ROS\_WARN(\textcolor{stringliteral}{"------The planner failed to find a path, choose other goal position------"});
+536         \textcolor{comment}{//return false;}
+537     \}
+538 
+539     \hyperlink{classrrt__plan_1_1rrt__planner_ac2fe5313cbc77dffddfcfe1f6605d53e}{publishPlan}(plan);
+540     
+541      \textcolor{comment}{/*}
+542 \textcolor{comment}{     long t4,t5;}
+543 \textcolor{comment}{     timespec time4, time5;}
+544 \textcolor{comment}{     clock\_gettime(CLOCK\_PROCESS\_CPUTIME\_ID, &time4);}
+545 \textcolor{comment}{     t4=getCurrentTime();}
+546 \textcolor{comment}{     for(int i=0;i<500;i++)}
+547 \textcolor{comment}{     \{}
+548 \textcolor{comment}{         plan=middleoptimizationLayer(plan);}
+549 \textcolor{comment}{     \}}
+550 \textcolor{comment}{     clock\_gettime(CLOCK\_PROCESS\_CPUTIME\_ID, &time5);}
+551 \textcolor{comment}{     t5=getCurrentTime();}
+552 \textcolor{comment}{     cout<<"optimal time="<<t5-t4<<endl;}
+553 \textcolor{comment}{     cout<<"optimal time2="<<(diff(time4,time5).tv\_sec)*1e3 + (diff(time4,time5).tv\_nsec)*1e-6<<endl;}
+554 \textcolor{comment}{     */}
+555      
+556      \textcolor{comment}{/*}
+557 \textcolor{comment}{     float path\_length = 0.0;}
+558 \textcolor{comment}{     std::vector<geometry\_msgs::PoseStamped>::iterator it = plan.begin();}
+559 \textcolor{comment}{     geometry\_msgs::PoseStamped last\_pose;}
+560 \textcolor{comment}{     last\_pose = *it;}
+561 \textcolor{comment}{     it++;}
+562 \textcolor{comment}{     irrtlog<<"优化后路径位姿点："<<endl;}
+563 \textcolor{comment}{     for (; it!=plan.end(); ++it)}
+564 \textcolor{comment}{     \{}
+565 \textcolor{comment}{            irrtlog<<"("<<(*it).pose.position.x<<","<<(*it).pose.position.y<<")"<<endl;}
+566 \textcolor{comment}{            path\_length += hypot(  (*it).pose.position.x - last\_pose.pose.position.x,}
+567 \textcolor{comment}{                                   (*it).pose.position.y - last\_pose.pose.position.y );}
+568 \textcolor{comment}{            last\_pose = *it;}
+569 \textcolor{comment}{     \}}
+570 \textcolor{comment}{     cout <<"------The  optimized global path length: "<< path\_length<< " meters------"<<endl;}
+571 \textcolor{comment}{     irrtlog <<"------The  optimized global path length: "<< path\_length<< " meters------"<<endl;}
+572 \textcolor{comment}{     */}
+573     
+574      \textcolor{comment}{//publishPlan2(plan);}
+575 
+576 
+577     \textcolor{comment}{//cout<<"+++++++++++++++++++++++++++++++"<<endl;}
+578     \hyperlink{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}{irrtlog}<<\textcolor{stringliteral}{"+++++++++++++++++++++++++++++++"}<<endl;
+579     \textcolor{comment}{//cout<<"树中所有结点(格式：结点ID，该结点的父结点ID，x坐标值，y坐标值):"<<endl;}
+580     \hyperlink{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}{irrtlog}<<\textcolor{stringliteral}{"树中所有结点(格式：结点ID，该结点的父结点ID，x坐标值，y坐标值):"}<<endl;
+581     \hyperlink{structRRT_1_1rrtNode}{RRT::rrtNode}  l;
+582     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} m=0; m<\hyperlink{rrt__planner_8cpp_a51725e16375c08b52f82eb2faa5a921c}{myRRT}.\hyperlink{classRRT_a05dc852e0b777042e290dcc96bf605bb}{getTreeSize}(); m++)
+583     \{
+584         l=\hyperlink{rrt__planner_8cpp_a51725e16375c08b52f82eb2faa5a921c}{myRRT}.\hyperlink{classRRT_afde36442771a9552bb97572098396c2b}{getNode}(m);
+585         \textcolor{comment}{//cout<<l.nodeID<<","<<l.parentID<<","<<l.posX* resolution+originX<<","<<l.posY*
+       resolution+originY<<endl;}
+586         \hyperlink{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}{irrtlog}<<l.\hyperlink{structRRT_1_1rrtNode_aa8adf5b50e1a2a466771ae3af56b1658}{nodeID}<<\textcolor{stringliteral}{","}<<l.\hyperlink{structRRT_1_1rrtNode_a9f5b9bfca61e25fe7f80d361ed7996ff}{parentID}<<\textcolor{stringliteral}{","}<<l.\hyperlink{structRRT_1_1rrtNode_a4c2096fa1d719cf2aa49cf21916a5a4b}{posX}* 
+      \hyperlink{classrrt__plan_1_1rrt__planner_ad23ca65f53176297ae7e9f40c7edeb69}{resolution}+\hyperlink{classrrt__plan_1_1rrt__planner_a92ba133c58a9ad0de8f425e856953ac1}{originX}<<\textcolor{stringliteral}{","}<<l.\hyperlink{structRRT_1_1rrtNode_a219cf78a0f5689bc84744df52c37e84d}{posY}* \hyperlink{classrrt__plan_1_1rrt__planner_ad23ca65f53176297ae7e9f40c7edeb69}{resolution}+
+      \hyperlink{classrrt__plan_1_1rrt__planner_a5cfa182b92acb4e370ba19a213a0c22a}{originY}<<endl;
+587     \}
+588     \textcolor{comment}{//cout<<"+++++++++++++++++++++++++++++++"<<endl;}
+589     \hyperlink{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}{irrtlog}<<\textcolor{stringliteral}{"+++++++++++++++++++++++++++++++"}<<endl;
+590 
+591     \textcolor{keywordflow}{return} !plan.empty();
+592 \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_a7cbacb0aead733fc6cfde463c6ea2812}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!map\-To\-World@{map\-To\-World}}
+\index{map\-To\-World@{map\-To\-World}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{map\-To\-World}]{\setlength{\rightskip}{0pt plus 5cm}void rrt\-\_\-plan\-::rrt\-\_\-planner\-::map\-To\-World (
+\begin{DoxyParamCaption}
+\item[{double}]{mx, }
+\item[{double}]{my, }
+\item[{double \&}]{wx, }
+\item[{double \&}]{wy}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_a7cbacb0aead733fc6cfde463c6ea2812}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 788 行定义.
+
+
+\begin{DoxyCode}
+789 \{
+790     costmap\_2d::Costmap2D* costmap = \hyperlink{classrrt__plan_1_1rrt__planner_a3dcf8908136ace532176511eb1861528}{costmap\_ros\_}->getCostmap();
+791     wx = costmap->getOriginX() + mx * \hyperlink{classrrt__plan_1_1rrt__planner_ad23ca65f53176297ae7e9f40c7edeb69}{resolution};
+792     wy = costmap->getOriginY() + my * \hyperlink{classrrt__plan_1_1rrt__planner_ad23ca65f53176297ae7e9f40c7edeb69}{resolution};
+793 \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_aac168be892772fe17a1d841d87c2249c}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!middleoptimization\-Layer@{middleoptimization\-Layer}}
+\index{middleoptimization\-Layer@{middleoptimization\-Layer}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{middleoptimization\-Layer}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ geometry\-\_\-msgs\-::\-Pose\-Stamped $>$ rrt\-\_\-plan\-::rrt\-\_\-planner\-::middleoptimization\-Layer (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ geometry\-\_\-msgs\-::\-Pose\-Stamped $>$}]{temp\-\_\-transformed\-\_\-plan}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_aac168be892772fe17a1d841d87c2249c}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 321 行定义.
+
+
+\begin{DoxyCode}
+322 \{
+323     \textcolor{comment}{//std::cout<<"初始局部路径长度："<<temp\_transformed\_plan.size()<<"\(\backslash\)n";}
+324 
+325     std::vector<geometry\_msgs::PoseStamped> transformed\_plan;
+326     
+327     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<temp\_transformed\_plan.size(); i++)
+328     \{
+329         transformed\_plan.push\_back(temp\_transformed\_plan[i]);
+330     \}
+331 
+332     geometry\_msgs::PoseStamped mid\_pose;
+333     geometry\_msgs::PoseStamped pre\_pose;
+334     geometry\_msgs::PoseStamped beh\_pose;
+335 
+336     costmap\_2d::Costmap2D* costmap = \hyperlink{classrrt__plan_1_1rrt__planner_a3dcf8908136ace532176511eb1861528}{costmap\_ros\_}->getCostmap();
+337 
+338     \textcolor{keywordflow}{if}((transformed\_plan.size())>=3)  \textcolor{comment}{//当局部路径大于等于两个划分(每个划分3个结点)时进入中间优化层}
+339     \{
+340         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=1; j<=transformed\_plan.size()-2; j++)
+341         \{
+342                    pre\_pose=transformed\_plan[j-1];
+343                    beh\_pose=transformed\_plan[j+1];
+344                    
+345                    mid\_pose.pose.position.x=(pre\_pose.pose.position.x+beh\_pose.pose.position.x)/2.0;
+346                    mid\_pose.pose.position.y=(pre\_pose.pose.position.y+beh\_pose.pose.position.y)/2.0;
+347                    mid\_pose.pose.position.z=0.0;
+348                   
+349                    mid\_pose.pose.orientation.x=0.0;
+350                    mid\_pose.pose.orientation.y=0.0;
+351                    mid\_pose.pose.orientation.z=0.0;
+352                    mid\_pose.pose.orientation.w=1.0;
+353 
+354                    \textcolor{comment}{//ROS\_INFO("mid\_pose.pose.position.x=%f, mid\_pose.pose.position.y=%f",
+       mid\_pose.pose.position.x, mid\_pose.pose.position.y);}
+355 
+356                    \textcolor{keywordtype}{int} mid\_pose\_x=(int)((mid\_pose.pose.position.x-costmap->getOriginX())/costmap->
+      getResolution());
+357                    \textcolor{keywordtype}{int} mid\_pose\_y=(int)((mid\_pose.pose.position.y-costmap->getOriginY())/costmap->
+      getResolution());
+358                    
+359                    \textcolor{keywordtype}{bool} x\_flag=(mid\_pose\_x<costmap->getSizeInCellsX())&&(mid\_pose\_x>=0);
+360                    \textcolor{keywordtype}{bool} y\_flag=(mid\_pose\_y<costmap->getSizeInCellsY())&&(mid\_pose\_y>=0);
+361                    
+362                    \textcolor{comment}{//if((mid\_pose\_x<costmap->getSizeInCellsX())&&(mid\_pose\_y<costmap->getSizeInCellsY()))}
+363                    \textcolor{keywordflow}{if}(x\_flag&&y\_flag)
+364                    \{
+365                          \textcolor{keywordtype}{int} cost=costmap->getCost(mid\_pose\_x, mid\_pose\_y);
+366 
+367                          \textcolor{keywordflow}{if}(cost==0)\textcolor{comment}{//free space}
+368                          \textcolor{comment}{//if(cost<=127)//free space}
+369                          \{
+370                              transformed\_plan[j].pose.position.x=mid\_pose.pose.position.x;
+371                              transformed\_plan[j].pose.position.y=mid\_pose.pose.position.y;
+372                          \}
+373                        
+374                    \}
+375             \}
+376      \}
+377     \textcolor{comment}{//std::cout<<"优化后局部路径长度："<<transformed\_plan.size()<<"\(\backslash\)n";}
+378     \textcolor{keywordflow}{return}  transformed\_plan;
+379 \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_ac2fe5313cbc77dffddfcfe1f6605d53e}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!publish\-Plan@{publish\-Plan}}
+\index{publish\-Plan@{publish\-Plan}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{publish\-Plan}]{\setlength{\rightskip}{0pt plus 5cm}void rrt\-\_\-plan\-::rrt\-\_\-planner\-::publish\-Plan (
+\begin{DoxyParamCaption}
+\item[{const std\-::vector$<$ geometry\-\_\-msgs\-::\-Pose\-Stamped $>$ \&}]{path}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_ac2fe5313cbc77dffddfcfe1f6605d53e}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 595 行定义.
+
+
+\begin{DoxyCode}
+596 \{
+597     \textcolor{keywordflow}{if} (!\hyperlink{classrrt__plan_1_1rrt__planner_ac1cd8655573adac056ae922a92337b8d}{initialized\_})
+598     \{
+599         ROS\_ERROR(
+600             \textcolor{stringliteral}{"This planner has not been initialized yet, but it is being used, please call initialize()
+       before use"});
+601         \textcolor{keywordflow}{return};
+602     \}
+603 
+604     \textcolor{comment}{//create a message for the plan}
+605     nav\_msgs::Path gui\_path;
+606     gui\_path.poses.resize(path.size());
+607 
+608     \textcolor{keywordflow}{if} (!path.empty())
+609     \{
+610         gui\_path.header.frame\_id = path[0].header.frame\_id;
+611         gui\_path.header.stamp = path[0].header.stamp;
+612     \}
+613 
+614     \textcolor{comment}{// Extract the plan in world co-ordinates, we assume the path is all in the same frame}
+615     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < path.size(); i++)
+616     \{
+617         gui\_path.poses[i] = path[i];
+618     \}
+619 
+620     \hyperlink{classrrt__plan_1_1rrt__planner_a6beed3a62613c7e24813416185d12929}{plan\_pub\_}.publish(gui\_path);
+621 \}
+\end{DoxyCode}
+\hypertarget{classrrt__plan_1_1rrt__planner_a3071190151c4463f2e39f29c02c1f55d}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!publish\-Plan2@{publish\-Plan2}}
+\index{publish\-Plan2@{publish\-Plan2}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{publish\-Plan2}]{\setlength{\rightskip}{0pt plus 5cm}void rrt\-\_\-plan\-::rrt\-\_\-planner\-::publish\-Plan2 (
+\begin{DoxyParamCaption}
+\item[{const std\-::vector$<$ geometry\-\_\-msgs\-::\-Pose\-Stamped $>$ \&}]{path}
+\end{DoxyParamCaption}
+)}}\label{classrrt__plan_1_1rrt__planner_a3071190151c4463f2e39f29c02c1f55d}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 623 行定义.
+
+
+\begin{DoxyCode}
+624 \{
+625     \textcolor{keywordflow}{if} (!\hyperlink{classrrt__plan_1_1rrt__planner_ac1cd8655573adac056ae922a92337b8d}{initialized\_})
+626     \{
+627         ROS\_ERROR(
+628             \textcolor{stringliteral}{"This planner has not been initialized yet, but it is being used, please call initialize()
+       before use"});
+629         \textcolor{keywordflow}{return};
+630     \}
+631 
+632     \textcolor{comment}{//create a message for the plan}
+633     nav\_msgs::Path gui\_path;
+634     gui\_path.poses.resize(path.size());
+635 
+636     \textcolor{keywordflow}{if} (!path.empty())
+637     \{
+638         gui\_path.header.frame\_id = path[0].header.frame\_id;
+639         gui\_path.header.stamp = path[0].header.stamp;
+640     \}
+641 
+642     \textcolor{comment}{// Extract the plan in world co-ordinates, we assume the path is all in the same frame}
+643     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < path.size(); i++)
+644     \{
+645         gui\_path.poses[i] = path[i];
+646     \}
+647 
+648     \hyperlink{classrrt__plan_1_1rrt__planner_a142a2d4c28bcaa2798493accf32690ee}{plan\_pub\_2}.publish(gui\_path);
+649 \}
+\end{DoxyCode}
+
+
+\subsection{类成员变量说明}
+\hypertarget{classrrt__plan_1_1rrt__planner_ad6f48786945a4a394c95de25cd4c77d2}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!costmap\-\_\-@{costmap\-\_\-}}
+\index{costmap\-\_\-@{costmap\-\_\-}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{costmap\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}costmap\-\_\-2d\-::\-Costmap2\-D$\ast$ rrt\-\_\-plan\-::rrt\-\_\-planner\-::costmap\-\_\-}}\label{classrrt__plan_1_1rrt__planner_ad6f48786945a4a394c95de25cd4c77d2}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 339 行定义.
+
+\hypertarget{classrrt__plan_1_1rrt__planner_a3dcf8908136ace532176511eb1861528}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!costmap\-\_\-ros\-\_\-@{costmap\-\_\-ros\-\_\-}}
+\index{costmap\-\_\-ros\-\_\-@{costmap\-\_\-ros\-\_\-}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{costmap\-\_\-ros\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}costmap\-\_\-2d\-::\-Costmap2\-D\-R\-O\-S$\ast$ rrt\-\_\-plan\-::rrt\-\_\-planner\-::costmap\-\_\-ros\-\_\-}}\label{classrrt__plan_1_1rrt__planner_a3dcf8908136ace532176511eb1861528}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 337 行定义.
+
+\hypertarget{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!height@{height}}
+\index{height@{height}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{height}]{\setlength{\rightskip}{0pt plus 5cm}int rrt\-\_\-plan\-::rrt\-\_\-planner\-::height}}\label{classrrt__plan_1_1rrt__planner_a3549de56a50bff6494514878b64584df}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 343 行定义.
+
+\hypertarget{classrrt__plan_1_1rrt__planner_ac1cd8655573adac056ae922a92337b8d}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!initialized\-\_\-@{initialized\-\_\-}}
+\index{initialized\-\_\-@{initialized\-\_\-}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{initialized\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}bool rrt\-\_\-plan\-::rrt\-\_\-planner\-::initialized\-\_\-}}\label{classrrt__plan_1_1rrt__planner_ac1cd8655573adac056ae922a92337b8d}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 341 行定义.
+
+\hypertarget{classrrt__plan_1_1rrt__planner_aae70d5e90c66f442c8822b573645e346}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!min\-\_\-dist\-\_\-from\-\_\-robot\-\_\-@{min\-\_\-dist\-\_\-from\-\_\-robot\-\_\-}}
+\index{min\-\_\-dist\-\_\-from\-\_\-robot\-\_\-@{min\-\_\-dist\-\_\-from\-\_\-robot\-\_\-}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{min\-\_\-dist\-\_\-from\-\_\-robot\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}double rrt\-\_\-plan\-::rrt\-\_\-planner\-::min\-\_\-dist\-\_\-from\-\_\-robot\-\_\-}}\label{classrrt__plan_1_1rrt__planner_aae70d5e90c66f442c8822b573645e346}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 338 行定义.
+
+\hypertarget{classrrt__plan_1_1rrt__planner_a92ba133c58a9ad0de8f425e856953ac1}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!origin\-X@{origin\-X}}
+\index{origin\-X@{origin\-X}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{origin\-X}]{\setlength{\rightskip}{0pt plus 5cm}float rrt\-\_\-plan\-::rrt\-\_\-planner\-::origin\-X}}\label{classrrt__plan_1_1rrt__planner_a92ba133c58a9ad0de8f425e856953ac1}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 334 行定义.
+
+\hypertarget{classrrt__plan_1_1rrt__planner_a5cfa182b92acb4e370ba19a213a0c22a}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!origin\-Y@{origin\-Y}}
+\index{origin\-Y@{origin\-Y}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{origin\-Y}]{\setlength{\rightskip}{0pt plus 5cm}float rrt\-\_\-plan\-::rrt\-\_\-planner\-::origin\-Y}}\label{classrrt__plan_1_1rrt__planner_a5cfa182b92acb4e370ba19a213a0c22a}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 335 行定义.
+
+\hypertarget{classrrt__plan_1_1rrt__planner_a6beed3a62613c7e24813416185d12929}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!plan\-\_\-pub\-\_\-@{plan\-\_\-pub\-\_\-}}
+\index{plan\-\_\-pub\-\_\-@{plan\-\_\-pub\-\_\-}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{plan\-\_\-pub\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}ros\-::\-Publisher rrt\-\_\-plan\-::rrt\-\_\-planner\-::plan\-\_\-pub\-\_\-}}\label{classrrt__plan_1_1rrt__planner_a6beed3a62613c7e24813416185d12929}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 345 行定义.
+
+\hypertarget{classrrt__plan_1_1rrt__planner_a142a2d4c28bcaa2798493accf32690ee}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!plan\-\_\-pub\-\_\-2@{plan\-\_\-pub\-\_\-2}}
+\index{plan\-\_\-pub\-\_\-2@{plan\-\_\-pub\-\_\-2}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{plan\-\_\-pub\-\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}ros\-::\-Publisher rrt\-\_\-plan\-::rrt\-\_\-planner\-::plan\-\_\-pub\-\_\-2}}\label{classrrt__plan_1_1rrt__planner_a142a2d4c28bcaa2798493accf32690ee}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 346 行定义.
+
+\hypertarget{classrrt__plan_1_1rrt__planner_ad23ca65f53176297ae7e9f40c7edeb69}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!resolution@{resolution}}
+\index{resolution@{resolution}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{resolution}]{\setlength{\rightskip}{0pt plus 5cm}float rrt\-\_\-plan\-::rrt\-\_\-planner\-::resolution}}\label{classrrt__plan_1_1rrt__planner_ad23ca65f53176297ae7e9f40c7edeb69}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 336 行定义.
+
+\hypertarget{classrrt__plan_1_1rrt__planner_a9547688a6e31166034dc562a0b4608b6}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!R\-O\-S\-Node\-Handle@{R\-O\-S\-Node\-Handle}}
+\index{R\-O\-S\-Node\-Handle@{R\-O\-S\-Node\-Handle}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{R\-O\-S\-Node\-Handle}]{\setlength{\rightskip}{0pt plus 5cm}ros\-::\-Node\-Handle rrt\-\_\-plan\-::rrt\-\_\-planner\-::\-R\-O\-S\-Node\-Handle}}\label{classrrt__plan_1_1rrt__planner_a9547688a6e31166034dc562a0b4608b6}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 84 行定义.
+
+\hypertarget{classrrt__plan_1_1rrt__planner_a25be58fd52b495ade819f8d5785beeae}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!step\-\_\-size\-\_\-@{step\-\_\-size\-\_\-}}
+\index{step\-\_\-size\-\_\-@{step\-\_\-size\-\_\-}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{step\-\_\-size\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}double rrt\-\_\-plan\-::rrt\-\_\-planner\-::step\-\_\-size\-\_\-}}\label{classrrt__plan_1_1rrt__planner_a25be58fd52b495ade819f8d5785beeae}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 338 行定义.
+
+\hypertarget{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}{\index{rrt\-\_\-plan\-::rrt\-\_\-planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}!width@{width}}
+\index{width@{width}!rrt_plan::rrt_planner@{rrt\-\_\-plan\-::rrt\-\_\-planner}}
+\subsubsection[{width}]{\setlength{\rightskip}{0pt plus 5cm}int rrt\-\_\-plan\-::rrt\-\_\-planner\-::width}}\label{classrrt__plan_1_1rrt__planner_ac74fe436b5e1fa30bda1fbe821369aa2}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 342 行定义.
+
+
+
+该类的文档由以下文件生成\-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{inspire__rrt__planner_8h}{inspire\-\_\-rrt\-\_\-planner.\-h}\item 
+src/\hyperlink{rrt__planner_8cpp}{rrt\-\_\-planner.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,75 @@
+\hypertarget{rrt_8h}{\section{src/rrt.h 文件参考}
+\label{rrt_8h}\index{src/rrt.\-h@{src/rrt.\-h}}
+}
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$queue$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$cstddef$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+\subsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classRRT}{R\-R\-T}
+\item 
+struct \hyperlink{structRRT_1_1rrtNode}{R\-R\-T\-::rrt\-Node}
+\end{DoxyCompactItemize}
+\subsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{rrt_8h_a8bb5664c6d1d0848c059844294c05988}{infinity} = std\-::numeric\-\_\-limits$<$ float $>$\-::infinity()
+\item 
+int \hyperlink{rrt_8h_aaac2d108c57a5722b9d816baaed80945}{rrt\-Step\-Size} =6
+\item 
+int \hyperlink{rrt_8h_a962f9277eb583fb40d04a820752a9191}{rand\-Node\-Num} =8
+\item 
+int \hyperlink{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{map\-Reduce\-Size} =5
+\item 
+int \hyperlink{rrt_8h_ab205788f3d8cd37826d8ae7bd4675cee}{iteration\-Time} =4000
+\item 
+float \hyperlink{rrt_8h_ad255730b84e5f3fabaf7cff0f5b835e2}{initial\-Temperature} =20000.\-0f
+\end{DoxyCompactItemize}
+
+
+\subsection{变量说明}
+\hypertarget{rrt_8h_a8bb5664c6d1d0848c059844294c05988}{\index{rrt.\-h@{rrt.\-h}!infinity@{infinity}}
+\index{infinity@{infinity}!rrt.h@{rrt.\-h}}
+\subsubsection[{infinity}]{\setlength{\rightskip}{0pt plus 5cm}float infinity = std\-::numeric\-\_\-limits$<$ float $>$\-::infinity()}}\label{rrt_8h_a8bb5664c6d1d0848c059844294c05988}
+default constructor for \hyperlink{classRRT}{R\-R\-T} class initializes source to 0,0 adds sorce to rrt\-Tree 
+
+在文件 rrt.\-h 第 18 行定义.
+
+\hypertarget{rrt_8h_ad255730b84e5f3fabaf7cff0f5b835e2}{\index{rrt.\-h@{rrt.\-h}!initial\-Temperature@{initial\-Temperature}}
+\index{initial\-Temperature@{initial\-Temperature}!rrt.h@{rrt.\-h}}
+\subsubsection[{initial\-Temperature}]{\setlength{\rightskip}{0pt plus 5cm}float initial\-Temperature =20000.\-0f}}\label{rrt_8h_ad255730b84e5f3fabaf7cff0f5b835e2}
+
+
+在文件 rrt.\-h 第 25 行定义.
+
+\hypertarget{rrt_8h_ab205788f3d8cd37826d8ae7bd4675cee}{\index{rrt.\-h@{rrt.\-h}!iteration\-Time@{iteration\-Time}}
+\index{iteration\-Time@{iteration\-Time}!rrt.h@{rrt.\-h}}
+\subsubsection[{iteration\-Time}]{\setlength{\rightskip}{0pt plus 5cm}int iteration\-Time =4000}}\label{rrt_8h_ab205788f3d8cd37826d8ae7bd4675cee}
+
+
+在文件 rrt.\-h 第 24 行定义.
+
+\hypertarget{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}{\index{rrt.\-h@{rrt.\-h}!map\-Reduce\-Size@{map\-Reduce\-Size}}
+\index{map\-Reduce\-Size@{map\-Reduce\-Size}!rrt.h@{rrt.\-h}}
+\subsubsection[{map\-Reduce\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int map\-Reduce\-Size =5}}\label{rrt_8h_afb8b6147953aaf9e7089f5f157d5b020}
+
+
+在文件 rrt.\-h 第 23 行定义.
+
+\hypertarget{rrt_8h_a962f9277eb583fb40d04a820752a9191}{\index{rrt.\-h@{rrt.\-h}!rand\-Node\-Num@{rand\-Node\-Num}}
+\index{rand\-Node\-Num@{rand\-Node\-Num}!rrt.h@{rrt.\-h}}
+\subsubsection[{rand\-Node\-Num}]{\setlength{\rightskip}{0pt plus 5cm}int rand\-Node\-Num =8}}\label{rrt_8h_a962f9277eb583fb40d04a820752a9191}
+
+
+在文件 rrt.\-h 第 21 行定义.
+
+\hypertarget{rrt_8h_aaac2d108c57a5722b9d816baaed80945}{\index{rrt.\-h@{rrt.\-h}!rrt\-Step\-Size@{rrt\-Step\-Size}}
+\index{rrt\-Step\-Size@{rrt\-Step\-Size}!rrt.h@{rrt.\-h}}
+\subsubsection[{rrt\-Step\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int rrt\-Step\-Size =6}}\label{rrt_8h_aaac2d108c57a5722b9d816baaed80945}
+
+
+在文件 rrt.\-h 第 20 行定义.
+

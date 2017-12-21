@@ -1,0 +1,75 @@
+\hypertarget{inspire__rrt__planner_8h}{\section{src/inspire\-\_\-rrt\-\_\-planner.h 文件参考}
+\label{inspire__rrt__planner_8h}\index{src/inspire\-\_\-rrt\-\_\-planner.\-h@{src/inspire\-\_\-rrt\-\_\-planner.\-h}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\-h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\-h$>$}\\*
+{\ttfamily \#include $<$netdb.\-h$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include $<$ros/ros.\-h$>$}\\*
+{\ttfamily \#include $<$actionlib/client/simple\-\_\-action\-\_\-client.\-h$>$}\\*
+{\ttfamily \#include $<$move\-\_\-base\-\_\-msgs/\-Move\-Base\-Action.\-h$>$}\\*
+{\ttfamily \#include $<$geometry\-\_\-msgs/\-Twist.\-h$>$}\\*
+{\ttfamily \#include $<$geometry\-\_\-msgs/\-Pose\-Stamped.\-h$>$}\\*
+{\ttfamily \#include $<$geometry\-\_\-msgs/\-Pose\-With\-Covariance\-Stamped.\-h$>$}\\*
+{\ttfamily \#include $<$move\-\_\-base\-\_\-msgs/\-Move\-Base\-Goal.\-h$>$}\\*
+{\ttfamily \#include $<$move\-\_\-base\-\_\-msgs/\-Move\-Base\-Action\-Goal.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}sensor\-\_\-msgs/\-Laser\-Scan.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sensor\-\_\-msgs/\-Point\-Cloud2.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$nav\-\_\-msgs/\-Odometry.\-h$>$}\\*
+{\ttfamily \#include $<$nav\-\_\-msgs/\-Occupancy\-Grid.\-h$>$}\\*
+{\ttfamily \#include $<$nav\-\_\-msgs/\-Path.\-h$>$}\\*
+{\ttfamily \#include $<$nav\-\_\-msgs/\-Get\-Plan.\-h$>$}\\*
+{\ttfamily \#include $<$tf/tf.\-h$>$}\\*
+{\ttfamily \#include $<$tf/transform\-\_\-datatypes.\-h$>$}\\*
+{\ttfamily \#include $<$tf/transform\-\_\-listener.\-h$>$}\\*
+{\ttfamily \#include $<$boost/foreach.\-hpp$>$}\\*
+{\ttfamily \#include $<$costmap\-\_\-2d/costmap\-\_\-2d\-\_\-ros.\-h$>$}\\*
+{\ttfamily \#include $<$costmap\-\_\-2d/costmap\-\_\-2d.\-h$>$}\\*
+{\ttfamily \#include $<$nav\-\_\-core/base\-\_\-global\-\_\-planner.\-h$>$}\\*
+{\ttfamily \#include $<$angles/angles.\-h$>$}\\*
+{\ttfamily \#include $<$base\-\_\-local\-\_\-planner/world\-\_\-model.\-h$>$}\\*
+{\ttfamily \#include $<$base\-\_\-local\-\_\-planner/costmap\-\_\-model.\-h$>$}\\*
+{\ttfamily \#include $<$set$>$}\\*
+{\ttfamily \#include \char`\"{}rrt.\-h\char`\"{}}\\*
+\subsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structrrt__plan_1_1Cell}{rrt\-\_\-plan\-::\-Cell}
+\item 
+class \hyperlink{classrrt__plan_1_1rrt__planner}{rrt\-\_\-plan\-::rrt\-\_\-planner}
+\end{DoxyCompactItemize}
+\subsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacerrt__plan}{rrt\-\_\-plan}
+\end{DoxyCompactItemize}
+\subsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{inspire__rrt__planner_8h_a13f61361b40b7744abb27e332deb8d91}{R\-R\-T\-\_\-\-P\-L\-A\-N\-N\-E\-R}
+\item 
+\#define \hyperlink{inspire__rrt__planner_8h_a3bd31f0d9a9127548b734e7ca03cc6df}{R\-A\-N\-D\-O\-M\-\_\-\-M\-A\-X}~2147483647
+\end{DoxyCompactItemize}
+
+
+\subsection{宏定义说明}
+\hypertarget{inspire__rrt__planner_8h_a3bd31f0d9a9127548b734e7ca03cc6df}{\index{inspire\-\_\-rrt\-\_\-planner.\-h@{inspire\-\_\-rrt\-\_\-planner.\-h}!R\-A\-N\-D\-O\-M\-\_\-\-M\-A\-X@{R\-A\-N\-D\-O\-M\-\_\-\-M\-A\-X}}
+\index{R\-A\-N\-D\-O\-M\-\_\-\-M\-A\-X@{R\-A\-N\-D\-O\-M\-\_\-\-M\-A\-X}!inspire_rrt_planner.h@{inspire\-\_\-rrt\-\_\-planner.\-h}}
+\subsubsection[{R\-A\-N\-D\-O\-M\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-A\-N\-D\-O\-M\-\_\-\-M\-A\-X~2147483647}}\label{inspire__rrt__planner_8h_a3bd31f0d9a9127548b734e7ca03cc6df}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 66 行定义.
+
+\hypertarget{inspire__rrt__planner_8h_a13f61361b40b7744abb27e332deb8d91}{\index{inspire\-\_\-rrt\-\_\-planner.\-h@{inspire\-\_\-rrt\-\_\-planner.\-h}!R\-R\-T\-\_\-\-P\-L\-A\-N\-N\-E\-R@{R\-R\-T\-\_\-\-P\-L\-A\-N\-N\-E\-R}}
+\index{R\-R\-T\-\_\-\-P\-L\-A\-N\-N\-E\-R@{R\-R\-T\-\_\-\-P\-L\-A\-N\-N\-E\-R}!inspire_rrt_planner.h@{inspire\-\_\-rrt\-\_\-planner.\-h}}
+\subsubsection[{R\-R\-T\-\_\-\-P\-L\-A\-N\-N\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-R\-T\-\_\-\-P\-L\-A\-N\-N\-E\-R}}\label{inspire__rrt__planner_8h_a13f61361b40b7744abb27e332deb8d91}
+
+
+在文件 inspire\-\_\-rrt\-\_\-planner.\-h 第 59 行定义.
+

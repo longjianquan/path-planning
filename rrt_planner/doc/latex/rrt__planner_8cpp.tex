@@ -1,0 +1,143 @@
+\hypertarget{rrt__planner_8cpp}{\section{src/rrt\-\_\-planner.cpp 文件参考}
+\label{rrt__planner_8cpp}\index{src/rrt\-\_\-planner.\-cpp@{src/rrt\-\_\-planner.\-cpp}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\-h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\-h$>$}\\*
+{\ttfamily \#include $<$netdb.\-h$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$iomanip$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include $<$omp.\-h$>$}\\*
+{\ttfamily \#include $<$pluginlib/class\-\_\-list\-\_\-macros.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}inspire\-\_\-rrt\-\_\-planner.\-h\char`\"{}}\\*
+\subsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacerrt__plan}{rrt\-\_\-plan}
+\end{DoxyCompactItemize}
+\subsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+ofstream \hyperlink{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}{irrtlog} (\char`\"{}/home/xuefengchang/irrtlog.\-txt\char`\"{})
+\item 
+int \hyperlink{rrt__planner_8cpp_a6809e130ecd9478df9ca56b4bceb8487}{clock\-\_\-gettime} (clockid\-\_\-t clk\-\_\-id, struct timespect $\ast$tp)
+\item 
+long \hyperlink{rrt__planner_8cpp_a3b34910310800875174c4846e64a61bd}{get\-Current\-Time} ()
+\item 
+timespec \hyperlink{rrt__planner_8cpp_a5959b2e100c03e81bd1c5049adf30165}{diff} (timespec start, timespec end)
+\end{DoxyCompactItemize}
+\subsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{rrt__planner_8cpp_a298f4debf9e9db57dcaa736916e4b451}{map\-Size}
+\item 
+bool $\ast$ \hyperlink{rrt__planner_8cpp_ab8e6863a3519a503a24344e88545eb3d}{O\-G\-M}
+\item 
+bool $\ast$ \hyperlink{rrt__planner_8cpp_a56d338f4195d0ebc4906a1085f3eed83}{O\-G\-M2}
+\item 
+\hyperlink{classRRT}{R\-R\-T} \hyperlink{rrt__planner_8cpp_a51725e16375c08b52f82eb2faa5a921c}{my\-R\-R\-T}
+\end{DoxyCompactItemize}
+
+
+\subsection{函数说明}
+\hypertarget{rrt__planner_8cpp_a6809e130ecd9478df9ca56b4bceb8487}{\index{rrt\-\_\-planner.\-cpp@{rrt\-\_\-planner.\-cpp}!clock\-\_\-gettime@{clock\-\_\-gettime}}
+\index{clock\-\_\-gettime@{clock\-\_\-gettime}!rrt_planner.cpp@{rrt\-\_\-planner.\-cpp}}
+\subsubsection[{clock\-\_\-gettime}]{\setlength{\rightskip}{0pt plus 5cm}int clock\-\_\-gettime (
+\begin{DoxyParamCaption}
+\item[{clockid\-\_\-t}]{clk\-\_\-id, }
+\item[{struct timespect $\ast$}]{tp}
+\end{DoxyParamCaption}
+)}}\label{rrt__planner_8cpp_a6809e130ecd9478df9ca56b4bceb8487}
+\hypertarget{rrt__planner_8cpp_a5959b2e100c03e81bd1c5049adf30165}{\index{rrt\-\_\-planner.\-cpp@{rrt\-\_\-planner.\-cpp}!diff@{diff}}
+\index{diff@{diff}!rrt_planner.cpp@{rrt\-\_\-planner.\-cpp}}
+\subsubsection[{diff}]{\setlength{\rightskip}{0pt plus 5cm}timespec diff (
+\begin{DoxyParamCaption}
+\item[{timespec}]{start, }
+\item[{timespec}]{end}
+\end{DoxyParamCaption}
+)}}\label{rrt__planner_8cpp_a5959b2e100c03e81bd1c5049adf30165}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 41 行定义.
+
+
+\begin{DoxyCode}
+42 \{
+43     timespec temp;
+44     \textcolor{keywordflow}{if} ((end.tv\_nsec-start.tv\_nsec)<0)
+45     \{
+46         temp.tv\_sec = end.tv\_sec-start.tv\_sec-1;
+47         temp.tv\_nsec = 1000000000+end.tv\_nsec-start.tv\_nsec;
+48     \}
+49     \textcolor{keywordflow}{else}
+50     \{
+51         temp.tv\_sec = end.tv\_sec-start.tv\_sec;
+52         temp.tv\_nsec = end.tv\_nsec-start.tv\_nsec;
+53     \}
+54     \textcolor{keywordflow}{return} temp;
+55 \}
+\end{DoxyCode}
+\hypertarget{rrt__planner_8cpp_a3b34910310800875174c4846e64a61bd}{\index{rrt\-\_\-planner.\-cpp@{rrt\-\_\-planner.\-cpp}!get\-Current\-Time@{get\-Current\-Time}}
+\index{get\-Current\-Time@{get\-Current\-Time}!rrt_planner.cpp@{rrt\-\_\-planner.\-cpp}}
+\subsubsection[{get\-Current\-Time}]{\setlength{\rightskip}{0pt plus 5cm}long get\-Current\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{rrt__planner_8cpp_a3b34910310800875174c4846e64a61bd}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 34 行定义.
+
+
+\begin{DoxyCode}
+35 \{
+36     \textcolor{keyword}{struct }timeval tv;
+37     gettimeofday(&tv,NULL);
+38     \textcolor{keywordflow}{return} tv.tv\_sec*1000+tv.tv\_usec/1000;
+39 \}
+\end{DoxyCode}
+\hypertarget{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}{\index{rrt\-\_\-planner.\-cpp@{rrt\-\_\-planner.\-cpp}!irrtlog@{irrtlog}}
+\index{irrtlog@{irrtlog}!rrt_planner.cpp@{rrt\-\_\-planner.\-cpp}}
+\subsubsection[{irrtlog}]{\setlength{\rightskip}{0pt plus 5cm}ofstream irrtlog (
+\begin{DoxyParamCaption}
+\item[{\char`\"{}/home/xuefengchang/irrtlog.\-txt\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}}\label{rrt__planner_8cpp_ae63d6003ff9416f7c0be6892e5bb899c}
+
+
+\subsection{变量说明}
+\hypertarget{rrt__planner_8cpp_a298f4debf9e9db57dcaa736916e4b451}{\index{rrt\-\_\-planner.\-cpp@{rrt\-\_\-planner.\-cpp}!map\-Size@{map\-Size}}
+\index{map\-Size@{map\-Size}!rrt_planner.cpp@{rrt\-\_\-planner.\-cpp}}
+\subsubsection[{map\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int map\-Size}}\label{rrt__planner_8cpp_a298f4debf9e9db57dcaa736916e4b451}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 26 行定义.
+
+\hypertarget{rrt__planner_8cpp_a51725e16375c08b52f82eb2faa5a921c}{\index{rrt\-\_\-planner.\-cpp@{rrt\-\_\-planner.\-cpp}!my\-R\-R\-T@{my\-R\-R\-T}}
+\index{my\-R\-R\-T@{my\-R\-R\-T}!rrt_planner.cpp@{rrt\-\_\-planner.\-cpp}}
+\subsubsection[{my\-R\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-R\-T} my\-R\-R\-T}}\label{rrt__planner_8cpp_a51725e16375c08b52f82eb2faa5a921c}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 29 行定义.
+
+\hypertarget{rrt__planner_8cpp_ab8e6863a3519a503a24344e88545eb3d}{\index{rrt\-\_\-planner.\-cpp@{rrt\-\_\-planner.\-cpp}!O\-G\-M@{O\-G\-M}}
+\index{O\-G\-M@{O\-G\-M}!rrt_planner.cpp@{rrt\-\_\-planner.\-cpp}}
+\subsubsection[{O\-G\-M}]{\setlength{\rightskip}{0pt plus 5cm}bool$\ast$ O\-G\-M}}\label{rrt__planner_8cpp_ab8e6863a3519a503a24344e88545eb3d}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 27 行定义.
+
+\hypertarget{rrt__planner_8cpp_a56d338f4195d0ebc4906a1085f3eed83}{\index{rrt\-\_\-planner.\-cpp@{rrt\-\_\-planner.\-cpp}!O\-G\-M2@{O\-G\-M2}}
+\index{O\-G\-M2@{O\-G\-M2}!rrt_planner.cpp@{rrt\-\_\-planner.\-cpp}}
+\subsubsection[{O\-G\-M2}]{\setlength{\rightskip}{0pt plus 5cm}bool$\ast$ O\-G\-M2}}\label{rrt__planner_8cpp_a56d338f4195d0ebc4906a1085f3eed83}
+
+
+在文件 rrt\-\_\-planner.\-cpp 第 28 行定义.
+

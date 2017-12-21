@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>My Project: src/inspire_rrt_planner.h 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>文件成员</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>全部</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>类</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>命名空间</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>文件</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>函数</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>变量</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>宏定义</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_6c3774c11dfdacb5ed6c15815af6f4fa.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#define-members">宏定义</a>  </div>
+  <div class="headertitle">
+<div class="title">inspire_rrt_planner.h 文件参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br/>
+<code>#include &lt;stdlib.h&gt;</code><br/>
+<code>#include &lt;unistd.h&gt;</code><br/>
+<code>#include &lt;string.h&gt;</code><br/>
+<code>#include &lt;sys/types.h&gt;</code><br/>
+<code>#include &lt;sys/socket.h&gt;</code><br/>
+<code>#include &lt;netinet/in.h&gt;</code><br/>
+<code>#include &lt;netdb.h&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;time.h&gt;</code><br/>
+<code>#include &lt;ros/ros.h&gt;</code><br/>
+<code>#include &lt;actionlib/client/simple_action_client.h&gt;</code><br/>
+<code>#include &lt;move_base_msgs/MoveBaseAction.h&gt;</code><br/>
+<code>#include &lt;geometry_msgs/Twist.h&gt;</code><br/>
+<code>#include &lt;geometry_msgs/PoseStamped.h&gt;</code><br/>
+<code>#include &lt;geometry_msgs/PoseWithCovarianceStamped.h&gt;</code><br/>
+<code>#include &lt;move_base_msgs/MoveBaseGoal.h&gt;</code><br/>
+<code>#include &lt;move_base_msgs/MoveBaseActionGoal.h&gt;</code><br/>
+<code>#include &quot;sensor_msgs/LaserScan.h&quot;</code><br/>
+<code>#include &quot;sensor_msgs/PointCloud2.h&quot;</code><br/>
+<code>#include &lt;nav_msgs/Odometry.h&gt;</code><br/>
+<code>#include &lt;nav_msgs/OccupancyGrid.h&gt;</code><br/>
+<code>#include &lt;nav_msgs/Path.h&gt;</code><br/>
+<code>#include &lt;nav_msgs/GetPlan.h&gt;</code><br/>
+<code>#include &lt;tf/tf.h&gt;</code><br/>
+<code>#include &lt;tf/transform_datatypes.h&gt;</code><br/>
+<code>#include &lt;tf/transform_listener.h&gt;</code><br/>
+<code>#include &lt;boost/foreach.hpp&gt;</code><br/>
+<code>#include &lt;costmap_2d/costmap_2d_ros.h&gt;</code><br/>
+<code>#include &lt;costmap_2d/costmap_2d.h&gt;</code><br/>
+<code>#include &lt;nav_core/base_global_planner.h&gt;</code><br/>
+<code>#include &lt;angles/angles.h&gt;</code><br/>
+<code>#include &lt;base_local_planner/world_model.h&gt;</code><br/>
+<code>#include &lt;base_local_planner/costmap_model.h&gt;</code><br/>
+<code>#include &lt;set&gt;</code><br/>
+<code>#include &quot;<a class="el" href="rrt_8h_source.html">rrt.h</a>&quot;</code><br/>
+</div>
+<p><a href="inspire__rrt__planner_8h_source.html">浏览源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrrt__plan_1_1Cell.html">rrt_plan::Cell</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrrt__plan_1_1rrt__planner.html">rrt_plan::rrt_planner</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:namespacerrt__plan"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerrt__plan.html">rrt_plan</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a13f61361b40b7744abb27e332deb8d91"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inspire__rrt__planner_8h.html#a13f61361b40b7744abb27e332deb8d91">RRT_PLANNER</a></td></tr>
+<tr class="separator:a13f61361b40b7744abb27e332deb8d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bd31f0d9a9127548b734e7ca03cc6df"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inspire__rrt__planner_8h.html#a3bd31f0d9a9127548b734e7ca03cc6df">RANDOM_MAX</a>&#160;&#160;&#160;2147483647</td></tr>
+<tr class="separator:a3bd31f0d9a9127548b734e7ca03cc6df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">宏定义说明</h2>
+<a class="anchor" id="a3bd31f0d9a9127548b734e7ca03cc6df"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RANDOM_MAX&#160;&#160;&#160;2147483647</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="inspire__rrt__planner_8h_source.html">inspire_rrt_planner.h</a> 第 <a class="el" href="inspire__rrt__planner_8h_source.html#l00066">66</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a13f61361b40b7744abb27e332deb8d91"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RRT_PLANNER</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在文件 <a class="el" href="inspire__rrt__planner_8h_source.html">inspire_rrt_planner.h</a> 第 <a class="el" href="inspire__rrt__planner_8h_source.html#l00059">59</a> 行定义.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+生成于 2017年 四月 7日 星期五 09:19:14 , 为 My Project使用  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>

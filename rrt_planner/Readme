@@ -1,0 +1,18 @@
+  RRT全局规划器使用方法：
+1.将代码包放到自己的工作空间下，编译；
+2.在终端中输入sudo gedit /opt/ros/indigo/share/turtlebot_navigation/launch/includes/move_base.launch.xml
+  在<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">下面指定全局规划器参数
+  添加下面一行：
+  <param name="base_global_planner" value="rrt_plan/rrt_planner"/>
+  保存退出
+3.在终端中输入sudo gedit /opt/ros/indigo/share/turtlebot_navigation/launch/includes/move_base.launch.xml
+  在<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">下面指定局部规划器参数
+  添加下面一行：
+  <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
+  保存退出
+4.在终端中输入sudo gedit /opt/ros/indigo/share/turtlebot_navigation/param/move_base_params.yaml
+  修改planner_frequency参数，从1.0改为0.25，这是全局规划器执行的频率，保存退出
+5.修改local costmap的参数sudo gedit /opt/ros/indigo/share/turtlebot_navigation/param/local_costmap_params.yaml
+6.修改A*和Dijstra全局规划
+  sudo gedit /opt/ros/indigo/share/turtlebot_navigation/param/global_planner_params.yaml
+7.启动turtlebot_stage

@@ -1,0 +1,536 @@
+\hypertarget{classRRT}{\section{R\-R\-T类 参考}
+\label{classRRT}\index{R\-R\-T@{R\-R\-T}}
+}
+
+
+{\ttfamily \#include $<$rrt.\-h$>$}
+
+\subsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structRRT_1_1rrtNode}{rrt\-Node}
+\end{DoxyCompactItemize}
+\subsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRRT_a0a7bb3a3af2d70c656764fbe8f6ae671}{R\-R\-T} ()
+\item 
+\hyperlink{classRRT_a09ca68517ff0379f90b7c549136fc5eb}{R\-R\-T} (float input\-\_\-\-Pos\-X, float input\-\_\-\-Pos\-Y)
+\item 
+vector$<$ \hyperlink{structRRT_1_1rrtNode}{rrt\-Node} $>$ \hyperlink{classRRT_a45db97004bbd467c8747f67039b84874}{get\-Tree} ()
+\item 
+void \hyperlink{classRRT_aa87cbb894114472098a8081e05546537}{set\-Tree} (vector$<$ \hyperlink{structRRT_1_1rrtNode}{rrt\-Node} $>$ input\-\_\-rrt\-Tree)
+\item 
+int \hyperlink{classRRT_a05dc852e0b777042e290dcc96bf605bb}{get\-Tree\-Size} ()
+\item 
+void \hyperlink{classRRT_a5a0591369964c82b95f08c9f868dbd54}{add\-New\-Node} (\hyperlink{structRRT_1_1rrtNode}{rrt\-Node} node)
+\item 
+\hyperlink{structRRT_1_1rrtNode}{rrt\-Node} \hyperlink{classRRT_a480c7bcf17aef6c0d406829e16ec24c6}{remove\-Node} (int node\-I\-D)
+\item 
+\hyperlink{structRRT_1_1rrtNode}{rrt\-Node} \hyperlink{classRRT_afde36442771a9552bb97572098396c2b}{get\-Node} (int node\-I\-D)
+\item 
+float \hyperlink{classRRT_a54760030f6b61b258b6eec4472ced906}{get\-Pos\-X} (int node\-I\-D)
+\item 
+float \hyperlink{classRRT_a499a6d42d47b76c306a80573cba0a555}{get\-Pos\-Y} (int node\-I\-D)
+\item 
+void \hyperlink{classRRT_af97e1958775e9dcaedaddaae6701d176}{set\-Pos\-X} (int node\-I\-D, float input\-\_\-\-Pos\-X)
+\item 
+void \hyperlink{classRRT_ad83a4a28dadc2f1c396364af356871c7}{set\-Pos\-Y} (int node\-I\-D, float input\-\_\-\-Pos\-Y)
+\item 
+\hyperlink{structRRT_1_1rrtNode}{rrt\-Node} \hyperlink{classRRT_ae781d9ea50b05718fb1e1f26e375f5f8}{get\-Parent} (int node\-I\-D)
+\item 
+void \hyperlink{classRRT_a8abb3cac74e30a830c01478ded18dc50}{set\-Parent\-I\-D} (int node\-I\-D, int parent\-I\-D)
+\item 
+void \hyperlink{classRRT_a2754f5aa8d9c4e725a0c4c2d73576bd9}{add\-Child\-I\-D} (int node\-I\-D, int child\-I\-D)
+\item 
+vector$<$ int $>$ \hyperlink{classRRT_a5a873a31d26a94d60ff9359dcc0cda3f}{get\-Children} (int node\-I\-D)
+\item 
+int \hyperlink{classRRT_a886561ecaaa6b048cd56054d09e271ef}{get\-Children\-Size} (int node\-I\-D)
+\item 
+int \hyperlink{classRRT_af35d650011a6b834fc1b2d75b879817c}{get\-Nearest\-Node\-I\-D} (float X, float Y)
+\item 
+int \hyperlink{classRRT_ac53bff8e47b1c8200363dc9be966a522}{get\-Nearest\-Node\-I\-D} (float X, float Y, float goal\-X, float goal\-Y, int \hyperlink{rrt_8h_aaac2d108c57a5722b9d816baaed80945}{rrt\-Step\-Size})
+\item 
+vector$<$ int $>$ \hyperlink{classRRT_a487dc3036806a9fb506a718257d8a846}{get\-Root\-To\-End\-Path} (int end\-Node\-I\-D)
+\item 
+vector$<$ int $>$ \hyperlink{classRRT_ac5480e38a9dad9e0f6e73b23cac804b3}{get\-Start\-To\-End\-Path} (int start\-Node\-I\-D, int end\-Node\-I\-D)
+\item 
+void \hyperlink{classRRT_affd1f4f4e35541cdca748bac5c1bbd34}{clear\-R\-R\-T} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{详细描述}
+
+
+在文件 rrt.\-h 第 27 行定义.
+
+
+
+\subsection{构造及析构函数说明}
+\hypertarget{classRRT_a0a7bb3a3af2d70c656764fbe8f6ae671}{\index{R\-R\-T@{R\-R\-T}!R\-R\-T@{R\-R\-T}}
+\index{R\-R\-T@{R\-R\-T}!RRT@{R\-R\-T}}
+\subsubsection[{R\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}R\-R\-T\-::\-R\-R\-T (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classRRT_a0a7bb3a3af2d70c656764fbe8f6ae671}
+
+
+在文件 rrt.\-h 第 79 行定义.
+
+
+\begin{DoxyCode}
+80 \{
+81     \hyperlink{structRRT_1_1rrtNode}{RRT::rrtNode} newNode;
+82     newNode.\hyperlink{structRRT_1_1rrtNode_a4c2096fa1d719cf2aa49cf21916a5a4b}{posX} = 0;
+83     newNode.\hyperlink{structRRT_1_1rrtNode_a219cf78a0f5689bc84744df52c37e84d}{posY} = 0;
+84     newNode.\hyperlink{structRRT_1_1rrtNode_a9f5b9bfca61e25fe7f80d361ed7996ff}{parentID} = 0;
+85     newNode.\hyperlink{structRRT_1_1rrtNode_aa8adf5b50e1a2a466771ae3af56b1658}{nodeID} = 0;
+86     newNode.\hyperlink{structRRT_1_1rrtNode_ab20e6f5be075c8feed605c935924df30}{depth}=0;  \textcolor{comment}{//根结点深度为0}
+87     rrtTree.push\_back(newNode);
+88 \}
+\end{DoxyCode}
+\hypertarget{classRRT_a09ca68517ff0379f90b7c549136fc5eb}{\index{R\-R\-T@{R\-R\-T}!R\-R\-T@{R\-R\-T}}
+\index{R\-R\-T@{R\-R\-T}!RRT@{R\-R\-T}}
+\subsubsection[{R\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}R\-R\-T\-::\-R\-R\-T (
+\begin{DoxyParamCaption}
+\item[{float}]{input\-\_\-\-Pos\-X, }
+\item[{float}]{input\-\_\-\-Pos\-Y}
+\end{DoxyParamCaption}
+)}}\label{classRRT_a09ca68517ff0379f90b7c549136fc5eb}
+default constructor for \hyperlink{classRRT}{R\-R\-T} class initializes source to input X,Y adds sorce to rrt\-Tree 
+
+在文件 rrt.\-h 第 95 行定义.
+
+
+\begin{DoxyCode}
+96 \{
+97     \hyperlink{structRRT_1_1rrtNode}{RRT::rrtNode} newNode;
+98     newNode.\hyperlink{structRRT_1_1rrtNode_a4c2096fa1d719cf2aa49cf21916a5a4b}{posX} = input\_PosX;
+99     newNode.\hyperlink{structRRT_1_1rrtNode_a219cf78a0f5689bc84744df52c37e84d}{posY} = input\_PosY;
+100     newNode.\hyperlink{structRRT_1_1rrtNode_a9f5b9bfca61e25fe7f80d361ed7996ff}{parentID} = 0;
+101     newNode.\hyperlink{structRRT_1_1rrtNode_aa8adf5b50e1a2a466771ae3af56b1658}{nodeID} = 0;
+102     newNode.\hyperlink{structRRT_1_1rrtNode_ab20e6f5be075c8feed605c935924df30}{depth}=0;
+103     rrtTree.push\_back(newNode);
+104 
+105     \textcolor{comment}{//cout<<"---RRT init successfully. posX="<<newNode.posX<<",posY="<<newNode.posY<<"---"<<endl;}
+106 \}
+\end{DoxyCode}
+
+
+\subsection{成员函数说明}
+\hypertarget{classRRT_a2754f5aa8d9c4e725a0c4c2d73576bd9}{\index{R\-R\-T@{R\-R\-T}!add\-Child\-I\-D@{add\-Child\-I\-D}}
+\index{add\-Child\-I\-D@{add\-Child\-I\-D}!RRT@{R\-R\-T}}
+\subsubsection[{add\-Child\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}void R\-R\-T\-::add\-Child\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{node\-I\-D, }
+\item[{int}]{child\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classRRT_a2754f5aa8d9c4e725a0c4c2d73576bd9}
+add a new child\-I\-D to the children list of the given node 
+
+在文件 rrt.\-h 第 239 行定义.
+
+
+\begin{DoxyCode}
+240 \{
+241     rrtTree[nodeID].children.push\_back(childID);
+242 \}
+\end{DoxyCode}
+\hypertarget{classRRT_a5a0591369964c82b95f08c9f868dbd54}{\index{R\-R\-T@{R\-R\-T}!add\-New\-Node@{add\-New\-Node}}
+\index{add\-New\-Node@{add\-New\-Node}!RRT@{R\-R\-T}}
+\subsubsection[{add\-New\-Node}]{\setlength{\rightskip}{0pt plus 5cm}void R\-R\-T\-::add\-New\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-R\-T\-::rrt\-Node}}]{node}
+\end{DoxyParamCaption}
+)}}\label{classRRT_a5a0591369964c82b95f08c9f868dbd54}
+adding a new node to the rrt Tree 
+
+在文件 rrt.\-h 第 138 行定义.
+
+
+\begin{DoxyCode}
+139 \{
+140     rrtTree.push\_back(node);
+141 \}
+\end{DoxyCode}
+\hypertarget{classRRT_affd1f4f4e35541cdca748bac5c1bbd34}{\index{R\-R\-T@{R\-R\-T}!clear\-R\-R\-T@{clear\-R\-R\-T}}
+\index{clear\-R\-R\-T@{clear\-R\-R\-T}!RRT@{R\-R\-T}}
+\subsubsection[{clear\-R\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}void R\-R\-T\-::clear\-R\-R\-T (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classRRT_affd1f4f4e35541cdca748bac5c1bbd34}
+
+
+在文件 rrt.\-h 第 297 行定义.
+
+
+\begin{DoxyCode}
+298 \{
+299     rrtTree.clear();
+300     \textcolor{comment}{//cout<<"clear the rrtTree successfully."<<endl;}
+301 \}
+\end{DoxyCode}
+\hypertarget{classRRT_a5a873a31d26a94d60ff9359dcc0cda3f}{\index{R\-R\-T@{R\-R\-T}!get\-Children@{get\-Children}}
+\index{get\-Children@{get\-Children}!RRT@{R\-R\-T}}
+\subsubsection[{get\-Children}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ int $>$ R\-R\-T\-::get\-Children (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{classRRT_a5a873a31d26a94d60ff9359dcc0cda3f}
+returns the children list of the given node 
+
+在文件 rrt.\-h 第 247 行定义.
+
+
+\begin{DoxyCode}
+248 \{
+249     \textcolor{keywordflow}{return} rrtTree[id].children;
+250 \}
+\end{DoxyCode}
+\hypertarget{classRRT_a886561ecaaa6b048cd56054d09e271ef}{\index{R\-R\-T@{R\-R\-T}!get\-Children\-Size@{get\-Children\-Size}}
+\index{get\-Children\-Size@{get\-Children\-Size}!RRT@{R\-R\-T}}
+\subsubsection[{get\-Children\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int R\-R\-T\-::get\-Children\-Size (
+\begin{DoxyParamCaption}
+\item[{int}]{node\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classRRT_a886561ecaaa6b048cd56054d09e271ef}
+returns number of children of a given node 
+
+在文件 rrt.\-h 第 255 行定义.
+
+
+\begin{DoxyCode}
+256 \{
+257     \textcolor{keywordflow}{return} rrtTree[nodeID].children.size();
+258 \}
+\end{DoxyCode}
+\hypertarget{classRRT_af35d650011a6b834fc1b2d75b879817c}{\index{R\-R\-T@{R\-R\-T}!get\-Nearest\-Node\-I\-D@{get\-Nearest\-Node\-I\-D}}
+\index{get\-Nearest\-Node\-I\-D@{get\-Nearest\-Node\-I\-D}!RRT@{R\-R\-T}}
+\subsubsection[{get\-Nearest\-Node\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}int R\-R\-T\-::get\-Nearest\-Node\-I\-D (
+\begin{DoxyParamCaption}
+\item[{float}]{X, }
+\item[{float}]{Y}
+\end{DoxyParamCaption}
+)}}\label{classRRT_af35d650011a6b834fc1b2d75b879817c}
+return a node from the rrt tree nearest to the given point 
+\begin{DoxyParams}{参数}
+{\em X} & position in X cordinate \\
+\hline
+{\em Y} & position in Y cordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+node\-I\-D of the nearest Node 
+\end{DoxyReturn}
+
+
+在文件 rrt.\-h 第 170 行定义.
+
+
+\begin{DoxyCode}
+171 \{
+172     \textcolor{keywordtype}{int} i, returnID=-1;
+173     \textcolor{keywordtype}{float} distance = \hyperlink{rrt_8h_a8bb5664c6d1d0848c059844294c05988}{infinity}, tempDistance;
+174 
+175     \textcolor{keywordflow}{for}(i=0; i<(this->\hyperlink{classRRT_a05dc852e0b777042e290dcc96bf605bb}{getTreeSize}()); i++)
+176     \{
+177         tempDistance = pow(\hyperlink{classRRT_a54760030f6b61b258b6eec4472ced906}{getPosX}(i) - X,2) + pow(\hyperlink{classRRT_a499a6d42d47b76c306a80573cba0a555}{getPosY}(i) - Y,2);\textcolor{comment}{//使用平方距离作为比较值，减少开方运算}
+178         \textcolor{keywordflow}{if} (tempDistance < distance)
+179         \{
+180             distance = tempDistance;
+181             returnID = i;
+182         \}
+183     \}
+184 
+185     \textcolor{keywordflow}{return} returnID;
+186 \}
+\end{DoxyCode}
+\hypertarget{classRRT_ac53bff8e47b1c8200363dc9be966a522}{\index{R\-R\-T@{R\-R\-T}!get\-Nearest\-Node\-I\-D@{get\-Nearest\-Node\-I\-D}}
+\index{get\-Nearest\-Node\-I\-D@{get\-Nearest\-Node\-I\-D}!RRT@{R\-R\-T}}
+\subsubsection[{get\-Nearest\-Node\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}int R\-R\-T\-::get\-Nearest\-Node\-I\-D (
+\begin{DoxyParamCaption}
+\item[{float}]{X, }
+\item[{float}]{Y, }
+\item[{float}]{goal\-X, }
+\item[{float}]{goal\-Y, }
+\item[{int}]{rrt\-Step\-Size}
+\end{DoxyParamCaption}
+)}}\label{classRRT_ac53bff8e47b1c8200363dc9be966a522}
+\hypertarget{classRRT_afde36442771a9552bb97572098396c2b}{\index{R\-R\-T@{R\-R\-T}!get\-Node@{get\-Node}}
+\index{get\-Node@{get\-Node}!RRT@{R\-R\-T}}
+\subsubsection[{get\-Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-R\-T\-::rrt\-Node} R\-R\-T\-::get\-Node (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{classRRT_afde36442771a9552bb97572098396c2b}
+getting a specific node 
+\begin{DoxyParams}{参数}
+{\em node} & id for the required node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+node in the \hyperlink{structRRT_1_1rrtNode}{rrt\-Node} structure 
+\end{DoxyReturn}
+
+
+在文件 rrt.\-h 第 159 行定义.
+
+
+\begin{DoxyCode}
+160 \{
+161     \textcolor{keywordflow}{return} rrtTree[id];
+162 \}
+\end{DoxyCode}
+\hypertarget{classRRT_ae781d9ea50b05718fb1e1f26e375f5f8}{\index{R\-R\-T@{R\-R\-T}!get\-Parent@{get\-Parent}}
+\index{get\-Parent@{get\-Parent}!RRT@{R\-R\-T}}
+\subsubsection[{get\-Parent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-R\-T\-::rrt\-Node} R\-R\-T\-::get\-Parent (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{classRRT_ae781d9ea50b05718fb1e1f26e375f5f8}
+returns parent\-I\-D of the given node 
+
+在文件 rrt.\-h 第 223 行定义.
+
+
+\begin{DoxyCode}
+224 \{
+225     \textcolor{keywordflow}{return} rrtTree[rrtTree[id].parentID];
+226 \}
+\end{DoxyCode}
+\hypertarget{classRRT_a54760030f6b61b258b6eec4472ced906}{\index{R\-R\-T@{R\-R\-T}!get\-Pos\-X@{get\-Pos\-X}}
+\index{get\-Pos\-X@{get\-Pos\-X}!RRT@{R\-R\-T}}
+\subsubsection[{get\-Pos\-X}]{\setlength{\rightskip}{0pt plus 5cm}float R\-R\-T\-::get\-Pos\-X (
+\begin{DoxyParamCaption}
+\item[{int}]{node\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classRRT_a54760030f6b61b258b6eec4472ced906}
+returns X coordinate of the given node 
+
+在文件 rrt.\-h 第 191 行定义.
+
+
+\begin{DoxyCode}
+192 \{
+193     \textcolor{keywordflow}{return} rrtTree[nodeID].posX;
+194 \}
+\end{DoxyCode}
+\hypertarget{classRRT_a499a6d42d47b76c306a80573cba0a555}{\index{R\-R\-T@{R\-R\-T}!get\-Pos\-Y@{get\-Pos\-Y}}
+\index{get\-Pos\-Y@{get\-Pos\-Y}!RRT@{R\-R\-T}}
+\subsubsection[{get\-Pos\-Y}]{\setlength{\rightskip}{0pt plus 5cm}float R\-R\-T\-::get\-Pos\-Y (
+\begin{DoxyParamCaption}
+\item[{int}]{node\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classRRT_a499a6d42d47b76c306a80573cba0a555}
+returns Y coordinate of the given node 
+
+在文件 rrt.\-h 第 199 行定义.
+
+
+\begin{DoxyCode}
+200 \{
+201     \textcolor{keywordflow}{return} rrtTree[nodeID].posY;
+202 \}
+\end{DoxyCode}
+\hypertarget{classRRT_a487dc3036806a9fb506a718257d8a846}{\index{R\-R\-T@{R\-R\-T}!get\-Root\-To\-End\-Path@{get\-Root\-To\-End\-Path}}
+\index{get\-Root\-To\-End\-Path@{get\-Root\-To\-End\-Path}!RRT@{R\-R\-T}}
+\subsubsection[{get\-Root\-To\-End\-Path}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ int $>$ R\-R\-T\-::get\-Root\-To\-End\-Path (
+\begin{DoxyParamCaption}
+\item[{int}]{end\-Node\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classRRT_a487dc3036806a9fb506a718257d8a846}
+returns path from root to end node 
+\begin{DoxyParams}{参数}
+{\em end\-Node\-I\-D} & of the end node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+path containing I\-D of member nodes in the vector form 
+\end{DoxyReturn}
+
+
+在文件 rrt.\-h 第 273 行定义.
+
+
+\begin{DoxyCode}
+274 \{
+275     vector<int> path;
+276     path.push\_back(endNodeID);
+277     \textcolor{keywordflow}{while}(rrtTree[path.front()].nodeID != 0)
+278     \{
+279         \textcolor{comment}{//std::cout<<rrtTree[path.front()].nodeID<<endl;}
+280         path.insert(path.begin(),rrtTree[path.front()].parentID);
+281     \}
+282     \textcolor{keywordflow}{return} path;
+283 \}
+\end{DoxyCode}
+\hypertarget{classRRT_ac5480e38a9dad9e0f6e73b23cac804b3}{\index{R\-R\-T@{R\-R\-T}!get\-Start\-To\-End\-Path@{get\-Start\-To\-End\-Path}}
+\index{get\-Start\-To\-End\-Path@{get\-Start\-To\-End\-Path}!RRT@{R\-R\-T}}
+\subsubsection[{get\-Start\-To\-End\-Path}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ int $>$ R\-R\-T\-::get\-Start\-To\-End\-Path (
+\begin{DoxyParamCaption}
+\item[{int}]{start\-Node\-I\-D, }
+\item[{int}]{end\-Node\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classRRT_ac5480e38a9dad9e0f6e73b23cac804b3}
+
+
+在文件 rrt.\-h 第 285 行定义.
+
+
+\begin{DoxyCode}
+286 \{
+287     vector<int> path;
+288     path.push\_back(endNodeID);
+289     \textcolor{keywordflow}{while}(rrtTree[path.front()].nodeID != startNodeID)
+290     \{
+291         \textcolor{comment}{//std::cout<<rrtTree[path.front()].nodeID<<endl;}
+292         path.insert(path.begin(),rrtTree[path.front()].parentID);
+293     \}
+294     \textcolor{keywordflow}{return} path;
+295 \}
+\end{DoxyCode}
+\hypertarget{classRRT_a45db97004bbd467c8747f67039b84874}{\index{R\-R\-T@{R\-R\-T}!get\-Tree@{get\-Tree}}
+\index{get\-Tree@{get\-Tree}!RRT@{R\-R\-T}}
+\subsubsection[{get\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf R\-R\-T\-::rrt\-Node} $>$ R\-R\-T\-::get\-Tree (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classRRT_a45db97004bbd467c8747f67039b84874}
+Returns the current \hyperlink{classRRT}{R\-R\-T} tree \begin{DoxyReturn}{返回}
+\hyperlink{classRRT}{R\-R\-T} Tree 
+\end{DoxyReturn}
+
+
+在文件 rrt.\-h 第 112 行定义.
+
+
+\begin{DoxyCode}
+113 \{
+114     \textcolor{keywordflow}{return} rrtTree;
+115 \}
+\end{DoxyCode}
+\hypertarget{classRRT_a05dc852e0b777042e290dcc96bf605bb}{\index{R\-R\-T@{R\-R\-T}!get\-Tree\-Size@{get\-Tree\-Size}}
+\index{get\-Tree\-Size@{get\-Tree\-Size}!RRT@{R\-R\-T}}
+\subsubsection[{get\-Tree\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int R\-R\-T\-::get\-Tree\-Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classRRT_a05dc852e0b777042e290dcc96bf605bb}
+to get the number of nodes in the rrt Tree \begin{DoxyReturn}{返回}
+tree size 
+\end{DoxyReturn}
+
+
+在文件 rrt.\-h 第 130 行定义.
+
+
+\begin{DoxyCode}
+131 \{
+132     \textcolor{keywordflow}{return} rrtTree.size();
+133 \}
+\end{DoxyCode}
+\hypertarget{classRRT_a480c7bcf17aef6c0d406829e16ec24c6}{\index{R\-R\-T@{R\-R\-T}!remove\-Node@{remove\-Node}}
+\index{remove\-Node@{remove\-Node}!RRT@{R\-R\-T}}
+\subsubsection[{remove\-Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-R\-T\-::rrt\-Node} R\-R\-T\-::remove\-Node (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{classRRT_a480c7bcf17aef6c0d406829e16ec24c6}
+removing a node from the \hyperlink{classRRT}{R\-R\-T} Tree \begin{DoxyReturn}{返回}
+the removed tree 
+\end{DoxyReturn}
+
+
+在文件 rrt.\-h 第 147 行定义.
+
+
+\begin{DoxyCode}
+148 \{
+149     \hyperlink{structRRT_1_1rrtNode}{RRT::rrtNode} tempNode = rrtTree[id];
+150     rrtTree.erase(rrtTree.begin()+id);
+151     \textcolor{keywordflow}{return} tempNode;
+152 \}
+\end{DoxyCode}
+\hypertarget{classRRT_a8abb3cac74e30a830c01478ded18dc50}{\index{R\-R\-T@{R\-R\-T}!set\-Parent\-I\-D@{set\-Parent\-I\-D}}
+\index{set\-Parent\-I\-D@{set\-Parent\-I\-D}!RRT@{R\-R\-T}}
+\subsubsection[{set\-Parent\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}void R\-R\-T\-::set\-Parent\-I\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{node\-I\-D, }
+\item[{int}]{parent\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classRRT_a8abb3cac74e30a830c01478ded18dc50}
+set parent\-I\-D of the given node 
+
+在文件 rrt.\-h 第 231 行定义.
+
+
+\begin{DoxyCode}
+232 \{
+233     rrtTree[nodeID].parentID = parentID;
+234 \}
+\end{DoxyCode}
+\hypertarget{classRRT_af97e1958775e9dcaedaddaae6701d176}{\index{R\-R\-T@{R\-R\-T}!set\-Pos\-X@{set\-Pos\-X}}
+\index{set\-Pos\-X@{set\-Pos\-X}!RRT@{R\-R\-T}}
+\subsubsection[{set\-Pos\-X}]{\setlength{\rightskip}{0pt plus 5cm}void R\-R\-T\-::set\-Pos\-X (
+\begin{DoxyParamCaption}
+\item[{int}]{node\-I\-D, }
+\item[{float}]{input\-\_\-\-Pos\-X}
+\end{DoxyParamCaption}
+)}}\label{classRRT_af97e1958775e9dcaedaddaae6701d176}
+set X coordinate of the given node 
+
+在文件 rrt.\-h 第 207 行定义.
+
+
+\begin{DoxyCode}
+208 \{
+209     rrtTree[nodeID].posX = input\_PosX;
+210 \}
+\end{DoxyCode}
+\hypertarget{classRRT_ad83a4a28dadc2f1c396364af356871c7}{\index{R\-R\-T@{R\-R\-T}!set\-Pos\-Y@{set\-Pos\-Y}}
+\index{set\-Pos\-Y@{set\-Pos\-Y}!RRT@{R\-R\-T}}
+\subsubsection[{set\-Pos\-Y}]{\setlength{\rightskip}{0pt plus 5cm}void R\-R\-T\-::set\-Pos\-Y (
+\begin{DoxyParamCaption}
+\item[{int}]{node\-I\-D, }
+\item[{float}]{input\-\_\-\-Pos\-Y}
+\end{DoxyParamCaption}
+)}}\label{classRRT_ad83a4a28dadc2f1c396364af356871c7}
+set Y coordinate of the given node 
+
+在文件 rrt.\-h 第 215 行定义.
+
+
+\begin{DoxyCode}
+216 \{
+217     rrtTree[nodeID].posY = input\_PosY;
+218 \}
+\end{DoxyCode}
+\hypertarget{classRRT_aa87cbb894114472098a8081e05546537}{\index{R\-R\-T@{R\-R\-T}!set\-Tree@{set\-Tree}}
+\index{set\-Tree@{set\-Tree}!RRT@{R\-R\-T}}
+\subsubsection[{set\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}void R\-R\-T\-::set\-Tree (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf rrt\-Node} $>$}]{input\-\_\-rrt\-Tree}
+\end{DoxyParamCaption}
+)}}\label{classRRT_aa87cbb894114472098a8081e05546537}
+For setting the rrt\-Tree to the input\-Tree 
+\begin{DoxyParams}{参数}
+{\em rrt\-Tree} & \\
+\hline
+\end{DoxyParams}
+
+
+在文件 rrt.\-h 第 121 行定义.
+
+
+\begin{DoxyCode}
+122 \{
+123     rrtTree = input\_rrtTree;
+124 \}
+\end{DoxyCode}
+
+
+该类的文档由以下文件生成\-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{rrt_8h}{rrt.\-h}\end{DoxyCompactItemize}
