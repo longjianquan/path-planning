@@ -110,7 +110,7 @@ void rrt_planner::initialize(std::string name, costmap_2d::Costmap2DROS* costmap
                     OGM[iy*width+ix]=true;
                 else
                     OGM[iy*width+ix]=false;*/
-              if(cost<=5)  
+              if(cost<=78)  
                     OGM[iy*width+ix]=true;
                 else
                     OGM[iy*width+ix]=false;
