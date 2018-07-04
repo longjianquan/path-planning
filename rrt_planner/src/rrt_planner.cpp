@@ -110,7 +110,7 @@ void rrt_planner::initialize(std::string name, costmap_2d::Costmap2DROS* costmap
                     OGM[iy*width+ix]=true;
                 else
                     OGM[iy*width+ix]=false;*/
-              if(cost<=78)  
+              if(cost<=5)  
                     OGM[iy*width+ix]=true;
                 else
                     OGM[iy*width+ix]=false;
@@ -530,11 +530,7 @@ bool rrt_planner::pointcheck(RRT::rrtNode const &m,RRT::rrtNode const &n)
     {
         test.posX=(int)(m.posX+p*dist*cos(theta));
         test.posY=(int)(m.posY+p*dist*sin(theta));
-        if(checkIfOnObstacles(test))
-        {
-            return true;
-        }
-        else
+        if(!checkIfOnObstacles(test))
         {
             return false;
 	    break;
