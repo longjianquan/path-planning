@@ -537,6 +537,7 @@ bool rrt_planner::pointcheck(RRT::rrtNode const &m,RRT::rrtNode const &n)
         else
         {
             return false;
+	    break;
         }
         p=p+0.2;
     }
